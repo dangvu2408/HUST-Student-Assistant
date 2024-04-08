@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="50dp"
+    android:paddingBottom="72dp"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:scrollbars="none"
+
+    tools:context=".Profile_Fragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="40dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp"
+            android:elevation="15dp"
+            android:layout_marginBottom="10dp">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_shadow">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/avt0" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:paddingTop="15dp"
+                        android:text="Đặng Quang Vũ - 20223830"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:paddingLeft="90dp"/>
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email: Vu.DQ223830@sis.hust.edu.vn"
+                        android:textColor="@color/black"
+                        android:textSize="10dp"
+                        android:fontFamily="sans-serif"
+                        android:paddingTop="40dp"
+                        android:paddingLeft="90dp"/>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/student_info"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Thông tin sinh viên"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Lớp sinh viên"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Điểm TOEIC"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Bảng xếp hạng"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Tra cứu nhập điểm kì mới nhất"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Chương trình đào tạo sinh viên"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Mục tiêu ra trường"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Thời khóa biểu tạm thời"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Bản đồ Bách Khoa Hà Nội"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/button"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f3eded"
+            android:layout_marginTop="5dp"/>
+
+        <Button
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="sans-serif"
+            android:text="Đăng xuất"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="13dp"
+            android:background="@drawable/log_out_button"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="HUST Student Assistant - Phiên bản 1.0.0"
+            android:textColor="#414040"
+            android:textSize="10dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+
+</ScrollView>

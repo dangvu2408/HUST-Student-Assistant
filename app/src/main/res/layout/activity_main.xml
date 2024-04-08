@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/mytextview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow"
+        android:elevation="10dp"
+        android:fontFamily="@font/utm_nokia"
+        android:gravity="center|top"
+        android:padding="16dp"
+        android:text="HUST"
+        android:textSize="20sp"
+        android:textColor="#fff" />
+
+    <ImageView
+        android:id="@+id/myimage"
+        android:src="@drawable/hust"
+        android:elevation="10dp"
+        android:layout_width="39dp"
+        android:layout_height="57dp"
+        android:layout_margin="20dp" />
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded"
+        app:backgroundTint="@color/colorPrimary"
+        app:itemIconTint="@color/nav_color"
+        app:itemTextColor="@color/nav_color"
+        app:itemIconSize="25dp"
+        app:itemBackground="@color/colorPrimary"
+        app:menu="@menu/menu" />
+</RelativeLayout>
