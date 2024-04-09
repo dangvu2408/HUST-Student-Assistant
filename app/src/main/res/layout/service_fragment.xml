@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="BẢNG ĐIỂM CÁ NHÂN"
             android:textAlignment="center"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
     </LinearLayout>
