@@ -16,6 +16,7 @@ public class Profile_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.profile_fragment, container, false);
 
         Button btn_info = view.findViewById(R.id.student_info);
+        Button btn_toeic = view.findViewById(R.id.toeic);
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -23,7 +24,20 @@ public class Profile_Fragment extends Fragment {
                 dialog.show(getActivity().getSupportFragmentManager(), "CustomDialog");
             }
         });
+
+
+        btn_toeic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toeic_Dialog dialog = new Toeic_Dialog();
+                dialog.show(getActivity().getSupportFragmentManager(), "CustomDialog");
+            }
+        });
+
+
+
+
+
         return view;
     }
-
 }
