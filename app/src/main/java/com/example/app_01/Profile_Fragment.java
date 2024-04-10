@@ -1,5 +1,6 @@
 package com.example.app_01;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,9 @@ public class Profile_Fragment extends Fragment {
 
         Button btn_info = view.findViewById(R.id.student_info);
         Button btn_toeic = view.findViewById(R.id.toeic);
+        Button btn_map = view.findViewById(R.id.hust_map);
+
+
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,7 +38,13 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-
+        btn_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Hust_Map.class);
+                startActivity(intent);
+            }
+        });
 
 
 

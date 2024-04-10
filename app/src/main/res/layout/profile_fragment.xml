@@ -13,7 +13,7 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:scrollbars="none"
-
+    android:id="@+id/profile_frag"
     tools:context=".Profile_Fragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,6 +81,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/class_info"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -112,6 +113,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/rank_hust"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -127,6 +129,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/newest_score"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -142,6 +145,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/program_list"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -157,6 +161,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/plan_out"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -172,6 +177,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/timetable"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -187,6 +193,7 @@
             android:textSize="13dp"
             android:background="@drawable/button"/>
         <Button
+            android:id="@+id/hust_map"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
@@ -208,6 +215,7 @@
             android:layout_marginTop="5dp"/>
 
         <Button
+            android:id="@+id/signout"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
