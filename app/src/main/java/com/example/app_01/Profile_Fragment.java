@@ -19,7 +19,7 @@ public class Profile_Fragment extends Fragment {
         Button btn_info = view.findViewById(R.id.student_info);
         Button btn_toeic = view.findViewById(R.id.toeic);
         Button btn_map = view.findViewById(R.id.hust_map);
-
+        Button btn_class = view.findViewById(R.id.class_info);
 
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,13 @@ public class Profile_Fragment extends Fragment {
             }
         });
 
-
+        btn_class.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Class_Info.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
