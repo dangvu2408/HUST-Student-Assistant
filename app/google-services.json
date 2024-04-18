@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "143671662410",
+    "firebase_url": "https://classstudent-89eb0-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "classstudent-89eb0",
+    "storage_bucket": "classstudent-89eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143671662410:android:483353a94e1da9eb6193b3",
+        "android_client_info": {
+          "package_name": "com.example.app_01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsrFIp0P3VV_cyTOfT-BCCMjx-jDVKWX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
