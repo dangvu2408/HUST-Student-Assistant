@@ -1,15 +1,15 @@
 package com.example.app_01;
 
-public class ListViewItem {
+public class SinhVien {
 
     private String HoTen, MSSV;
     private int numberlist;
 
 
-    public ListViewItem() {
+    public SinhVien() {
         //empty constructor
     }
-    public ListViewItem(int numberlist, String HoTen, String MSSV) {
+    public SinhVien(String HoTen, String MSSV, int numberlist) {
         this.HoTen = HoTen;
         this.numberlist = numberlist;
         this.MSSV = MSSV;

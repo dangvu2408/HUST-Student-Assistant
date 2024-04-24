@@ -8,20 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class Class_Info extends AppCompatActivity {
     private ListView listClassView;
     private CustomAdapter adapter;
-    private List<ListViewItem> arrayClass;
+    private ArrayList<SinhVien> arrayClass;
 
 
     @Override
@@ -32,13 +31,16 @@ public class Class_Info extends AppCompatActivity {
         listClassView = findViewById(R.id.class_list);
         arrayClass = new ArrayList<>();
         DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
-        mData.addValueEventListener(new ValueEventListener() {
+        mData.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                arrayClass.clear();
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    ListViewItem data = snapshot1.getValue(ListViewItem.class);
-                    arrayClass.add(data);
+                    String HoTen = snapshot1.child("HoTen").getValue(String.class);
+                    String MSSV = snapshot1.child("MSSV").getValue(String.class);
+                    int numberlist = snapshot1.child("numberlist").getValue(int.class);
+
+                    SinhVien sv = new SinhVien(HoTen, MSSV, numberlist);
+                    arrayClass.add(sv);
                 }
                 if (adapter == null) {
                     adapter = new CustomAdapter(Class_Info.this, arrayClass);
@@ -47,11 +49,28 @@ public class Class_Info extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }
             }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                //lenh cancel
+
             }
         });
+
 
         Button btn_back = findViewById(R.id.gobackclass);
         btn_back.setOnClickListener(v -> finish());

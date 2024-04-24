@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.util.Log;
 
 import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
     final private Context context;
-    final private List<ListViewItem> itemList;
+    final private List<SinhVien> itemList;
 
-    public CustomAdapter(Context context, List<ListViewItem> itemList) {
+    public CustomAdapter(Context context, List<SinhVien> itemList) {
         this.context = context;
         this.itemList = itemList;
     }
@@ -40,10 +41,15 @@ public class CustomAdapter extends BaseAdapter {
             listItem = LayoutInflater.from(context).inflate(R.layout.listview_item, parent, false);
         }
 
-        ListViewItem currentStudent = itemList.get(position);
+        SinhVien currentStudent = itemList.get(position);
+
+        // Log dữ liệu của sinh viên
+        Log.d("CustomAdapter", "Position: " + position);
+        Log.d("CustomAdapter", "HoTen: " + currentStudent.getHoTen());
+        Log.d("CustomAdapter", "MSSV: " + currentStudent.getMSSV());
 
         TextView numberlistTextView = listItem.findViewById(R.id.listnumber);
-        numberlistTextView.setText(String.valueOf(currentStudent.getNumberlist()));
+        numberlistTextView.setText(String.valueOf(position + 1));
 
         TextView hoTenTextView = listItem.findViewById(R.id.namestudent);
         hoTenTextView.setText(currentStudent.getHoTen());
