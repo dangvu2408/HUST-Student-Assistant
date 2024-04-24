@@ -1,8 +1,10 @@
 package com.example.app_01;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +23,7 @@ public class Class_Info extends AppCompatActivity {
     private ListView listClassView;
     private CustomAdapter adapter;
     private ArrayList<SinhVien> arrayClass;
+    private ProgressBar progressBar;
 
 
     @Override
@@ -28,8 +31,10 @@ public class Class_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.class_info_activity);
 
+        progressBar = findViewById(R.id.progress_bar);
         listClassView = findViewById(R.id.class_list);
         arrayClass = new ArrayList<>();
+        progressBar.setVisibility(View.VISIBLE);
         DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
         mData.addChildEventListener(new ChildEventListener() {
             @Override
@@ -48,6 +53,7 @@ public class Class_Info extends AppCompatActivity {
                 } else {
                     adapter.notifyDataSetChanged();
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
