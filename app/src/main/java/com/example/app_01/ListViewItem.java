@@ -1,52 +1,36 @@
 package com.example.app_01;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+public class ListViewItem {
 
-public class ListViewItem extends BaseAdapter {
-    Context context;
-    String namestudent[], numberlist[], idstudent[];
-    LayoutInflater inflater;
-    public ListViewItem(Context context, String[] namestudent, String[] numberlist, String[] idstudent) {
-        super();
-        this.context = context;
-        this.namestudent = namestudent;
+    private String HoTen, MSSV;
+    private int numberlist;
+
+
+    public ListViewItem() {
+        //empty constructor
+    }
+    public ListViewItem(int numberlist, String HoTen, String MSSV) {
+        this.HoTen = HoTen;
         this.numberlist = numberlist;
-        this.idstudent = idstudent;
-        inflater = (LayoutInflater.from(context));
-    }
-    @Override
-    public int getCount() {
-        // TODO Auto-generated method stub
-        return namestudent.length;
+        this.MSSV = MSSV;
     }
 
-    @Override
-    public Object getItem(int arg0) {
-        // TODO Auto-generated method stub
-        return null;
+    public int getNumberlist() {
+        return numberlist;
     }
-
-    @Override
-    public long getItemId(int position) {
-        // TODO Auto-generated method stub
-        return 0;
+    public void setNumberlist(int numberlist) {
+        this.numberlist = numberlist;
     }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
-        convertView	=	inflater.inflate(R.layout.listview_item, null);
-        TextView name = (TextView) convertView.findViewById(R.id.namestudent);
-        TextView nums = (TextView) convertView.findViewById(R.id.listnumber);
-        TextView id = (TextView) convertView.findViewById(R.id.idstudent);
-        name.setText(namestudent[position]);
-        nums.setText(numberlist[position]);
-        id.setText(idstudent[position]);
-        return convertView;
+    public String getHoTen() {
+        return HoTen;
+    }
+    public void setHoTen(String HoTen) {
+        this.HoTen = HoTen;
+    }
+    public String getMSSV() {
+        return MSSV;
+    }
+    public void setMSSV(String MSSV) {
+        this.MSSV = MSSV;
     }
 }
