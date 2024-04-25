@@ -39,28 +39,62 @@
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@drawable/avt0" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:paddingTop="15dp"
-                        android:text="Đặng Quang Vũ - 20223830"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:paddingLeft="90dp"/>
+                        android:orientation="horizontal"
+                        android:paddingLeft="90dp">
+                        <TextView
+                            android:id="@+id/namestudent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:paddingTop="15dp"
+                            android:text="Đặng Quang Vũ"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:paddingRight="5dp"/>
+                        <TextView
+                            android:layout_width="1dp"
+                            android:layout_height="15dp"
+                            android:background="#BFBFC2"
+                            android:paddingBottom="-5dp"/>
+                        <TextView
+                            android:id="@+id/idstudent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:paddingTop="15dp"
+                            android:text="20223830"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:paddingLeft="5dp"/>
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email: Vu.DQ223830@sis.hust.edu.vn"
-                        android:textColor="@color/black"
-                        android:textSize="10dp"
-                        android:fontFamily="sans-serif"
-                        android:paddingTop="40dp"
-                        android:paddingLeft="90dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email: "
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            android:fontFamily="sans-serif"
+                            android:paddingTop="40dp"
+                            android:paddingLeft="90dp"/>
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vu.DQ223830@sis.hust.edu.vn"
+                            android:textColor="@color/black"
+                            android:textSize="10dp"
+                            android:fontFamily="sans-serif"
+                            android:paddingTop="40dp" />
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </FrameLayout>
         </androidx.cardview.widget.CardView>
