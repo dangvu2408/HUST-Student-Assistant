@@ -63,11 +63,9 @@
             android:paddingTop="5dp"
             android:textColor="@color/black"/>
         <ListView
-            android:id="@+id/course_list"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="50dp">
-        </ListView>
+            android:id="@+id/courses"/>
     </LinearLayout>
 
 </ScrollView>
