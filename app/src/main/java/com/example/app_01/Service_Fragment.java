@@ -21,6 +21,8 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -34,6 +36,8 @@ public class Service_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.service_fragment, container, false);
 
         ListView courseList = view.findViewById(R.id.courses);
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+
 
         BarChart barChart = view.findViewById(R.id.bar_chart_display);
         LineChart lineChart = view.findViewById(R.id.line_chart_display);

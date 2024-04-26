@@ -10,11 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -35,10 +35,11 @@ public class Class_Info extends AppCompatActivity {
         listClassView = findViewById(R.id.class_list);
         arrayClass = new ArrayList<>();
         progressBar.setVisibility(View.VISIBLE);
-        DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
-        mData.addChildEventListener(new ChildEventListener() {
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("SinhVien");
+
+        mData.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String HoTen = snapshot1.child("HoTen").getValue(String.class);
                     String MSSV = snapshot1.child("MSSV").getValue(String.class);
@@ -54,21 +55,6 @@ public class Class_Info extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                 }
                 progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
             }
 
             @Override
