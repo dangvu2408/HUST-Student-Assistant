@@ -6,7 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -21,22 +23,31 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 
 public class Service_Fragment extends Fragment {
-
+    CustomAdapterScore adapter;
+    ArrayList<CourseScore> arrayScore;
+    ListView courseList;
+    ProgressBar progressBar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.service_fragment, container, false);
 
-        ListView courseList = view.findViewById(R.id.courses);
-        DatabaseReference mData = FirebaseDatabase.getInstance().getReference();
+        courseList = view.findViewById(R.id.courses);
+        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("CourseScore");
+        arrayScore = new ArrayList<>();
+        progressBar = view.findViewById(R.id.progress_bar);
+        progressBar.setVisibility(View.VISIBLE);
 
 
         BarChart barChart = view.findViewById(R.id.bar_chart_display);
@@ -119,6 +130,35 @@ public class Service_Fragment extends Fragment {
         lineChart.getXAxis().setGranularity(1f);
         lineChart.animateX(500, Easing.EaseInOutCubic);
         lineChart.setDescription(description);
+
+        mData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    String courseName = dataSnapshot.child("courseName").getValue(String.class);
+                    String courseID = dataSnapshot.child("courseID").getValue(String.class);
+                    int tc = dataSnapshot.child("tc").getValue(Integer.class);
+                    double qt = dataSnapshot.child("qt").getValue(Double.class);
+                    double ck = dataSnapshot.child("ck").getValue(Double.class);
+                    String alphabet = dataSnapshot.child("alphabet").getValue(String.class);
+
+                    CourseScore sv = new CourseScore(courseName, courseID, tc, qt, ck, alphabet);
+                    arrayScore.add(sv);
+                }
+                if (adapter == null) {
+                    adapter = new CustomAdapterScore(getContext(), arrayScore);
+                    courseList.setAdapter(adapter);
+                } else {
+                    adapter.notifyDataSetChanged();
+                }
+                progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         return view;
     }
 }

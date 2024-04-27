@@ -61,11 +61,37 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="5dp"
-            android:textColor="@color/black"/>
-        <ListView
+            android:textColor="@color/black"
+            android:paddingBottom="5dp"/>
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/courses"/>
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/colorPrimary" />
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="350dp"
+                android:id="@+id/courses"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
+                android:nestedScrollingEnabled="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="4. Danh mục học phần"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="5dp"
+            android:textColor="@color/black"
+            android:paddingBottom="5dp"/>
     </LinearLayout>
 
 </ScrollView>
