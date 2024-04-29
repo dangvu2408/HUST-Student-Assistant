@@ -45,6 +45,7 @@ public class Service_Fragment extends Fragment {
 
         courseList = view.findViewById(R.id.courses);
         DatabaseReference mData = FirebaseDatabase.getInstance().getReference("CourseScore");
+        DatabaseReference pointData = FirebaseDatabase.getInstance().getReference("GPA_CPA");
         arrayScore = new ArrayList<>();
         progressBar = view.findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.VISIBLE);
