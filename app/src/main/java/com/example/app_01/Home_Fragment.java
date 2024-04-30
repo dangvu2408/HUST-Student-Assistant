@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class Home_Fragment extends Fragment {
     private RecyclerView recyclerView;
@@ -24,6 +26,13 @@ public class Home_Fragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
+
+        MaterialCalendarView materialCalendarView = view.findViewById(R.id.calendarView);
+
+        CalendarDay calendar = CalendarDay.today();
+        materialCalendarView.setSelectedDate(calendar);
+
+
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);

@@ -20,9 +20,24 @@
             android:layout_height="179dp"
             android:scaleType="fitStart"
             android:src="@drawable/parabol" />
-        <androidx.recyclerview.widget.RecyclerView
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/calendarView"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:mcv_showOtherDates="all"
+            app:mcv_selectionColor="@color/colorPrimary"
+            app:mcv_headerTextAppearance="@style/CustomTextAppearance"
+            app:mcv_dateTextAppearance="@style/CustomDayAppearance"
+            app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"
+            app:mcv_selectionMode="single"
+            app:mcv_firstDayOfWeek="monday"
+            app:mcv_calendarMode="week"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
             android:id="@+id/recycler"
             android:padding="20dp"
             android:gravity="center">
