@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_width="300dp"
     android:layout_gravity="center"
-    android:id="@+id/linear_dialog1">
+    android:id="@+id/linear_dialog1"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp">
 
     <TextView
         android:layout_width="match_parent"

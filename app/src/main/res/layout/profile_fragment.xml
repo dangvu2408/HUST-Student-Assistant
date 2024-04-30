@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -112,7 +112,7 @@
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="13dp"
+            android:textSize="16sp"
             android:background="@drawable/button"/>
         <Button
             android:id="@+id/class_info"
@@ -128,7 +128,7 @@
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="13dp"
+            android:textSize="16sp"
             android:background="@drawable/button"/>
         <Button
             android:id="@+id/toeic"
@@ -144,23 +144,7 @@
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="13dp"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/rank_hust"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="sans-serif"
-            android:text="Bảng xếp hạng"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="13dp"
+            android:textSize="16sp"
             android:background="@drawable/button"/>
         <Button
             android:id="@+id/newest_score"
@@ -176,55 +160,7 @@
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="13dp"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/program_list"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="sans-serif"
-            android:text="Chương trình đào tạo sinh viên"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="13dp"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/plan_out"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="sans-serif"
-            android:text="Mục tiêu ra trường"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="13dp"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/timetable"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="sans-serif"
-            android:text="Thời khóa biểu tạm thời"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="13dp"
+            android:textSize="16sp"
             android:background="@drawable/button"/>
         <Button
             android:id="@+id/hust_map"
@@ -240,29 +176,51 @@
             android:textAlignment="textStart"
             android:textColor="@color/black"
             android:textAllCaps="false"
-            android:textSize="13dp"
+            android:textSize="16sp"
             android:background="@drawable/button"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#f3eded"
             android:layout_marginTop="5dp"/>
-
-        <Button
-            android:id="@+id/signout"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="sans-serif"
-            android:text="Đăng xuất"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textAllCaps="false"
-            android:textSize="13dp"
-            android:background="@drawable/log_out_button"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/signout"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="Đăng xuất"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:background="@drawable/log_out_button"
+                android:layout_marginRight="10dp"/>
+            <Button
+                android:id="@+id/syncdata"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="Đồng bộ dữ liệu"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:background="@drawable/log_out_button"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -272,7 +230,7 @@
             android:paddingBottom="15dp"
             android:text="HUST Student Assistant - Phiên bản 1.0.0"
             android:textColor="#414040"
-            android:textSize="10dp"
+            android:textSize="12sp"
             android:textAlignment="center"/>
     </LinearLayout>
 
@@ -283,4 +241,4 @@
 
 
 
-</ScrollView>
+</LinearLayout>
