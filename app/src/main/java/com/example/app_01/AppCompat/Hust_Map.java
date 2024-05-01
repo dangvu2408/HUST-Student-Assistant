@@ -1,10 +1,12 @@
-package com.example.app_01;
+package com.example.app_01.AppCompat;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.app_01.R;
 
 public class Hust_Map extends AppCompatActivity {
 

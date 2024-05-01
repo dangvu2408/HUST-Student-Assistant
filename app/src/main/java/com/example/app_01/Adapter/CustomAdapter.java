@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.util.Log;
+
+import com.example.app_01.R;
+import com.example.app_01.Constructor.SinhVien;
 
 import java.util.List;
 

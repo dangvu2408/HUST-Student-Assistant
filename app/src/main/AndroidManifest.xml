@@ -18,13 +18,13 @@
             android:name=".BarChart"
             android:exported="false" />
         <activity
-            android:name=".Class_Info"
+            android:name=".AppCompat.Class_Info"
             android:exported="false" />
         <activity
-            android:name=".Hust_Map"
+            android:name=".AppCompat.Hust_Map"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".AppCompat.Splash"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +33,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity2"
+            android:name=".AppCompat.MainActivity2"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".AppCompat.MainActivity"
             android:exported="true" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.app_01.AppCompat.Class_Info;
+import com.example.app_01.AppCompat.Hust_Map;
+import com.example.app_01.R;
+import com.example.app_01.Dialog.Student_Info_Dialog;
+import com.example.app_01.Dialog.Toeic_Dialog;
 
 public class Profile_Fragment extends Fragment {
     @Override

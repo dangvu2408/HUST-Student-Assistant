@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.Constructor;
 
 public class CourseScore {
     private String CourseID, Alphabet, CourseName;

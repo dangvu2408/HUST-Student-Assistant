@@ -1,10 +1,12 @@
-package com.example.app_01;
+package com.example.app_01.AppCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.app_01.R;
 
 public class Splash extends AppCompatActivity {
 

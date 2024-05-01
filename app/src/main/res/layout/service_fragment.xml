@@ -13,7 +13,7 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:scrollbars="none"
-    tools:context=".Profile_Fragment">
+    tools:context=".Fragment.Profile_Fragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

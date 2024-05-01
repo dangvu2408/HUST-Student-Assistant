@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.Dialog;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -11,14 +11,16 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-public class Toeic_Dialog extends DialogFragment {
+import com.example.app_01.R;
+
+public class Student_Info_Dialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.toeic_dialog, null);
+        View view = inflater.inflate(R.layout.dialog_student_info, null);
         builder.setView(view); //setview khi bat su kien
 
 //        LinearLayout linearLayout = view.findViewById(R.id.linear_dialog);
@@ -28,7 +30,7 @@ public class Toeic_Dialog extends DialogFragment {
 
 
 
-        Button cancel = view.findViewById(R.id.buttonCancel);
+        Button cancel = view.findViewById(R.id.btnCancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,4 +40,3 @@ public class Toeic_Dialog extends DialogFragment {
         return dialog1;
     }
 }
-

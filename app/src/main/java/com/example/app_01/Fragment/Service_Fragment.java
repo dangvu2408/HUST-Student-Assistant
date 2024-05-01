@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.Fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,6 +11,9 @@ import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.app_01.Adapter.CustomAdapterScore;
+import com.example.app_01.Constructor.CourseScore;
+import com.example.app_01.R;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;

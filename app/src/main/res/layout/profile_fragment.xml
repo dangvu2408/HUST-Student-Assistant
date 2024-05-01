@@ -14,7 +14,7 @@
     android:paddingRight="18dp"
     android:scrollbars="none"
     android:id="@+id/profile_frag"
-    tools:context=".Profile_Fragment">
+    tools:context=".Fragment.Profile_Fragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

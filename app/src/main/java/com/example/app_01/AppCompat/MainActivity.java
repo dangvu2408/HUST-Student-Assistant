@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.AppCompat;
 
 import android.os.Bundle;
 
@@ -7,6 +7,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.app_01.Fragment.Home_Fragment;
+import com.example.app_01.Fragment.Notification_Fragment;
+import com.example.app_01.Fragment.Profile_Fragment;
+import com.example.app_01.Fragment.Service_Fragment;
+import com.example.app_01.R;
 import com.example.app_01.databinding.ActivityMainBinding;
 
 
