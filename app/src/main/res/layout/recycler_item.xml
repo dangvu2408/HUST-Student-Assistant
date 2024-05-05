@@ -24,6 +24,7 @@
             android:text="Thời khóa biểu"
             android:id="@+id/re_text"
             android:textColor="@color/black"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textSize="15sp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -55,4 +55,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.github.prolificinteractive:material-calendarview:2.0.0")
     implementation ("com.jakewharton.threetenabp:threetenabp:1.2.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }

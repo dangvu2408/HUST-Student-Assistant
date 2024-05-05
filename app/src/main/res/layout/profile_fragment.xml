@@ -193,14 +193,15 @@
                 android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
                 android:text="Đăng xuất"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:background="@drawable/log_out_button"
                 android:layout_marginRight="10dp"/>
             <Button
@@ -209,14 +210,15 @@
                 android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
                 android:text="Đồng bộ dữ liệu"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textAllCaps="false"
-                android:textSize="16sp"
+                android:textAllCaps="true"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:background="@drawable/log_out_button"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
@@ -230,7 +232,7 @@
             android:paddingBottom="15dp"
             android:text="HUST Student Assistant - Phiên bản 1.0.0"
             android:textColor="#414040"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textAlignment="center"/>
     </LinearLayout>
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffffff"
     tools:context=".Fragment.Home_Fragment"
     android:layout_gravity="start"
@@ -14,13 +15,77 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
+        android:orientation="vertical"
+        >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="176dp"
-            android:scaleType="fitStart"
-            android:src="@drawable/parabol" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitStart"
+                android:id="@+id/parabol_img"
+                android:src="@drawable/parabol"
+                android:translationZ="5dp"
+                android:background="@drawable/edit_shadow"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="35dp"
+                android:layout_marginTop="70dp"
+                app:cardCornerRadius="15dp"
+                android:elevation="5dp"
+                android:translationZ="8dp"
+                android:id="@+id/cardview_trans"
+                android:backgroundTint="#90FFFFFF">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/avt0" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="65dp"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Chào ngày mới, "
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đặng Quang Vũ"
+                            android:textStyle="bold"
+                            android:id="@+id/namestudent"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chúc bạn một ngày mới tốt lành!"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,18 +129,20 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:background="#BFBFC2"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"/>
         </LinearLayout>
-
-
-
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="360dp"
+            android:layout_height="320dp"
             android:id="@+id/recycler"
-            android:padding="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
             android:gravity="center">
-
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 

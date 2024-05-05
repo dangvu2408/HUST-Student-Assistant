@@ -4,16 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_01.Adapter.ItemsAdapter;
-import com.example.app_01.R;
 import com.example.app_01.Constructor.ReItems;
+import com.example.app_01.R;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
@@ -26,12 +29,14 @@ import java.util.List;
 public class Home_Fragment extends Fragment {
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
-
+    private CardView cardView;
+    private boolean isTrans = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
+        cardView = view.findViewById(R.id.cardview_trans);
 
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
@@ -75,6 +80,22 @@ public class Home_Fragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isTrans) {
+            cardView.setTranslationX(-700);
+            cardView.animate().translationX(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
+        }
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (savedInstanceState == null) {
+            isTrans = true;
+        }
+
+    }
     private List<ReItems> getList() {
         List<ReItems> list = new ArrayList<>();
         list.add(new ReItems(R.drawable.calendar, "Thời khóa biểu"));

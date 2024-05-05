@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.app_01.LoginActivity;
 import com.example.app_01.R;
 
 public class Splash extends AppCompatActivity {
@@ -19,10 +20,10 @@ public class Splash extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(Splash.this, MainActivity.class));
+                startActivity(new Intent(Splash.this, LoginActivity.class));
                 finish();
             }
-        }, 3000);
+        }, 2000);
 
 
     }
