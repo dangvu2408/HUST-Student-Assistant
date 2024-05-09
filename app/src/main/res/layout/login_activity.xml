@@ -18,14 +18,14 @@
         android:text="Welcome to HSA"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:layout_marginTop="120dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
         android:layout_centerVertical="true"
         android:background="@drawable/login_field"
         android:orientation="vertical"
@@ -35,44 +35,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ĐĂNG NHẬP"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textColor="@color/white"
             android:gravity="center"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/linh_avantgarde_bold"/>
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Username"
-            android:background="@drawable/input_field"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:id="@+id/userName"/>
+            app:hintEnabled="false">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Mã số sinh viên"
+                android:id="@+id/userName"
+                android:background="@drawable/input_field"/>
+        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorPrimary">
+            app:passwordToggleTint="@color/colorPrimary"
+            app:hintEnabled="false">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Password"
+                android:hint="Mật khẩu"
                 android:id="@+id/pass"
                 android:background="@drawable/input_field"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
+            android:id="@+id/forgotPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quên mật khẩu?"
-            android:textStyle="italic"
-            android:textColor="@color/white"
+            android:text="Hướng dẫn đăng nhập"
             android:textAlignment="textEnd"
-            android:id="@+id/forgotPass"/>
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:onClick="onClick"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,7 +92,7 @@
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Captcha code"
+                android:hint="Mã Captcha"
                 android:background="@drawable/input_field"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -100,18 +111,20 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:layout_marginLeft="5dp"
-                    android:src="@drawable/captcha"
+                    android:layout_marginBottom="5dp"
                     android:scaleType="fitEnd"
                     android:id="@+id/captchaImg"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:src="@drawable/updateicon"
+                    android:scaleType="fitXY"
                     android:layout_marginRight="5dp"
-                    android:id="@+id/updateCaptcha"/>
+                    android:id="@+id/updateCaptcha"
+                    android:background="@color/colorPrimary"/>
             </LinearLayout>
-
         </LinearLayout>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,4 +137,5 @@
             android:layout_marginBottom="10dp"
             android:id="@+id/loginBtn"/>
     </LinearLayout>
+
 </RelativeLayout>

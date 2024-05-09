@@ -1,4 +1,4 @@
-package com.example.app_01;
+package com.example.app_01.LoginPropeties;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

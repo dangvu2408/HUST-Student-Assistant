@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.app_01.AppCompat.Class_Info;
 import com.example.app_01.AppCompat.Hust_Map;
+import com.example.app_01.LoginPropeties.LoginActivity;
 import com.example.app_01.R;
 import com.example.app_01.Dialog.Student_Info_Dialog;
 import com.example.app_01.Dialog.Toeic_Dialog;
@@ -26,7 +27,7 @@ public class Profile_Fragment extends Fragment {
         Button btn_toeic = view.findViewById(R.id.toeic);
         Button btn_map = view.findViewById(R.id.hust_map);
         Button btn_class = view.findViewById(R.id.class_info);
-
+        Button btn_signout = view.findViewById(R.id.signout);
         btn_info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,7 +60,13 @@ public class Profile_Fragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        btn_signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
