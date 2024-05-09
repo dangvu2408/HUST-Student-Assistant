@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText editTextUsername;
     private EditText editTextPassword;
     private EditText editTextCaptcha;
-
     public HashMap<String, String> cookiesLogin;
     public Bitmap bitmap;
     public String loginCode;
@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editTextCaptcha = findViewById(R.id.inputCaptcha);
         Intent intent1 = getIntent();
         this.isUpdate = intent1.getStringExtra("type") != null && intent1.getStringExtra("type").equals("update");
+        initLayout();
         Button loginBtn = findViewById(R.id.loginBtn);
         ImageButton updateCaptcha = findViewById(R.id.updateCaptcha);
         TextView guideText = findViewById(R.id.forgotPass);
@@ -100,21 +101,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
-                if (isUpdate) {
-                    checkAccount();
-                } else {
-                    String value = Utils.getInstance().getValueFromSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_is_first_time");
-                    if (value == null || value.equals("")) {
-                        Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_is_first_time", "1");
+                if(!dialog.isShowing()) {
+                    if (isUpdate) {
+                        checkAccount();
+                    } else {
+                        String value = Utils.getInstance().getValueFromSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_is_first_time");
+                        if (value == null || value.equals("")) {
+                            Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_is_first_time", "1");
+                        }
                     }
+                    String md5 = LoginActivity.maHoaMD5(editTextUsername.getText() + "." + editTextPassword.getText());
+                    HashMap hashMap = new HashMap<>();
+                    hashMap.put("ma_hoa", md5);
+                    hashMap.put("username", editTextUsername.getText().toString());
+                    hashMap.put("password", editTextPassword.getText().toString());
+                    hashMap.put("captcha", editTextCaptcha.getText().toString());
+                    new Login().execute(new HashMap[]{hashMap});
                 }
-                String md5 = LoginActivity.maHoaMD5(editTextUsername.getText() + "." + editTextPassword.getText());
-                HashMap hashMap = new HashMap<>();
-                hashMap.put("ma_hoa_md5", md5);
-                hashMap.put("username", editTextUsername.getText().toString());
-                hashMap.put("password", editTextPassword.getText().toString());
-                hashMap.put("captcha", editTextCaptcha.getText().toString());
-                new Login().execute(new HashMap[]{hashMap});
             }
         });
         dialog.show();
@@ -146,12 +149,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     public void checkAccount() {
         try {
-            if(!new JSONObject(Utils.getInstance().getValueFromSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_user")).getString(JsonUtils.KEY_MA_SV).equals(editTextPassword.getText().toString())) {
+            if(!new JSONObject(Utils.getInstance().getValueFromSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_user")).getString(JsonUtils.KEY_MA_SV).equals(editTextUsername.getText().toString())) {
                 Utils.getInstance().saveToSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_hoc_phan_cai_thien", "");
                 Utils.getInstance().saveToSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_hoc_phan_moi", "");
                 Utils.getInstance().saveToSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_hoc_phan_khong_tinh_diem", "");
             }
         } catch (Exception e) {
+            Log.e("RAKAN", "checkAccount: " + e.toString());
             e.printStackTrace();
         }
     }
@@ -215,11 +219,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             super.onPostExecute(bool);
             if (bool.booleanValue()) {
                 ImageView captchaImageView = findViewById(R.id.captchaImg);
-                captchaImageView.setImageBitmap(bitmap);
+                captchaImageView.setImageBitmap(LoginActivity.this.bitmap);
             } else {
                 Toast.makeText(LoginActivity.this, "Kết nối lại mạng và thử lại...", Toast.LENGTH_SHORT).show();
             }
-            if (bitmap == null) {
+            if (LoginActivity.this.bitmap == null) {
                 Toast.makeText(LoginActivity.this, "Trang CTT-SIS đang cập nhật, hiện tại app chưa đăng nhập được. Vui lòng thử lại sau...", Toast.LENGTH_SHORT).show();
             }
         }
@@ -228,10 +232,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private class Login extends AsyncTask<HashMap, Void, Boolean> {
         private Login() {}
         public Boolean doInBackground(HashMap... hashMaps) {
-            boolean x = true;
+            boolean x = false;
             try {
                 JSONObject jsonObject = new JSONObject(hashMaps[0]);
-                String str00 = jsonObject.getString("user_name");
+                String str00 = jsonObject.getString("username");
                 String str01 = jsonObject.getString("password");
                 String str02 = jsonObject.getString("captcha");
                 String str03 = jsonObject.getString("ma_hoa");
@@ -250,9 +254,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .userAgent(ConstValue.USER_AGENT).execute().parse().getElementById("encryption_destinationText");
                 LoginActivity loginActivity = LoginActivity.this;
                 String unused0 = loginActivity.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|25|1" + elementId.text() + "#&quot;}";
-
                 x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 0);
-
+                if(!x) {
+                    String unused1 = LoginActivity.this.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|45|1" + elementId.text() + "#&quot;}";
+                    x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 1);
+                    if(!x) {
+                        String unused2 = LoginActivity.this.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|33|1" + elementId.text() + "#&quot;}";
+                        x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 2);
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -262,7 +272,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if(bool.booleanValue()) {
-                saveUser();
+                LoginActivity.this.saveUser();
                 Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_data_already_user_login", "1");
                 Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -274,3 +284,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 }
+
+// cre source code: Le Xuan Nhat - HUST Student v.20200929
