@@ -24,7 +24,7 @@ public class JsonUtils {
             // get the student information by ID on website: https://ctt-sis.hust.edu.vn/
             String substring01 = element.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_lbMSSV").text().substring(5);
             String[] split01 = element.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_lbTextInfo1").text().split(":");
-            String substring02 = split01[1].substring(0, split01[1].length() - 16);
+            String substring02 = split01[1].substring(1, split01[1].length() - 16);
             String substring03 = split01[2].substring(0, split01[2].length() - 13);
             String substring04 = split01[3].substring(0, split01[3].length() - 14);
             String substring05 = split01[4].substring(0, split01[4].length() - 19);

@@ -8,96 +8,90 @@
     android:background="@color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingTop="50dp"
+    android:paddingTop="75dp"
     android:paddingBottom="72dp"
-    android:paddingLeft="18dp"
-    android:paddingRight="18dp"
     android:scrollbars="none"
     android:id="@+id/profile_frag"
     tools:context=".Fragment.Profile_Fragment">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        android:elevation="5dp"
+        android:translationZ="8dp"
+        android:id="@+id/cardview_trans"
+        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="18dp">
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/avt0" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:gravity="start">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/namestudent"
+                    android:text="Đặng Quang Vũ"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="2dp"
+                    android:layout_height="18dp"
+                    android:background="#BFBFC2"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20223830"
+                    android:textStyle="bold"
+                    android:id="@+id/idstudent"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email: "
+                    android:textSize="13sp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:paddingTop="40dp">
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="15dp"
-            android:elevation="15dp"
-            android:layout_marginBottom="10dp">
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edit_shadow">
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:src="@drawable/avt0" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingLeft="90dp">
-                        <TextView
-                            android:id="@+id/namestudent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:paddingTop="15dp"
-                            android:text="Đặng Quang Vũ"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:paddingRight="5dp"/>
-                        <TextView
-                            android:layout_width="1dp"
-                            android:layout_height="15dp"
-                            android:background="#BFBFC2"
-                            android:paddingBottom="-5dp"/>
-                        <TextView
-                            android:id="@+id/idstudent"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:paddingTop="15dp"
-                            android:text="20223830"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:paddingLeft="5dp"/>
-                    </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Email: "
-                            android:textColor="@color/black"
-                            android:textSize="10dp"
-                            android:fontFamily="sans-serif"
-                            android:paddingTop="40dp"
-                            android:paddingLeft="90dp"/>
-                        <TextView
-                            android:id="@+id/email"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vu.DQ223830@sis.hust.edu.vn"
-                            android:textColor="@color/black"
-                            android:textSize="10dp"
-                            android:fontFamily="sans-serif"
-                            android:paddingTop="40dp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
-        </androidx.cardview.widget.CardView>
         <Button
             android:id="@+id/student_info"
             android:clickable="true"

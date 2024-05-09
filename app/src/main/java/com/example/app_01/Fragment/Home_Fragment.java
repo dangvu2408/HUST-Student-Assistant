@@ -17,9 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.app_01.Adapter.ItemsAdapter;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.Utils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class Home_Fragment extends Fragment {
+    public TextView textView;
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private CardView cardView;
@@ -37,10 +42,17 @@ public class Home_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         cardView = view.findViewById(R.id.cardview_trans);
-
+        textView = view.findViewById(R.id.namestudent);
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
         TextView textView = view.findViewById(R.id.date_realtime);
+
+        try {
+            JSONObject jsonObject = new JSONObject(Utils.getInstance().getValueFromSharedPreferences(getContext(), "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien"));
+            textView.setText(jsonObject.getString("Ho_ten"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         MaterialCalendarView materialCalendarView = view.findViewById(R.id.calendarView);
         CalendarDay calendar = CalendarDay.today();

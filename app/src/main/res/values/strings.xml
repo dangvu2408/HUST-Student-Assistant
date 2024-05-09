@@ -11,5 +11,5 @@
     <string name="login_guide_1">1. Truy cập, đăng nhập trang web ctt.hust.edu.vn và vào mục "Dịch vụ".</string>
     <string name="login_guide_2">2. Chọn mục Thư báo tin nhắn.</string>
     <string name="login_guide_3">3. Trong phần thư báo có mã số sinh viên và mật khẩu đăng nhập để truy cập app.</string>
-    <string name="login_guide_4">4. Trường hợp mã Captcha chưa hiện, hãy thử ấn vào biểu tượng đổi mã và đợi tầm 3-5s. Nếu mã Captcha vẫn chưa xuất hiện, hãy tải lại app...</string>
+    <string name="login_guide_4">4. Trường hợp mã Captcha chưa hiện, hãy thử ấn vào biểu tượng đổi mã và đợi tầm 3-5s. Nếu mã Captcha vẫn chưa xuất hiện, hãy kiểm tra lại kết nối Internet của bạn...</string>
 </resources>
