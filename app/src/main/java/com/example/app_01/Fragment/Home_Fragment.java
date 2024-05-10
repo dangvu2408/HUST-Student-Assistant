@@ -25,13 +25,12 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Home_Fragment extends Fragment {
-    public TextView textView;
+    public TextView txt;
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private CardView cardView;
@@ -42,14 +41,15 @@ public class Home_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         cardView = view.findViewById(R.id.cardview_trans);
-        textView = view.findViewById(R.id.namestudent);
+
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
         TextView textView = view.findViewById(R.id.date_realtime);
 
         try {
+            txt = view.findViewById(R.id.namestudent);
             JSONObject jsonObject = new JSONObject(Utils.getInstance().getValueFromSharedPreferences(getContext(), "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien"));
-            textView.setText(jsonObject.getString("Ho_ten"));
+            txt.setText(jsonObject.getString("Ho_ten"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -60,14 +60,10 @@ public class Home_Fragment extends Fragment {
 
         Calendar date = Calendar.getInstance();
 
-        int dayOfWeek = date.get(Calendar.DAY_OF_WEEK);
         int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
         int month = date.get(Calendar.MONTH) + 1; // Tháng bắt đầu từ 0, nên cần cộng thêm 1
         int year = date.get(Calendar.YEAR);
 
-        String[] daysWeek = {"Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"};
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd/MM/yyyy");
 
         String dateString = dayOfMonth + " Tháng " + month + ", " + year;
         textView.setText(dateString);
@@ -96,8 +92,8 @@ public class Home_Fragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (isTrans) {
-            cardView.setTranslationX(-700);
-            cardView.animate().translationX(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
+            cardView.setTranslationY(-400);
+            cardView.animate().translationY(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
         }
     }
     @Override
@@ -110,12 +106,12 @@ public class Home_Fragment extends Fragment {
     }
     private List<ReItems> getList() {
         List<ReItems> list = new ArrayList<>();
-        list.add(new ReItems(R.drawable.calendar, "Thời khóa biểu"));
-        list.add(new ReItems(R.drawable.data, "Sắp xếp thời khóa biểu"));
-        list.add(new ReItems(R.drawable.checklist, "Chương trình đào tạo"));
-        list.add(new ReItems(R.drawable.target, "Mục tiêu ra trường"));
-        list.add(new ReItems(R.drawable.money, "Học phí - Công nợ"));
-        list.add(new ReItems(R.drawable.rank, "Bảng xếp hạng"));
+        list.add(new ReItems(R.drawable.timetablehust10, "Thời khóa biểu"));
+        list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp thời khóa biểu"));
+        list.add(new ReItems(R.drawable.checklisthust, "Chương trình đào tạo"));
+        list.add(new ReItems(R.drawable.targethust1, "Mục tiêu ra trường"));
+        list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ"));
+        list.add(new ReItems(R.drawable.rankshust, "Bảng xếp hạng"));
         return list;
     }
 }
