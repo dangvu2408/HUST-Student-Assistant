@@ -59,6 +59,7 @@ public class JsoupUtils {
             }
             try {
                 JsonUtils.getInstance().parseStudentInfo(context, execute.parse());
+                getTimeTable();
                 return true;
             } catch (Exception e) {
 
@@ -70,6 +71,14 @@ public class JsoupUtils {
             return x;
         }
         return x;
+    }
+
+    public void getTimeTable() {
+        try {
+            JsonUtils.getInstance().parseTimeTable(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/Timetables.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 

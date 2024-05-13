@@ -128,7 +128,18 @@
                 android:layout_height="2dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
+                android:paddingBottom="10dp"
                 android:background="#BFBFC2"/>
+            <ListView
+                android:layout_width="fill_parent"
+                android:layout_height="350dp"
+                android:paddingTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/thoikhoabieu"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="5dp"
+                android:scrollbars="none"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="15dp"

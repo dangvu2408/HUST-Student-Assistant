@@ -1,27 +1,36 @@
 package com.example.app_01.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.app_01.Adapter.CustomAdapterTimetable;
 import com.example.app_01.Adapter.ItemsAdapter;
 import com.example.app_01.Constructor.ReItems;
+import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
 import com.example.app_01.UtilsPack.Utils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -34,17 +43,29 @@ public class Home_Fragment extends Fragment {
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private CardView cardView;
+    private ListView listTimetable;
     private boolean isTrans = false;
+    private CustomAdapterTimetable adapterTimetable;
+    private ArrayList<TimeTable> timeTables;
+    private String data;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         cardView = view.findViewById(R.id.cardview_trans);
-
+        listTimetable = view.findViewById(R.id.thoikhoabieu);
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
         TextView textView = view.findViewById(R.id.date_realtime);
+
+        listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showDialogClass(getContext(), timeTables.get(position));
+            }
+        });
+
 
         try {
             txt = view.findViewById(R.id.namestudent);
@@ -91,6 +112,7 @@ public class Home_Fragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        initLayout();
         if (isTrans) {
             cardView.setTranslationY(-400);
             cardView.animate().translationY(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
@@ -113,5 +135,88 @@ public class Home_Fragment extends Fragment {
         list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ"));
         list.add(new ReItems(R.drawable.rankshust, "Bảng xếp hạng"));
         return list;
+    }
+
+    private void initLayout() {
+        if (getContext() != null) {
+            String value = Utils.getInstance().getValueFromSharedPreferences(getContext(),"share_preferences_data", "key_share_preferences_data_tkb");
+            this.data = value;
+            if (value == null || value.equals("") || this.data.equals("[]")) {
+                Toast.makeText(getContext(), "Không tìm thấy thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                showTimeTable();
+            }
+        }
+    }
+
+    private void showTimeTable() {
+        try {
+            JSONArray jsonArray = new JSONArray(this.data);
+            this.timeTables = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                this.timeTables.add(new TimeTable(jsonObject.getString("Thoi_gian"),
+                        jsonObject.getString("Tuan_hoc"),
+                        jsonObject.getString("Phong_hoc"),
+                        jsonObject.getString("Ma_lop"),
+                        jsonObject.getString("Loai_lop"),
+                        jsonObject.getString("Nhom"),
+                        jsonObject.getString("Ma_HP"),
+                        jsonObject.getString("Ten_lop"),
+                        jsonObject.getString("Ghi_chu"),
+                        jsonObject.getString("Hinh_thuc_day"),
+                        jsonObject.getString("Giang_vien"),
+                        jsonObject.getString("Link_online"),
+                        jsonObject.getString("Code_teams")));
+            }
+            if (getContext() != null) {
+                adapterTimetable = new CustomAdapterTimetable(getContext(), this.timeTables);
+                listTimetable.setAdapter(adapterTimetable);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    private void showDialogClass(Context context, TimeTable timeTable) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.classtkb_dialog, null);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.linearlayout_background);
+        Button btnCancel = dialogView.findViewById(R.id.thoatDialog);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView txt01 = dialogView.findViewById(R.id.malop);
+        TextView txt02 = dialogView.findViewById(R.id.loaihinh);
+        TextView txt03 = dialogView.findViewById(R.id.giangvien);
+        TextView txt04 = dialogView.findViewById(R.id.nhom);
+        TextView txt05 = dialogView.findViewById(R.id.ghichu);
+        TextView txt06 = dialogView.findViewById(R.id.hinhthuc);
+        TextView txt07 = dialogView.findViewById(R.id.codeteams);
+        TextView txt08 = dialogView.findViewById(R.id.link);
+        TextView txt09 = dialogView.findViewById(R.id.thoigiandiadiem);
+        TextView txt10 = dialogView.findViewById(R.id.tuanhoc);
+        TextView txt00 = dialogView.findViewById(R.id.title_txt);
+        txt00.setText(timeTable.getMahocphan() + " - " + timeTable.getTenlop());
+        txt01.setText("Mã lớp: " + timeTable.getMalop());
+        txt02.setText("Loại hình: " + timeTable.getLoailop());
+        txt03.setText("GVDH: "+ timeTable.getGiangvien());
+        txt04.setText("Nhóm: " + timeTable.getNhom());
+        txt05.setText("Ghi chú: " +timeTable.getGhichu());
+        txt06.setText("Hình thức GD: " + timeTable.getHinhthuc());
+        txt07.setText("Mã code Teams: " + timeTable.getCodeteams());
+        txt08.setText("Link: " + timeTable.getLink());
+        txt09.setText(timeTable.getThoigian() + ", " + timeTable.getPhonghoc());
+        txt10.setText("Tuần học: " + timeTable.getTuanhoc());
+        dialog.show();
     }
 }

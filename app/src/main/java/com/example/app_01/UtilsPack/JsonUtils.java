@@ -2,10 +2,13 @@ package com.example.app_01.UtilsPack;
 
 import android.content.Context;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.util.Iterator;
 
 public class JsonUtils {
     public static final String KEY_MA_SV = "maSV";
@@ -93,6 +96,47 @@ public class JsonUtils {
             jsonObject.put("Email_me", str5);
 
             Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien", jsonObject.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void parseTimeTable(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvStudentRegister_DXMainTable").getElementsByClass("dxgvDataRow_Mulberry").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dxgv").first().text();
+                String str02 = next.select("td.dxgv").get(1).text();
+                String str03 = next.select("td.dxgv").get(2).text();
+                String str04 = next.select("td.dxgv").get(3).text();
+                String str05 = next.select("td.dxgv").get(4).text();
+                String str06 = next.select("td.dxgv").get(5).text();
+                String str07 = next.select("td.dxgv").get(6).text();
+                String str08 = next.select("td.dxgv").get(7).text();
+                String str09 = next.select("td.dxgv").get(8).text();
+                String str10 = next.select("td.dxgv").get(9).text();
+                String str11 = next.select("td.dxgv").get(10).text();
+                String str12 = next.select("td.dxgv").get(11).text();
+                String str13 = next.select("td.dxgv").get(12).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("Thoi_gian", str01);
+                jsonObject.put("Tuan_hoc", str02);
+                jsonObject.put("Phong_hoc", str03);
+                jsonObject.put("Ma_lop", str04);
+                jsonObject.put("Loai_lop", str05);
+                jsonObject.put("Nhom", str06);
+                jsonObject.put("Ma_HP", str07);
+                jsonObject.put("Ten_lop", str08);
+                jsonObject.put("Ghi_chu", str09);
+                jsonObject.put("Hinh_thuc_day", str10);
+                jsonObject.put("Giang_vien", str11);
+                jsonObject.put("Link_online", str12);
+                jsonObject.put("Code_teams", str13);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_tkb", jsonArray.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }
