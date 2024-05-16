@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
      private Context context;
      private ArrayList<TimeTable> itemList;
-    private int itemHeight;
 
     public CustomAdapterTimetable(Context context, ArrayList<TimeTable> itemList) {
         super(context, 0, itemList);
@@ -119,7 +118,7 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
             }
             if (arrayList.size() > 0) {
                 for (int i = 0; i < arrayList.size(); i++) {
-                    if (weekNow.equals(arrayList.get(i))) {
+                    if (!weekNow.equals(arrayList.get(i))) {
                         listItem.setBackgroundResource(R.drawable.item_tkb_tn);
                     }
                 }
@@ -129,10 +128,5 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
         return listItem;
     }
 
-    private boolean isMatch(String str1, String str2) {
-        return (str1 == str2);
-    }
-    public int getItemHeight() {
-        return itemHeight;
-    }
+
 }

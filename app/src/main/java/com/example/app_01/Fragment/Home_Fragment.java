@@ -68,14 +68,6 @@ public class Home_Fragment extends Fragment {
         noClassToday = view.findViewById(R.id.nolichhoc);
         TextView textView = view.findViewById(R.id.date_realtime);
 
-        listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showDialogClass(getContext(), timeTables.get(position));
-            }
-        });
-
-
         try {
             txt = view.findViewById(R.id.namestudent);
             JSONObject jsonObject = new JSONObject(Utils.getInstance().getValueFromSharedPreferences(getContext(), "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien"));
@@ -105,6 +97,12 @@ public class Home_Fragment extends Fragment {
         } else {
             noClassToday.setVisibility(View.GONE);
         }
+        listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showDialogClass(getContext(), filteredTimes.get(position));
+            }
+        });
 
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -129,6 +127,12 @@ public class Home_Fragment extends Fragment {
                 } else {
                     noClassToday.setVisibility(View.GONE);
                 }
+                listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        showDialogClass(getContext(), filteredTimes.get(position));
+                    }
+                });
             }
         });
 

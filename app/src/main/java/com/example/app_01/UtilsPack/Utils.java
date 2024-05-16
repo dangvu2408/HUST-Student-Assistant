@@ -3,13 +3,8 @@ package com.example.app_01.UtilsPack;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.temporal.TemporalField;
-
 import java.io.IOException;
-import java.time.temporal.WeekFields;
 import java.util.Calendar;
-import java.util.Locale;
 
 public class Utils {
     private static Utils instance;
@@ -51,16 +46,8 @@ public class Utils {
                     + (Calendar.getInstance().get(3) - Integer.parseInt(getInstance().getValueFromSharedPreferences(context, "share_preferences_data", "key_share_preferenceds_data_week_of_year")));
         } catch (Exception e) {
             i = 0;
+            e.printStackTrace();
         }
         return String.valueOf(i);
     }
-
-    public int getWeekofYear() {
-        LocalDate local = LocalDate.now();
-        WeekFields week = WeekFields.of(Locale.getDefault());
-        int current = local.get((TemporalField) week.weekOfWeekBasedYear());
-        return current;
-    }
-
-
 }

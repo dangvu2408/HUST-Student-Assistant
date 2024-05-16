@@ -12,10 +12,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.app_01.AppCompat.Class_Info;
 import com.example.app_01.AppCompat.Hust_Map;
-import com.example.app_01.LoginPropeties.LoginActivity;
-import com.example.app_01.R;
 import com.example.app_01.Dialog.Student_Info_Dialog;
 import com.example.app_01.Dialog.Toeic_Dialog;
+import com.example.app_01.LoginPropeties.LoginActivity;
+import com.example.app_01.R;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONException;
@@ -82,8 +82,19 @@ public class Profile_Fragment extends Fragment {
         btn_signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), LoginActivity.class);
-                startActivity(intent);
+                if (Profile_Fragment.this.getContext() != null) {
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_already_user_login", "");
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_hoc_phan_cai_thien", "");
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_hoc_phan_moi", "");
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_hoc_phan_khong_tinh_diem", "");
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien", "");
+                    Utils.getInstance().saveToSharedPreferences(Profile_Fragment.this.getContext(), "share_preferences_data", "key_share_preferences_data_tkb", "");
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+                    if (Profile_Fragment.this.getActivity() != null) {
+                        Profile_Fragment.this.getActivity().finish();
+                    }
+                }
             }
         });
         return view;
