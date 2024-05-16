@@ -4,35 +4,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.Utils;
 
 import java.util.ArrayList;
 
-public class CustomAdapterTimetable extends BaseAdapter {
-    final private Context context;
-    final private ArrayList<TimeTable> itemList;
+public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
+     private Context context;
+     private ArrayList<TimeTable> itemList;
+    private int itemHeight;
 
     public CustomAdapterTimetable(Context context, ArrayList<TimeTable> itemList) {
+        super(context, 0, itemList);
         this.context = context;
         this.itemList = itemList;
-    }
-    @Override
-    public int getCount() {
-        return itemList.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return itemList.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
     }
 
     @Override
@@ -52,6 +41,7 @@ public class CustomAdapterTimetable extends BaseAdapter {
         String time = currentTKB.getThoigian();
         String thu = time.substring(4, 5);
 
+
         if (time.equals("") || time.length() == 1 || !time.contains(",") || !time.contains("-")) {
             startTime.setText("");
             endTime.setText("");
@@ -60,8 +50,6 @@ public class CustomAdapterTimetable extends BaseAdapter {
             int j = time.indexOf("-");
             startTime.setText(time.substring(i + 1, j - 1));
             endTime.setText(time.substring(j + 2));
-
-
             if (time.substring(i + 1, j - 1).equals("6h45") ||
                     time.substring(i + 1, j - 1).equals("7h30") ||
                     time.substring(i + 1, j - 1).equals("8h25") ||
@@ -90,6 +78,61 @@ public class CustomAdapterTimetable extends BaseAdapter {
             classAddress.setText(classaddress);
         }
 
+        if (itemList.get(position).getLoailop().equals("TN")) {
+            String weekNow = Utils.getInstance().getWeek(context);
+            String week = itemList.get(position).getTuanhoc();
+            ArrayList arrayList = new ArrayList();
+            StringBuilder stringBuilder = new StringBuilder();
+            boolean x = false;
+            String str = "";
+            for (int i = 0; i < week.length(); i++) {
+                if (String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".") && !x) {
+                    arrayList.add(String.valueOf(stringBuilder).trim());
+                    stringBuilder = new StringBuilder();
+                } else if (String.valueOf(week.charAt(i)).equals("-")) {
+                    str = stringBuilder.toString().trim();
+                    stringBuilder = new StringBuilder();
+                    x = true;
+                } else if (String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".") && x) {
+                    String trim = stringBuilder.toString().trim();
+                    for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim); j++) {
+                        arrayList.add(String.valueOf(j));
+                    }
+                    stringBuilder = new StringBuilder();
+                    x = false;
+                    str = "";
+                } else {
+                    if (i == week.length()) {
+                        stringBuilder.append(week.charAt(i));
+                        if (!x) {
+                            arrayList.add(String.valueOf(stringBuilder));
+                        } else {
+                            String trim0 = stringBuilder.toString().trim();
+                            for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim0); j++) {
+                                arrayList.add(String.valueOf(j));
+                            }
+                        }
+                    } else {
+                        stringBuilder.append(week.charAt(i));
+                    }
+                }
+            }
+            if (arrayList.size() > 0) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    if (weekNow.equals(arrayList.get(i))) {
+                        listItem.setBackgroundResource(R.drawable.item_tkb_tn);
+                    }
+                }
+            }
+        }
+
         return listItem;
+    }
+
+    private boolean isMatch(String str1, String str2) {
+        return (str1 == str2);
+    }
+    public int getItemHeight() {
+        return itemHeight;
     }
 }

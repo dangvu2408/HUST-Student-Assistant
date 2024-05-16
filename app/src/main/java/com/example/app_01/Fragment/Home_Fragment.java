@@ -33,13 +33,19 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.threeten.bp.DateTimeUtils;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.ZoneId;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Home_Fragment extends Fragment {
     public TextView txt;
+    private TextView noClassToday;
+    public int dayOfWeek;
     private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private CardView cardView;
@@ -47,16 +53,19 @@ public class Home_Fragment extends Fragment {
     private boolean isTrans = false;
     private CustomAdapterTimetable adapterTimetable;
     private ArrayList<TimeTable> timeTables;
+    private ArrayList<TimeTable> filteredTimes;
     private String data;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
+        initLayout();
         cardView = view.findViewById(R.id.cardview_trans);
         listTimetable = view.findViewById(R.id.thoikhoabieu);
         recyclerView = view.findViewById(R.id.recycler);
         adapter = new ItemsAdapter(getContext());
+        noClassToday = view.findViewById(R.id.nolichhoc);
         TextView textView = view.findViewById(R.id.date_realtime);
 
         listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,16 +87,24 @@ public class Home_Fragment extends Fragment {
         MaterialCalendarView materialCalendarView = view.findViewById(R.id.calendarView);
         CalendarDay calendar = CalendarDay.today();
         materialCalendarView.setSelectedDate(calendar);
-
         Calendar date = Calendar.getInstance();
 
         int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
         int month = date.get(Calendar.MONTH) + 1; // Tháng bắt đầu từ 0, nên cần cộng thêm 1
         int year = date.get(Calendar.YEAR);
-
-
+        int thu = date.get(Calendar.DAY_OF_WEEK);
+        String str00 = String.valueOf(thu);
         String dateString = dayOfMonth + " Tháng " + month + ", " + year;
         textView.setText(dateString);
+        filteredTimes = filtered(str00);
+        adapterTimetable = new CustomAdapterTimetable(getContext(), filteredTimes);
+        listTimetable.setAdapter(adapterTimetable);
+        if (adapterTimetable.getCount() == 0) {
+            noClassToday.setVisibility(View.VISIBLE);
+            noClassToday.setText("Không có lớp học nào");
+        } else {
+            noClassToday.setVisibility(View.GONE);
+        }
 
         materialCalendarView.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
@@ -95,24 +112,40 @@ public class Home_Fragment extends Fragment {
                 int dayOfMonth = date.getDay();
                 int month = date.getMonth();
                 int year = date.getYear();
-
                 String datestring = dayOfMonth + " Tháng " + month + ", " + year;
                 textView.setText(datestring);
+                LocalDate select = date.getDate();
+                Date convert = DateTimeUtils.toDate(select.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(convert);
+                dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+                String str = String.valueOf(dayOfWeek);
+                filteredTimes = filtered(str);
+                adapterTimetable = new CustomAdapterTimetable(getContext(), filteredTimes);
+                listTimetable.setAdapter(adapterTimetable);
+                if (adapterTimetable.getCount() == 0) {
+                    noClassToday.setVisibility(View.VISIBLE);
+                    noClassToday.setText("Không có lớp học nào");
+                } else {
+                    noClassToday.setVisibility(View.GONE);
+                }
             }
         });
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(gridLayoutManager);
-
         adapter.setData(getList());
         recyclerView.setAdapter(adapter);
+
         return view;
     }
+
+    
 
     @Override
     public void onResume() {
         super.onResume();
-        initLayout();
+
         if (isTrans) {
             cardView.setTranslationY(-400);
             cardView.animate().translationY(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
@@ -152,7 +185,7 @@ public class Home_Fragment extends Fragment {
     private void showTimeTable() {
         try {
             JSONArray jsonArray = new JSONArray(this.data);
-            this.timeTables = new ArrayList<>();
+            timeTables = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 this.timeTables.add(new TimeTable(jsonObject.getString("Thoi_gian"),
@@ -169,15 +202,20 @@ public class Home_Fragment extends Fragment {
                         jsonObject.getString("Link_online"),
                         jsonObject.getString("Code_teams")));
             }
-            if (getContext() != null) {
-                adapterTimetable = new CustomAdapterTimetable(getContext(), this.timeTables);
-                listTimetable.setAdapter(adapterTimetable);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private ArrayList<TimeTable> filtered(String select) {
+        ArrayList<TimeTable> stack = new ArrayList<>();
+        for (TimeTable item : timeTables) {
+            if (item.getThoigian().substring(4, 5).equals(select)) {
+                stack.add(item);
+            }
+        }
+        return stack;
+    }
 
 
     private void showDialogClass(Context context, TimeTable timeTable) {
@@ -219,4 +257,7 @@ public class Home_Fragment extends Fragment {
         txt10.setText("Tuần học: " + timeTable.getTuanhoc());
         dialog.show();
     }
+
+
+
 }

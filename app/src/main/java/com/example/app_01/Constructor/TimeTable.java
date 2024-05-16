@@ -1,8 +1,12 @@
 package com.example.app_01.Constructor;
 
+import android.content.Context;
+
+import java.util.ArrayList;
+
 public class TimeTable {
     private String thoigian, tuanhoc, phonghoc, malop, loailop, nhom, mahocphan, tenlop, ghichu, hinhthuc, giangvien, link, codeteams;
-    public TimeTable() {}
+    public TimeTable(Context context, ArrayList<TimeTable> timeTables) {}
     public TimeTable(String str01, String str02, String str03, String str04, String str05, String str06, String str07, String str08, String str09, String str10, String str11, String str12, String str13) {
         this.thoigian = str01;
         this.tuanhoc = str02;

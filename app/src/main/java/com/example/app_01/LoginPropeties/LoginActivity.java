@@ -221,7 +221,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 ImageView captchaImageView = findViewById(R.id.captchaImg);
                 captchaImageView.setImageBitmap(LoginActivity.this.bitmap);
             } else {
-                Toast.makeText(LoginActivity.this, "Kết nối lại mạng và thử lại...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Đang kết nối lại mạng và thử lại...", Toast.LENGTH_SHORT).show();
             }
             if (LoginActivity.this.bitmap == null) {
                 Toast.makeText(LoginActivity.this, "Trang CTT-SIS đang cập nhật, hiện tại app chưa đăng nhập được. Vui lòng thử lại sau...", Toast.LENGTH_SHORT).show();

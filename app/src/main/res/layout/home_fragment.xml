@@ -8,7 +8,8 @@
     tools:context=".Fragment.Home_Fragment"
     android:layout_gravity="start"
     android:paddingBottom="72dp"
-    android:paddingTop="20dp">
+    android:paddingTop="20dp"
+    android:nestedScrollingEnabled="true">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -130,16 +131,29 @@
                 android:layout_marginLeft="15dp"
                 android:paddingBottom="10dp"
                 android:background="#BFBFC2"/>
+            <TextView
+                android:id="@+id/nolichhoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:paddingTop="10dp"
+                android:text="Không có lớp học nào"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"/>
             <ListView
                 android:layout_width="fill_parent"
-                android:layout_height="350dp"
+                android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:id="@+id/thoikhoabieu"
                 android:divider="@android:color/transparent"
                 android:dividerHeight="5dp"
-                android:scrollbars="none"/>
+                android:scrollbars="none"
+                android:nestedScrollingEnabled="true"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
@@ -156,6 +170,4 @@
             android:gravity="center">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
-
-
 </ScrollView>
