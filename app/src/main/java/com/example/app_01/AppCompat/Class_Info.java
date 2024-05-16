@@ -1,23 +1,27 @@
 package com.example.app_01.AppCompat;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.app_01.Adapter.CustomAdapter;
-import com.example.app_01.R;
 import com.example.app_01.Constructor.SinhVien;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.app_01.R;
+import com.example.app_01.UtilsPack.Utils;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -27,47 +31,96 @@ public class Class_Info extends AppCompatActivity {
     private CustomAdapter adapter;
     private ArrayList<SinhVien> arrayClass;
     private ProgressBar progressBar;
+    private String data;
+    private Context context;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.class_info_activity);
-
+        context = this;
         progressBar = findViewById(R.id.progress_bar);
         listClassView = findViewById(R.id.class_list);
         arrayClass = new ArrayList<>();
         progressBar.setVisibility(View.VISIBLE);
-        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("SinhVien");
+        initLayout();
+        progressBar.setVisibility(View.GONE);
 
-        mData.addValueEventListener(new ValueEventListener() {
+        adapter = new CustomAdapter(this, arrayClass);
+        listClassView.setAdapter(adapter);
+        listClassView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    String HoTen = snapshot1.child("HoTen").getValue(String.class);
-                    String MSSV = snapshot1.child("MSSV").getValue(String.class);
-                    int numberlist = snapshot1.child("numberlist").getValue(int.class);
-
-                    SinhVien sv = new SinhVien(HoTen, MSSV, numberlist);
-                    arrayClass.add(sv);
-                }
-                if (adapter == null) {
-                    adapter = new CustomAdapter(Class_Info.this, arrayClass);
-                    listClassView.setAdapter(adapter);
-                } else {
-                    adapter.notifyDataSetChanged();
-                }
-                progressBar.setVisibility(View.GONE);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showDialogClass(context, arrayClass.get(position));
             }
+        });
+        Button btn_back = findViewById(R.id.gobackclass);
+        btn_back.setOnClickListener(v -> finish());
+    }
 
+    private void initLayout() {
+        if (this != null) {
+            String value = Utils.getInstance().getValueFromSharedPreferences(this,"share_preferences_data", "key_share_preferences_data_danh_sach_lop_sv");
+            this.data = value;
+            if (value == null || value.equals("") || this.data.equals("[]")) {
+                Toast.makeText(this, "Không tìm thấy thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                showStudentDetail();
+            }
+        }
+    }
+
+    private void showStudentDetail() {
+        try {
+            JSONArray jsonArray = new JSONArray(this.data);
+            arrayClass = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                this.arrayClass.add(new SinhVien(jsonObject.getString("maSV"),
+                        jsonObject.getString("hoSV"),
+                        jsonObject.getString("demSV"),
+                        jsonObject.getString("tenSV"),
+                        jsonObject.getString("ngaysinh"),
+                        jsonObject.getString("tenlop"),
+                        jsonObject.getString("ctdt"),
+                        jsonObject.getString("trangthai")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showDialogClass(Context context, SinhVien sinhVien) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.class_member_dialog, null);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.linearlayout_background);
+        Button btnCancel = dialogView.findViewById(R.id.thoatDialog);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onClick(View v) {
+                dialog.dismiss();
             }
         });
 
-
-        Button btn_back = findViewById(R.id.gobackclass);
-        btn_back.setOnClickListener(v -> finish());
+        TextView txt01 = dialogView.findViewById(R.id.hotendaydu);
+        TextView txt02 = dialogView.findViewById(R.id.masosinhvien);
+        TextView txt03 = dialogView.findViewById(R.id.ngaysinh);
+        TextView txt04 = dialogView.findViewById(R.id.lopsv);
+        TextView txt05 = dialogView.findViewById(R.id.chuongtrinh);
+        TextView txt06 = dialogView.findViewById(R.id.trangthaihoc);
+        TextView txt00 = dialogView.findViewById(R.id.title_txt);
+        String hotenFull = sinhVien.getHo() + " " + sinhVien.getDem() + " " + sinhVien.getTen();
+        txt00.setText(hotenFull);
+        txt01.setText("Họ và tên: " + hotenFull);
+        txt02.setText("Mã số sinh viên: " + sinhVien.getMSSV());
+        txt03.setText("Ngày sinh: " + sinhVien.getNgaysinh());
+        txt04.setText("Tên lớp: " + sinhVien.getTenlop());
+        txt05.setText("Chương trình đào tạo: " + sinhVien.getCtdt());
+        txt06.setText("Trạng thái học tập: " + sinhVien.getTrangthai());
+        dialog.show();
     }
 }

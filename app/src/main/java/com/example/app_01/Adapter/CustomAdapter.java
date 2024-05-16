@@ -6,10 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.util.Log;
 
-import com.example.app_01.R;
 import com.example.app_01.Constructor.SinhVien;
+import com.example.app_01.R;
 
 import java.util.List;
 
@@ -45,21 +44,13 @@ public class CustomAdapter extends BaseAdapter {
         }
 
         SinhVien currentStudent = itemList.get(position);
-
-        // Log dữ liệu của sinh viên
-        Log.d("CustomAdapter", "Position: " + position);
-        Log.d("CustomAdapter", "HoTen: " + currentStudent.getHoTen());
-        Log.d("CustomAdapter", "MSSV: " + currentStudent.getMSSV());
-
-        TextView numberlistTextView = listItem.findViewById(R.id.listnumber);
-        numberlistTextView.setText(String.valueOf(position + 1));
-
-        TextView hoTenTextView = listItem.findViewById(R.id.namestudent);
-        hoTenTextView.setText(currentStudent.getHoTen());
-
-        TextView mssvTextView = listItem.findViewById(R.id.idstudent);
-        mssvTextView.setText(currentStudent.getMSSV());
-
+        TextView listnumber = listItem.findViewById(R.id.listnumber);
+        TextView hoten = listItem.findViewById(R.id.namestudent);
+        TextView masosv = listItem.findViewById(R.id.idstudent);
+        String hotenFull = currentStudent.getHo() + " " + currentStudent.getDem() + " " + currentStudent.getTen();
+        hoten.setText(hotenFull);
+        masosv.setText(currentStudent.getMSSV());
+        listnumber.setText(String.valueOf(position + 1));
         return listItem;
     }
 }

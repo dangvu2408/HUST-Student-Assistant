@@ -261,7 +261,4 @@ public class Home_Fragment extends Fragment {
         txt10.setText("Tuần học: " + timeTable.getTuanhoc());
         dialog.show();
     }
-
-
-
 }

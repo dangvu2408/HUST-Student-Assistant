@@ -21,7 +21,7 @@
             android:padding="15dp"
             android:text="Hướng dẫn đăng nhập"
             android:textAlignment="center"
-            android:fontFamily="@font/linh_avantgarde_demibold"
+            android:fontFamily="@font/linh_avantgarde_bold"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -39,6 +39,15 @@
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:padding="10dp"
+        android:text="@string/login_guide_1"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,14 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="@string/login_guide_1"
-                android:textColor="@color/black"
-                android:justificationMode="inter_word"
-                android:textSize="18sp"/>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

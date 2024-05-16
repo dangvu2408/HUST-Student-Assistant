@@ -141,4 +141,35 @@ public class JsonUtils {
             e.printStackTrace();
         }
     }
+
+    public void parseClassInfo(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvStudents_DXMainTable").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dx-nowrap").first().text();
+                String str02 = next.select("td.dx-nowrap").get(1).text();
+                String str03 = next.select("td.dx-nowrap").get(2).text();
+                String str04 = next.select("td.dx-nowrap").get(3).text();
+                String str05 = next.select("td.dx-nowrap").get(4).text();
+                String str06 = next.select("td.dx-nowrap").get(5).text();
+                String str07 = next.select("td.dx-nowrap").get(6).text();
+                String str08 = next.select("td.dx-nowrap").get(7).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("maSV", str01);
+                jsonObject.put("hoSV", str02);
+                jsonObject.put("demSV", str03);
+                jsonObject.put("tenSV", str04);
+                jsonObject.put("ngaysinh", str05);
+                jsonObject.put("tenlop", str06);
+                jsonObject.put("ctdt", str07);
+                jsonObject.put("trangthai", str08);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_danh_sach_lop_sv", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

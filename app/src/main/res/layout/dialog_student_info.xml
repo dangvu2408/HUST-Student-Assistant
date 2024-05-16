@@ -37,8 +37,7 @@
                 android:paddingRight="0dp"
                 android:text="Họ và tên: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/namestudent"
                 android:layout_width="wrap_content"
@@ -49,8 +48,7 @@
                 android:paddingLeft="0dp"
                 android:text="Đặng Quang Vũ"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -65,8 +63,7 @@
                 android:paddingRight="0dp"
                 android:text="Giới tính: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/genderstudent"
                 android:layout_width="wrap_content"
@@ -77,8 +74,7 @@
                 android:paddingLeft="0dp"
                 android:text="Nam"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -97,8 +93,7 @@
                     android:paddingRight="0dp"
                     android:text="Năm vào trường: "
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"/>
                 <TextView
                     android:id="@+id/yearschool"
                     android:layout_width="wrap_content"
@@ -109,8 +104,7 @@
                     android:paddingLeft="0dp"
                     android:text="2022"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -125,8 +119,7 @@
                     android:paddingRight="0dp"
                     android:text="Khóa: "
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"/>
                 <TextView
                     android:id="@+id/groupstudent"
                     android:layout_width="wrap_content"
@@ -137,8 +130,7 @@
                     android:paddingLeft="0dp"
                     android:text="67"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -154,8 +146,7 @@
                 android:paddingRight="0dp"
                 android:text="Email: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
@@ -166,8 +157,7 @@
                 android:paddingLeft="0dp"
                 android:text="Vu.DQ223830@sis.hust.edu.vn"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -182,8 +172,7 @@
                 android:paddingRight="0dp"
                 android:text="Chương trình: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/ctdt"
                 android:layout_width="wrap_content"
@@ -194,8 +183,7 @@
                 android:paddingLeft="0dp"
                 android:text="Kỹ thuật Điện tử - Viễn thông 2022"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -210,8 +198,7 @@
                 android:paddingRight="0dp"
                 android:text="Khoa/Viện quản lý: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/dean"
                 android:layout_width="wrap_content"
@@ -222,8 +209,7 @@
                 android:paddingLeft="0dp"
                 android:text="Trường Điện - Điện tử"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -238,8 +224,7 @@
                 android:paddingRight="0dp"
                 android:text="Tình trạng học tập: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
             <TextView
                 android:id="@+id/study"
                 android:layout_width="wrap_content"
@@ -250,8 +235,7 @@
                 android:paddingLeft="0dp"
                 android:text="Học"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="18sp"/>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
