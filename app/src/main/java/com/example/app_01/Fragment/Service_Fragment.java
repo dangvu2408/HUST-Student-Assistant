@@ -1,168 +1,210 @@
 package com.example.app_01.Fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.app_01.Adapter.CustomAdapterScore;
 import com.example.app_01.Constructor.CourseScore;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.Utils;
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 
 public class Service_Fragment extends Fragment {
+    public LineChart chartCpa;
+    public LineChart chartGpa;
     CustomAdapterScore adapter;
     ArrayList<CourseScore> arrayScore;
     ListView courseList;
-    ProgressBar progressBar;
+    private String data, data0;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.service_fragment, container, false);
-
         courseList = view.findViewById(R.id.courses);
-        DatabaseReference mData = FirebaseDatabase.getInstance().getReference("CourseScore");
-        DatabaseReference pointData = FirebaseDatabase.getInstance().getReference("GPA_CPA");
-        arrayScore = new ArrayList<>();
-        progressBar = view.findViewById(R.id.progress_bar);
-        progressBar.setVisibility(View.VISIBLE);
-
-
-        BarChart barChart = view.findViewById(R.id.bar_chart_display);
-        LineChart lineChart = view.findViewById(R.id.line_chart_display);
-        //entry for bar chart
-        ArrayList<BarEntry> NoOfEmp = new ArrayList<>();
-        NoOfEmp.add(new BarEntry(0f, 3.57f));
-        NoOfEmp.add(new BarEntry(1f, 3.63f));
-        NoOfEmp.add(new BarEntry(2f, 3.55f));
-        NoOfEmp.add(new BarEntry(3f, 3.42f));
-        NoOfEmp.add(new BarEntry(4f, 3.54f));
-        NoOfEmp.add(new BarEntry(5f, 3.72f));
-        NoOfEmp.add(new BarEntry(6f, 3.80f));
-        NoOfEmp.add(new BarEntry(7f, 4.00f));
-        //entry for line chart
-        ArrayList<Entry> GPA = new ArrayList<>();
-        GPA.add(new Entry(0f, 3.57f));
-        GPA.add(new Entry(1f, 3.63f));
-        GPA.add(new Entry(2f, 3.55f));
-        GPA.add(new Entry(3f, 3.42f));
-        GPA.add(new Entry(4f, 3.54f));
-        GPA.add(new Entry(5f, 3.72f));
-        GPA.add(new Entry(6f, 3.80f));
-        GPA.add(new Entry(7f, 4.00f));
-
-        ArrayList<String> semester = new ArrayList<>();
-        semester.add("20221");
-        semester.add("20222");
-        semester.add("20231");
-        semester.add("20232");
-        semester.add("20241");
-        semester.add("20242");
-        semester.add("20251");
-        semester.add("20252");
-
-        //bar chart data set
-        BarDataSet barDataSet = new BarDataSet(NoOfEmp, "");
-        Description description = new Description();
-        description.setText("");
-        barChart.setDescription(description);
-        barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(semester));
-        barChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        barChart.getXAxis().setDrawGridLines(false);
-        barChart.getAxisRight().setEnabled(false);
-        barChart.getXAxis().setLabelCount(semester.size());
-        barChart.getXAxis().setGranularity(1f);
-        barChart.getAxisLeft().setAxisMinimum(2f);
-        barChart.getAxisLeft().setAxisMaximum(4.3f);
-        barChart.animateY(500);
-        barChart.setFitBars(false);
-        BarData data = new BarData(barDataSet);
-        data.setBarWidth(0.5f);
-        barDataSet.setColors(Color.rgb(0, 155, 0));
-        barDataSet.setLabel("GPA");
-        barChart.setData(data);
-
-        //line chart data set
-        LineDataSet lineDataSetGPA = new LineDataSet(GPA, "");
-
-        LineData lineData = new LineData(lineDataSetGPA);
-
-
-        lineDataSetGPA.setColor(Color.RED);
-        lineDataSetGPA.setCircleColor(Color.BLUE);
-        lineDataSetGPA.setCircleRadius(4);
-        lineDataSetGPA.setCircleHoleRadius(2);
-        lineDataSetGPA.setDrawValues(true);
-        lineDataSetGPA.setLabel("GPA");
-        lineDataSetGPA.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-
-        lineChart.setData(lineData);
-        lineChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(semester));
-        lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-        lineChart.getAxisRight().setEnabled(false);
-        lineChart.getAxisLeft().setAxisMinimum(2f);
-        lineChart.getAxisLeft().setAxisMaximum(4.3f);
-        lineChart.getXAxis().setAxisMinimum(-0.3f);
-        lineChart.getXAxis().setAxisMaximum((float)(semester.size() - 0.7));
-        lineChart.getXAxis().setLabelCount(semester.size());
-        lineChart.getXAxis().setGranularity(1f);
-        lineChart.animateX(500, Easing.EaseInOutCubic);
-        lineChart.setDescription(description);
-
-        mData.addValueEventListener(new ValueEventListener() {
+        initLayout();
+        adapter = new CustomAdapterScore(getContext(), arrayScore);
+        courseList.setAdapter(adapter);
+        courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    String courseName = dataSnapshot.child("courseName").getValue(String.class);
-                    String courseID = dataSnapshot.child("courseID").getValue(String.class);
-                    int tc = dataSnapshot.child("tc").getValue(Integer.class);
-                    double qt = dataSnapshot.child("qt").getValue(Double.class);
-                    double ck = dataSnapshot.child("ck").getValue(Double.class);
-                    String alphabet = dataSnapshot.child("alphabet").getValue(String.class);
-
-                    CourseScore sv = new CourseScore(courseName, courseID, tc, qt, ck, alphabet);
-                    arrayScore.add(sv);
-                }
-                if (adapter == null) {
-                    adapter = new CustomAdapterScore(getContext(), arrayScore);
-                    courseList.setAdapter(adapter);
-                } else {
-                    adapter.notifyDataSetChanged();
-                }
-                progressBar.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showDialogScore(getContext(), arrayScore.get(position));
             }
         });
+
+        chartGpa = view.findViewById(R.id.line_chart_gpa);
+        chartCpa = view.findViewById(R.id.line_chart_cpa);
+        String str = this.data0;
+        if (str != null && !str.equals("")) {
+            try {
+                JSONArray jsonArray = new JSONArray(this.data0);
+                if (jsonArray.length() > 0) {
+                    ArrayList arrayListGPA = new ArrayList();
+                    ArrayList arrayListCPA = new ArrayList();
+                    ArrayList arrayListHK = new ArrayList();
+                    for (int i = jsonArray.length() - 1; i >= 0; i--) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+                        arrayListGPA.add(new Entry((float)(jsonArray.length() - 1 - i), Float.parseFloat(jsonObject.getString("gpa"))));
+                        arrayListCPA.add(new Entry((float)(jsonArray.length() - 1 - i), Float.parseFloat(jsonObject.getString("cpa"))));
+                        arrayListHK.add(jsonObject.getString("hockihoc"));
+                    }
+                    LineDataSet lineDataSetGPA = new LineDataSet(arrayListGPA, "");
+                    LineData lineDataGPA = new LineData(lineDataSetGPA);
+                    lineDataSetGPA.setValueTextSize(12f);
+                    lineDataSetGPA.setColor(Color.RED);
+                    lineDataSetGPA.setCircleColor(Color.BLUE);
+                    lineDataSetGPA.setCircleRadius(4);
+                    lineDataSetGPA.setCircleHoleRadius(2);
+                    lineDataSetGPA.setDrawValues(true);
+                    lineDataSetGPA.setLabel("GPA");
+                    lineDataSetGPA.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+                    chartGpa.setData(lineDataGPA);
+                    chartGpa.getXAxis().setValueFormatter(new IndexAxisValueFormatter(arrayListHK));
+                    chartGpa.getXAxis().setAxisMaximum((float)(arrayListHK.size() - 0.7));
+                    chartGpa.getXAxis().setLabelCount(arrayListHK.size());
+                    chartGpa.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    chartGpa.getAxisRight().setEnabled(false);
+                    chartGpa.getAxisLeft().setAxisMinimum(0f);
+                    chartGpa.getAxisLeft().setAxisMaximum(4.3f);
+                    chartGpa.getXAxis().setAxisMinimum(-0.3f);
+                    chartGpa.getXAxis().setLabelCount(arrayListHK.size());
+                    chartGpa.getXAxis().setGranularity(1f);
+                    chartGpa.animateX(500, Easing.EaseInOutCubic);
+                    Description description = chartGpa.getDescription();
+                    description.setText("");
+                    description.setEnabled(false);
+
+                    LineDataSet lineDataSetCPA = new LineDataSet(arrayListCPA, "");
+                    LineData lineDataCPA = new LineData(lineDataSetCPA);
+                    lineDataSetCPA.setValueTextSize(12f);
+                    lineDataSetCPA.setColor(Color.RED);
+                    lineDataSetCPA.setCircleColor(Color.BLUE);
+                    lineDataSetCPA.setCircleRadius(4);
+                    lineDataSetCPA.setCircleHoleRadius(2);
+                    lineDataSetCPA.setDrawValues(true);
+                    lineDataSetCPA.setLabel("CPA");
+                    lineDataSetCPA.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+                    chartCpa.setData(lineDataCPA);
+                    chartCpa.getXAxis().setValueFormatter(new IndexAxisValueFormatter(arrayListHK));
+                    chartCpa.getXAxis().setAxisMaximum((float)(arrayListHK.size() - 0.7));
+                    chartCpa.getXAxis().setLabelCount(arrayListHK.size());
+                    chartCpa.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    chartCpa.getAxisRight().setEnabled(false);
+                    chartCpa.getAxisLeft().setAxisMinimum(0f);
+                    chartCpa.getAxisLeft().setAxisMaximum(4.3f);
+                    chartCpa.getXAxis().setAxisMinimum(-0.3f);
+                    chartCpa.getXAxis().setLabelCount(arrayListHK.size());
+                    chartCpa.getXAxis().setGranularity(1f);
+                    chartCpa.animateX(500, Easing.EaseInOutCubic);
+                    Description description1 = chartCpa.getDescription();
+                    description1.setText("");
+                    description1.setEnabled(false);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
         return view;
     }
+
+    private void initLayout() {
+        if (getContext() != null) {
+            String value = Utils.getInstance().getValueFromSharedPreferences(getContext(),"share_preferences_data", "key_share_preferences_data_diem_thi_ca_nhan");
+            String str = Utils.getInstance().getValueFromSharedPreferences(getContext(),"share_preferences_data", "key_share_preferences_data_diem_gpa_cpa");
+            this.data = value;
+            this.data0 = str;
+            if (value == null || str == null ||
+                    value.equals("") || str.equals("") ||
+                    this.data.equals("[]") || this.data0.equals("[]")) {
+                Toast.makeText(getContext(), "Không tìm thấy thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                showCourseScore();
+            }
+        }
+    }
+
+    private void showCourseScore() {
+        try {
+            JSONArray jsonArray = new JSONArray(this.data);
+            arrayScore = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                this.arrayScore.add(new CourseScore(
+                        jsonObject.getString("HocKi"),
+                        jsonObject.getString("MaHocPhan"),
+                        jsonObject.getString("TenHocPhan"),
+                        jsonObject.getString("TinChi"),
+                        jsonObject.getString("LopHoc"),
+                        jsonObject.getString("diemQT"),
+                        jsonObject.getString("diemThi"),
+                        jsonObject.getString("diemChu")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showDialogScore(Context context, CourseScore courseScore) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.course_score_dialog, null);
+        builder.setView(dialogView);
+        AlertDialog dialog = builder.create();
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.linearlayout_background);
+        Button btnCancel = dialogView.findViewById(R.id.thoatDialog);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView txt01 = dialogView.findViewById(R.id.mahocphan);
+        TextView txt02 = dialogView.findViewById(R.id.hocki);
+        TextView txt03 = dialogView.findViewById(R.id.lophoc);
+        TextView txt04 = dialogView.findViewById(R.id.sotinchi);
+        TextView txt05 = dialogView.findViewById(R.id.diemquatrinh);
+        TextView txt06 = dialogView.findViewById(R.id.diemthi);
+        TextView txt07 = dialogView.findViewById(R.id.diemchu);
+        TextView txt00 = dialogView.findViewById(R.id.title_txt);
+        txt00.setText(courseScore.getTenHP());
+        txt01.setText("Mã HP: " + courseScore.getMaHP());
+        txt02.setText("Học kì: " + courseScore.getHocKi());
+        txt03.setText("Lớp học: " + courseScore.getLophoc());
+        txt04.setText("Số tín chỉ: " + courseScore.getTinchi());
+        txt05.setText("Điểm QT: " + courseScore.getDiemQT());
+        txt06.setText("Điểm thi KTHP: " + courseScore.getDiemthi());
+        txt07.setText(courseScore.getDiemchu());
+        dialog.show();
+    }
+
+
 }

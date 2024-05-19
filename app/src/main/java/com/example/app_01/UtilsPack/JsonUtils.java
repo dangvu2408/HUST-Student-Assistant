@@ -209,7 +209,7 @@ public class JsonUtils {
     public void parseStudentScore(Context context, Document document) {
         try {
             JSONArray jsonArray = new JSONArray();
-            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvCourseMarks_DXMainTable").getElementsByClass("dxgvDataRow").iterator();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvCourseMarks").getElementsByClass("dxgvDataRow").iterator();
             while (element.hasNext()) {
                 Element next = element.next();
                 String str01 = next.select("td.dx-nowrap").first().text();
@@ -232,6 +232,49 @@ public class JsonUtils {
                 jsonArray.put(jsonObject);
             }
             Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_diem_thi_ca_nhan", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void parseGPACPA(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvResults").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dx-nowrap").first().text();
+                String str02 = next.select("td.dx-nowrap").get(1).text();
+                String str03 = next.select("td.dx-nowrap").get(2).text();
+                String str04 = next.select("td.dx-nowrap").get(3).text();
+                String str05 = next.select("td.dx-nowrap").get(4).text();
+                String str06 = next.select("td.dx-nowrap").get(5).text();
+                String str07 = next.select("td.dx-nowrap").get(6).text();
+                String str08 = next.select("td.dx-nowrap").get(7).text();
+                String str09 = next.select("td.dx-nowrap").get(8).text();
+                String str10 = next.select("td.dx-nowrap").get(9).text();
+                String str11 = next.select("td.dx-nowrap").get(10).text();
+                String str12 = next.select("td.dx-nowrap").get(11).text();
+                String str13 = next.select("td.dx-nowrap").get(12).text();
+                String str14 = next.select("td.dx-nowrap").get(13).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("hockihoc", str01);
+                jsonObject.put("gpa", str02);
+                jsonObject.put("cpa", str03);
+                jsonObject.put("tinchiqua", str04);
+                jsonObject.put("tinchitichluy", str05);
+                jsonObject.put("tinchino", str06);
+                jsonObject.put("tinchidk", str07);
+                jsonObject.put("trinhdo", str08);
+                jsonObject.put("canhbao", str09);
+                jsonObject.put("thieudiem", str10);
+                jsonObject.put("khongtinh", str11);
+                jsonObject.put("ctdtsv", str12);
+                jsonObject.put("dukienxlht", str13);
+                jsonObject.put("xulichinhthuc", str14);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_diem_gpa_cpa", jsonArray.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

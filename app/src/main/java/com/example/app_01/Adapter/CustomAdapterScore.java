@@ -44,25 +44,14 @@ public class CustomAdapterScore extends BaseAdapter {
         }
 
         CourseScore currentStudent = itemList.get(position);
-
-        TextView coursename = listItem.findViewById(R.id.coursename);
-        coursename.setText(currentStudent.getCourseName());
-
-        TextView courseid = listItem.findViewById(R.id.courseid);
-        courseid.setText(currentStudent.getCourseID());
-
-        TextView tc = listItem.findViewById(R.id.tinchi);
-        tc.setText(String.valueOf(currentStudent.getTC()));
-
-        TextView diemQT = listItem.findViewById(R.id.QTscore);
-        diemQT.setText(String.valueOf(currentStudent.getQT()));
-
-        TextView diemCK = listItem.findViewById(R.id.CKscore);
-        diemCK.setText(String.valueOf(currentStudent.getCK()));
-
-        TextView alphascore = listItem.findViewById(R.id.alphabet);
-        alphascore.setText(currentStudent.getAlphabet());
-
+        TextView name = listItem.findViewById(R.id.coursenamema);
+        TextView score = listItem.findViewById(R.id.tinchiqtck);
+        TextView alpha = listItem.findViewById(R.id.alphabet);
+        String nameCourse = currentStudent.getTenHP() + " - " + currentStudent.getMaHP();
+        String courseScore = "Số TC: " + currentStudent.getTinchi() + " - Điểm QT: " + currentStudent.getDiemQT() + " - Điểm thi: " + currentStudent.getDiemthi();
+        name.setText(nameCourse);
+        score.setText(courseScore);
+        alpha.setText(currentStudent.getDiemchu());
         return listItem;
     }
 }
