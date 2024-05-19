@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.example.app_01.Constructor.CourseScore;
 import com.example.app_01.R;
@@ -43,8 +44,14 @@ public class CustomAdapterScore extends BaseAdapter {
         }
 
         CourseScore currentStudent = itemList.get(position);
-
-
+        TextView name = listItem.findViewById(R.id.coursenamema);
+        TextView score = listItem.findViewById(R.id.tinchiqtck);
+        TextView alpha = listItem.findViewById(R.id.alphabet);
+        String nameCourse = currentStudent.getTenHP() + " - " + currentStudent.getMaHP();
+        String courseScore = "Số TC: " + currentStudent.getTinchi() + " - Điểm QT: " + currentStudent.getDiemQT() + " - Điểm thi: " + currentStudent.getDiemthi();
+        name.setText(nameCourse);
+        score.setText(courseScore);
+        alpha.setText(currentStudent.getDiemchu());
         return listItem;
     }
 }

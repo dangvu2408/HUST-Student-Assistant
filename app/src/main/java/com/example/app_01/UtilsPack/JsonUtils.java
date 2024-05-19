@@ -209,7 +209,7 @@ public class JsonUtils {
     public void parseStudentScore(Context context, Document document) {
         try {
             JSONArray jsonArray = new JSONArray();
-            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvCourseMarks_DXMainTable").getElementsByClass("dxgvDataRow").iterator();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvCourseMarks").getElementsByClass("dxgvDataRow").iterator();
             while (element.hasNext()) {
                 Element next = element.next();
                 String str01 = next.select("td.dx-nowrap").first().text();

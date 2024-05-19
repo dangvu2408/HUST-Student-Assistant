@@ -26,38 +26,30 @@
             android:layout_height="match_parent"
             android:text="BẢNG ĐIỂM CÁ NHÂN"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:paddingBottom="15dp"
             android:textColor="@color/black"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="1. Biểu đồ cột"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingTop="5dp"
-            android:textColor="@color/black"/>
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/bar_chart_display"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="2. Biểu đồ đường"
+            android:text="1. Kết quả học tập sinh viên"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="5dp"
             android:textColor="@color/black"/>
         <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/line_chart_display"
+            android:id="@+id/line_chart_gpa"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/line_chart_cpa"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="3. Danh mục học phần"
+            android:text="2. Bảng điểm sinh viên"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingTop="5dp"
@@ -66,14 +58,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:indeterminate="true"
-                android:indeterminateTint="@color/colorPrimary" />
             <ListView
                 android:layout_width="fill_parent"
                 android:layout_height="350dp"
@@ -82,16 +66,6 @@
                 android:dividerHeight="5dp"
                 android:nestedScrollingEnabled="true"/>
         </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="4. Danh mục học phần"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingTop="5dp"
-            android:textColor="@color/black"
-            android:paddingBottom="5dp"/>
     </LinearLayout>
 
 </ScrollView>
