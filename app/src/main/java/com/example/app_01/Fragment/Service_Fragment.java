@@ -36,8 +36,8 @@ public class Service_Fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.service_fragment, container, false);
         initLayout();
-        courseList = view.findViewById(R.id.courses);
 
+        courseList = view.findViewById(R.id.courses);
         adapter = new CustomAdapterScore(getContext(), arrayScore);
         courseList.setAdapter(adapter);
         courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
