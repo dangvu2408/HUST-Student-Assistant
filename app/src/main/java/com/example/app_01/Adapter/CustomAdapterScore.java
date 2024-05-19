@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 
 import com.example.app_01.Constructor.CourseScore;
 import com.example.app_01.R;
@@ -45,23 +44,6 @@ public class CustomAdapterScore extends BaseAdapter {
 
         CourseScore currentStudent = itemList.get(position);
 
-        TextView coursename = listItem.findViewById(R.id.coursename);
-        coursename.setText(currentStudent.getCourseName());
-
-        TextView courseid = listItem.findViewById(R.id.courseid);
-        courseid.setText(currentStudent.getCourseID());
-
-        TextView tc = listItem.findViewById(R.id.tinchi);
-        tc.setText(String.valueOf(currentStudent.getTC()));
-
-        TextView diemQT = listItem.findViewById(R.id.QTscore);
-        diemQT.setText(String.valueOf(currentStudent.getQT()));
-
-        TextView diemCK = listItem.findViewById(R.id.CKscore);
-        diemCK.setText(String.valueOf(currentStudent.getCK()));
-
-        TextView alphascore = listItem.findViewById(R.id.alphabet);
-        alphascore.setText(currentStudent.getAlphabet());
 
         return listItem;
     }
