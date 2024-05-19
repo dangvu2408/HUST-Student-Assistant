@@ -172,4 +172,68 @@ public class JsonUtils {
             e.printStackTrace();
         }
     }
+
+    public void parseTOEICScore(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvStudents").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dx-nowrap").first().text();
+                String str02 = next.select("td.dx-nowrap").get(1).text();
+                String str03 = next.select("td.dx-nowrap").get(2).text();
+                String str04 = next.select("td.dx-nowrap").get(3).text();
+                String str05 = next.select("td.dx-nowrap").get(4).text();
+                String str06 = next.select("td.dx-nowrap").get(5).text();
+                String str07 = next.select("td.dx-nowrap").get(6).text();
+                String str08 = next.select("td.dx-nowrap").get(7).text();
+                String str09 = next.select("td.dx-nowrap").get(8).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("masoSV", str01);
+                jsonObject.put("hotenSV", str02);
+                jsonObject.put("ngaySinh", str03);
+                jsonObject.put("hocKi", str04);
+                jsonObject.put("ghiChu", str05);
+                jsonObject.put("ngayThi", str06);
+                jsonObject.put("diemNghe", str07);
+                jsonObject.put("diemDoc", str08);
+                jsonObject.put("tongDiem", str09);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_diem_thi_toeic", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void parseStudentScore(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvCourseMarks_DXMainTable").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dx-nowrap").first().text();
+                String str02 = next.select("td.dx-nowrap").get(1).text();
+                String str03 = next.select("td.dx-nowrap").get(2).text();
+                String str04 = next.select("td.dx-nowrap").get(3).text();
+                String str05 = next.select("td.dx-nowrap").get(4).text();
+                String str06 = next.select("td.dx-nowrap").get(5).text();
+                String str07 = next.select("td.dx-nowrap").get(6).text();
+                String str08 = next.select("td.dx-nowrap").get(7).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("HocKi", str01);
+                jsonObject.put("MaHocPhan", str02);
+                jsonObject.put("TenHocPhan", str03);
+                jsonObject.put("TinChi", str04);
+                jsonObject.put("LopHoc", str05);
+                jsonObject.put("diemQT", str06);
+                jsonObject.put("diemThi", str07);
+                jsonObject.put("diemChu", str08);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_diem_thi_ca_nhan", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

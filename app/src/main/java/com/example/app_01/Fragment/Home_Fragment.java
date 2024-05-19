@@ -89,6 +89,7 @@ public class Home_Fragment extends Fragment {
         String dateString = dayOfMonth + " Tháng " + month + ", " + year;
         textView.setText(dateString);
         filteredTimes = filtered(str00);
+
         adapterTimetable = new CustomAdapterTimetable(getContext(), filteredTimes);
         listTimetable.setAdapter(adapterTimetable);
         if (adapterTimetable.getCount() == 0) {

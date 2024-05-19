@@ -61,6 +61,8 @@ public class JsoupUtils {
                 JsonUtils.getInstance().parseStudentInfo(context, execute.parse());
                 getTimeTable();
                 getClassInfo();
+                getTOEICScore();
+                getStudentScore();
                 return true;
             } catch (Exception e) {
 
@@ -85,6 +87,22 @@ public class JsoupUtils {
     public void getClassInfo() {
         try {
             JsonUtils.getInstance().parseClassInfo(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/StudentGroupInfo.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getTOEICScore() {
+        try {
+            JsonUtils.getInstance().parseTOEICScore(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/ToeicMarks.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getStudentScore() {
+        try {
+            JsonUtils.getInstance().parseStudentScore(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/StudentCourseMarks.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
         } catch (Exception e) {
             e.printStackTrace();
         }
