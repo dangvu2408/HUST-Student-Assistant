@@ -47,6 +47,7 @@ public class Service_Fragment extends Fragment {
             }
         });
 
+
         return view;
     }
 
