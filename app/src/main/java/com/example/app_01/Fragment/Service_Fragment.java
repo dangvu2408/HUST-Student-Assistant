@@ -131,7 +131,7 @@ public class Service_Fragment extends Fragment {
         lineChart.animateX(500, Easing.EaseInOutCubic);
         lineChart.setDescription(description);
 
-
+        //
         return view;
     }
 }
