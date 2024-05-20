@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -157,7 +156,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Utils.getInstance().saveToSharedPreferences(this, "share_preferences_data", "key_share_preferences_data_hoc_phan_khong_tinh_diem", "");
             }
         } catch (Exception e) {
-            Log.e("RAKAN", "checkAccount: " + e.toString());
             e.printStackTrace();
         }
     }
