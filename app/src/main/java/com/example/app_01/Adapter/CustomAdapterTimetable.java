@@ -50,6 +50,7 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
             startTime.setText(time.substring(i + 1, j - 1));
             endTime.setText(time.substring(j + 2));
             if (time.substring(i + 1, j - 1).equals("6h45") ||
+                    time.substring(i + 1, j - 1).equals("7h0") ||
                     time.substring(i + 1, j - 1).equals("7h30") ||
                     time.substring(i + 1, j - 1).equals("8h25") ||
                     time.substring(i + 1, j - 1).equals("8h0") ||
