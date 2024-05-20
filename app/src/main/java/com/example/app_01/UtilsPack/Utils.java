@@ -1,14 +1,17 @@
 package com.example.app_01.UtilsPack;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import com.example.app_01.R;
 
 import java.io.IOException;
 import java.util.Calendar;
 
 public class Utils {
     private static Utils instance;
-
+    private Dialog dialogLoading;
     public static Utils getInstance() {
         if (instance == null) {
             instance = new Utils();
@@ -49,5 +52,23 @@ public class Utils {
             e.printStackTrace();
         }
         return String.valueOf(i);
+    }
+
+    public void showLoadingDialog(Context context) {
+        Dialog dialog = new Dialog(context);
+        this.dialogLoading = dialog;
+        dialog.requestWindowFeature(1);
+        dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_loading_background);
+        this.dialogLoading.setContentView(R.layout.loading_dialog);
+        this.dialogLoading.setCancelable(false);
+        this.dialogLoading.show();
+    }
+
+    public void hideLoadingDialog(Context context) {
+        Dialog dialog = this.dialogLoading;
+        if (dialog != null && dialog.isShowing()) {
+            this.dialogLoading.dismiss();
+            this.dialogLoading = null;
+        }
     }
 }

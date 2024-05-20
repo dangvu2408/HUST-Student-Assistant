@@ -140,11 +140,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public void initLayout() {
+        Utils.getInstance().showLoadingDialog(this);
         if (Utils.getInstance().isOnline()) {
             new ParseURL().execute(new Void[0]);
         } else {
         Toast.makeText(LoginActivity.this, "Không có kết nối mạng, vui lòng kết nối và thử lại!", Toast.LENGTH_SHORT).show();
         }
+        Utils.getInstance().hideLoadingDialog(this);
     }
 
     public void checkAccount() {
@@ -231,6 +233,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private class Login extends AsyncTask<HashMap, Void, Boolean> {
         private Login() {}
+        public void onPreExecute() {
+            super.onPreExecute();
+            Utils.getInstance().showLoadingDialog(LoginActivity.this);
+        }
         public Boolean doInBackground(HashMap... hashMaps) {
             boolean x = false;
             try {
@@ -271,6 +277,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
+            Utils.getInstance().hideLoadingDialog(LoginActivity.this);
             if(bool.booleanValue()) {
                 LoginActivity.this.saveUser();
                 Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_data_already_user_login", "1");
