@@ -25,6 +25,7 @@ import com.example.app_01.Adapter.ItemsAdapter;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.ListViewHeightUtils;
 import com.example.app_01.UtilsPack.Utils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -98,6 +99,7 @@ public class Home_Fragment extends Fragment {
         } else {
             noClassToday.setVisibility(View.GONE);
         }
+        ListViewHeightUtils.setListViewHeight(listTimetable);
         listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -128,6 +130,7 @@ public class Home_Fragment extends Fragment {
                 } else {
                     noClassToday.setVisibility(View.GONE);
                 }
+                ListViewHeightUtils.setListViewHeight(listTimetable);
                 listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

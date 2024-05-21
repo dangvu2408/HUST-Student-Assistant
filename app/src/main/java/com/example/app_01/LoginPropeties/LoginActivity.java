@@ -224,7 +224,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(LoginActivity.this, "Đang kết nối lại mạng và thử lại...", Toast.LENGTH_SHORT).show();
             }
             if (LoginActivity.this.bitmap == null) {
-                Toast.makeText(LoginActivity.this, "Trang CTT-SIS đang cập nhật, hiện tại app chưa đăng nhập được. Vui lòng thử lại sau...", Toast.LENGTH_SHORT).show();
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast3, null);
+
+                Toast toast = new Toast(LoginActivity.this);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
             }
         }
     }
@@ -276,7 +282,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             Utils.getInstance().hideLoadingDialog(LoginActivity.this);
-            if(bool.booleanValue()) {
+            if (bool.booleanValue()) {
                 LoginActivity.this.saveUser();
                 Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_data_already_user_login", "1");
 
@@ -290,17 +296,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
-            } else {
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.custom_toast2, null);
-
-                Toast toast = new Toast(LoginActivity.this);
-                toast.setDuration(Toast.LENGTH_LONG);
-                toast.setView(layout);
-                toast.show();
-                initLayout();
+                return;
             }
-
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast2, null);
+            Toast toast = new Toast(LoginActivity.this);
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setView(layout);
+            toast.show();
+            initLayout();
         }
     }
 }
