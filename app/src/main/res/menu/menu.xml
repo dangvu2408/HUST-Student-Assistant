@@ -3,25 +3,25 @@
     <item
         android:id="@+id/item1"
         android:title="@string/menu_home"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/homeicon1"
         android:enabled="true" />
 
     <item
         android:id="@+id/item2"
         android:title="@string/menu_service"
-        android:icon="@drawable/ic_service"
+        android:icon="@drawable/bottomiconlist"
         android:enabled="true"/>
 
     <item
         android:id="@+id/item3"
         android:title="@string/menu_noti"
-        android:icon="@drawable/ic_notification"
+        android:icon="@drawable/notifyicon"
         android:enabled="true"/>
 
     <item
         android:id="@+id/item4"
         android:title="@string/menu_profile"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/studentuser"
         android:enabled="true" />
 
 

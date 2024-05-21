@@ -11,15 +11,15 @@
         android:orientation="horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="30dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="15dp"
             android:src="@drawable/iconuncheck" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="15dp"
 
             />
     </LinearLayout>
