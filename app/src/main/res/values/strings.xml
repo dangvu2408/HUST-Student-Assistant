@@ -12,4 +12,5 @@
     <string name="login_guide_2">2. Chọn mục Thư báo tin nhắn.</string>
     <string name="login_guide_3">3. Trong phần thư báo có mã số sinh viên và mật khẩu đăng nhập để truy cập app.</string>
     <string name="login_guide_4">4. Trường hợp mã Captcha chưa hiện, hãy thử ấn vào biểu tượng đổi mã và đợi tầm 3-5s. Nếu mã Captcha vẫn chưa xuất hiện, hãy kiểm tra lại kết nối Internet của bạn...</string>
+    <string name="login_guide_0">Password đăng nhập app là password đăng nhập trang web ctt-sis.hust, trường hợp password chưa đổi, hãy làm theo các bước sau:</string>
 </resources>

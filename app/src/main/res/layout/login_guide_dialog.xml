@@ -39,14 +39,7 @@
             android:layout_marginLeft="20dp"/>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:justificationMode="inter_word"
-        android:padding="10dp"
-        android:text="@string/login_guide_1"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,7 +50,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/login_guide_0"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
+                android:padding="10dp"
+                android:text="@string/login_guide_1"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

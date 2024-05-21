@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="6dp"
+    android:orientation="vertical"
+    android:background="@drawable/button">
+
+    <TextView
+        android:id="@+id/hocki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Học kì: 20221"
+        android:textSize="10dp"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:id="@+id/gpa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GPA: 3.85"
+        android:textSize="10dp"
+        android:textColor="@android:color/black" />
+    <TextView
+        android:id="@+id/tctl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TCTL: 13"
+        android:textSize="10dp"
+        android:textColor="@android:color/black" />
+</LinearLayout>

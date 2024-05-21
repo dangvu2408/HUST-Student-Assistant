@@ -16,6 +16,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.app_01.Adapter.CustomAdapterScore;
+import com.example.app_01.Adapter.CustomMarkerView;
+import com.example.app_01.Adapter.CustomMarkerView2;
 import com.example.app_01.Constructor.CourseScore;
 import com.example.app_01.R;
 import com.example.app_01.UtilsPack.Utils;
@@ -67,17 +69,21 @@ public class Service_Fragment extends Fragment {
                     ArrayList arrayListGPA = new ArrayList();
                     ArrayList arrayListCPA = new ArrayList();
                     ArrayList arrayListHK = new ArrayList();
+                    ArrayList arrayListTC = new ArrayList();
+                    ArrayList arrayListTCTL = new ArrayList();
                     for (int i = jsonArray.length() - 1; i >= 0; i--) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         arrayListGPA.add(new Entry((float)(jsonArray.length() - 1 - i), Float.parseFloat(jsonObject.getString("gpa"))));
                         arrayListCPA.add(new Entry((float)(jsonArray.length() - 1 - i), Float.parseFloat(jsonObject.getString("cpa"))));
                         arrayListHK.add(jsonObject.getString("hockihoc"));
+                        arrayListTC.add(jsonObject.getString("tinchiqua"));
+                        arrayListTCTL.add(jsonObject.getString("tinchitichluy"));
                     }
                     LineDataSet lineDataSetGPA = new LineDataSet(arrayListGPA, "");
                     LineData lineDataGPA = new LineData(lineDataSetGPA);
                     lineDataSetGPA.setValueTextSize(12f);
                     lineDataSetGPA.setColor(Color.RED);
-                    lineDataSetGPA.setCircleColor(Color.BLUE);
+                    lineDataSetGPA.setCircleColor(Color.RED);
                     lineDataSetGPA.setCircleRadius(4);
                     lineDataSetGPA.setCircleHoleRadius(2);
                     lineDataSetGPA.setDrawValues(true);
@@ -95,15 +101,20 @@ public class Service_Fragment extends Fragment {
                     chartGpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartGpa.getXAxis().setGranularity(1f);
                     chartGpa.animateX(500, Easing.EaseInOutCubic);
+                    chartGpa.getXAxis().enableGridDashedLine(10f, 10f, 0f);
+                    chartGpa.getAxisLeft().enableGridDashedLine(10f, 10f, 0f);
                     Description description = chartGpa.getDescription();
                     description.setText("");
                     description.setEnabled(false);
+                    CustomMarkerView markerView1 = new CustomMarkerView(getContext(), R.layout.marker_view_linechart, arrayListTC, arrayListHK);
+                    chartGpa.setMarker(markerView1);
+
 
                     LineDataSet lineDataSetCPA = new LineDataSet(arrayListCPA, "");
                     LineData lineDataCPA = new LineData(lineDataSetCPA);
                     lineDataSetCPA.setValueTextSize(12f);
-                    lineDataSetCPA.setColor(Color.RED);
-                    lineDataSetCPA.setCircleColor(Color.BLUE);
+                    lineDataSetCPA.setColor(Color.GREEN);
+                    lineDataSetCPA.setCircleColor(Color.GREEN);
                     lineDataSetCPA.setCircleRadius(4);
                     lineDataSetCPA.setCircleHoleRadius(2);
                     lineDataSetCPA.setDrawValues(true);
@@ -121,9 +132,13 @@ public class Service_Fragment extends Fragment {
                     chartCpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartCpa.getXAxis().setGranularity(1f);
                     chartCpa.animateX(500, Easing.EaseInOutCubic);
+                    chartCpa.getXAxis().enableGridDashedLine(10f, 10f, 0f);
+                    chartCpa.getAxisLeft().enableGridDashedLine(10f, 10f, 0f);
                     Description description1 = chartCpa.getDescription();
                     description1.setText("");
                     description1.setEnabled(false);
+                    CustomMarkerView2 markerView2 = new CustomMarkerView2(getContext(), R.layout.marker_view_linechart2, arrayListTCTL, arrayListHK);
+                    chartCpa.setMarker(markerView2);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
