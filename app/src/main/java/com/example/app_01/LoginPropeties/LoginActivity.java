@@ -279,11 +279,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(bool.booleanValue()) {
                 LoginActivity.this.saveUser();
                 Utils.getInstance().saveToSharedPreferences(getApplicationContext(), "share_preferences_data", "key_share_preferences_data_already_user_login", "1");
-                Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast1, null);
+
+                Toast toast = new Toast(LoginActivity.this);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
             } else {
-                Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast2, null);
+
+                Toast toast = new Toast(LoginActivity.this);
+                toast.setDuration(Toast.LENGTH_LONG);
+                toast.setView(layout);
+                toast.show();
                 initLayout();
             }
 

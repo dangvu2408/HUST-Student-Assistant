@@ -101,8 +101,8 @@ public class Service_Fragment extends Fragment {
                     chartGpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartGpa.getXAxis().setGranularity(1f);
                     chartGpa.animateX(500, Easing.EaseInOutCubic);
-                    chartGpa.getXAxis().enableGridDashedLine(10f, 10f, 0f);
-                    chartGpa.getAxisLeft().enableGridDashedLine(10f, 10f, 0f);
+                    chartGpa.getXAxis().enableGridDashedLine(5f, 5f, 0f);
+                    chartGpa.getAxisLeft().enableGridDashedLine(5f, 5f, 0f);
                     Description description = chartGpa.getDescription();
                     description.setText("");
                     description.setEnabled(false);
@@ -113,8 +113,8 @@ public class Service_Fragment extends Fragment {
                     LineDataSet lineDataSetCPA = new LineDataSet(arrayListCPA, "");
                     LineData lineDataCPA = new LineData(lineDataSetCPA);
                     lineDataSetCPA.setValueTextSize(12f);
-                    lineDataSetCPA.setColor(Color.GREEN);
-                    lineDataSetCPA.setCircleColor(Color.GREEN);
+                    lineDataSetCPA.setColor(Color.parseColor("#02AB63"));
+                    lineDataSetCPA.setCircleColor(Color.parseColor("#02AB63"));
                     lineDataSetCPA.setCircleRadius(4);
                     lineDataSetCPA.setCircleHoleRadius(2);
                     lineDataSetCPA.setDrawValues(true);
@@ -132,8 +132,8 @@ public class Service_Fragment extends Fragment {
                     chartCpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartCpa.getXAxis().setGranularity(1f);
                     chartCpa.animateX(500, Easing.EaseInOutCubic);
-                    chartCpa.getXAxis().enableGridDashedLine(10f, 10f, 0f);
-                    chartCpa.getAxisLeft().enableGridDashedLine(10f, 10f, 0f);
+                    chartCpa.getXAxis().enableGridDashedLine(5f, 5f, 0f);
+                    chartCpa.getAxisLeft().enableGridDashedLine(5f, 5f, 0f);
                     Description description1 = chartCpa.getDescription();
                     description1.setText("");
                     description1.setEnabled(false);
