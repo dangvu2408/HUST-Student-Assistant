@@ -2,10 +2,11 @@ package com.example.app_01.Constructor;
 
 public class ReItems {
     private int resouceIcon;
-    private String text;
-    public ReItems(int resouceIcon, String text) {
+    private String text, textdes;
+    public ReItems(int resouceIcon, String text, String textdes) {
         this.resouceIcon = resouceIcon;
         this.text = text;
+        this.textdes = textdes;
     }
 
     public int getResouceIcon() {
@@ -22,5 +23,13 @@ public class ReItems {
 
     public void setReText(String text) {
         this.text = text;
+    }
+
+    public String getTextdes() {
+        return textdes;
+    }
+
+    public void setTextdes(String textdes) {
+        this.textdes = textdes;
     }
 }

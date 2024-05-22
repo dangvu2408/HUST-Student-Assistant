@@ -4,60 +4,38 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.app_01.R;
 import com.example.app_01.Constructor.ReItems;
+import com.example.app_01.R;
 
 import java.util.List;
 
-public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHolder> {
+public class ItemsAdapter extends ArrayAdapter<ReItems> {
     private Context context;
     private List<ReItems> listItems;
-    public ItemsAdapter(Context context) {
+
+    public ItemsAdapter(Context context, List<ReItems> listItems) {
+        super(context, 0, listItems);
         this.context = context;
-    }
-
-    public void setData(List<ReItems> listItems) {
         this.listItems = listItems;
-        notifyDataSetChanged();
     }
-    @NonNull
     @Override
-    public ItemsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
-        return new ItemsViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ItemsViewHolder holder, int position) {
-        ReItems items = listItems.get(position);
-        if (items == null) {
-            return;
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listItem = convertView;
+        if (listItem == null) {
+            listItem = LayoutInflater.from(context).inflate(R.layout.recycler_item, parent, false);
         }
-        holder.icon.setImageResource(items.getResouceIcon());
-        holder.text.setText(items.getReText());
-    }
+        ReItems current = listItems.get(position);
+        ImageView img = listItem.findViewById(R.id.re_icon);
+        TextView txt = listItem.findViewById(R.id.re_text);
+        TextView txtdes = listItem.findViewById(R.id.re_des_text);
+        img.setImageResource(current.getResouceIcon());
+        txt.setText(current.getReText());
+        txtdes.setText(current.getTextdes());
 
-    @Override
-    public int getItemCount() {
-        if(listItems != null) {
-            return listItems.size();
-        }
-        return 0;
-    }
-
-    public class ItemsViewHolder extends RecyclerView.ViewHolder {
-        private ImageView icon;
-        private TextView text;
-        public ItemsViewHolder(@NonNull View itemView) {
-            super(itemView);
-            icon = itemView.findViewById(R.id.re_icon);
-            text = itemView.findViewById(R.id.re_text);
-        }
+        return listItem;
     }
 }

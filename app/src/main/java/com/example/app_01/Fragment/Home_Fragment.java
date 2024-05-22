@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,8 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.app_01.Adapter.CustomAdapterTimetable;
 import com.example.app_01.Adapter.ItemsAdapter;
@@ -47,7 +46,6 @@ public class Home_Fragment extends Fragment {
     public TextView txt;
     private TextView noClassToday;
     public int dayOfWeek;
-    private RecyclerView recyclerView;
     private ItemsAdapter adapter;
     private CardView cardView;
     private ListView listTimetable;
@@ -64,8 +62,18 @@ public class Home_Fragment extends Fragment {
         initLayout();
         cardView = view.findViewById(R.id.cardview_trans);
         listTimetable = view.findViewById(R.id.thoikhoabieu);
-        recyclerView = view.findViewById(R.id.recycler);
-        adapter = new ItemsAdapter(getContext());
+
+        GridView gridView = view.findViewById(R.id.gridview);
+        List<ReItems> list = new ArrayList<>();
+        list.add(new ReItems(R.drawable.timetablehust10, "Thời khóa biểu", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp thời khóa biểu", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.checklisthust, "Chương trình đào tạo", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.targethust1, "Mục tiêu ra trường", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.rankshust, "Bảng xếp hạng", "Tra cứu thời khóa biểu, lịch thi"));
+        adapter = new ItemsAdapter(this.getContext(), list);
+        gridView.setAdapter(adapter);
+
         noClassToday = view.findViewById(R.id.nolichhoc);
         TextView textView = view.findViewById(R.id.date_realtime);
 
@@ -140,10 +148,8 @@ public class Home_Fragment extends Fragment {
             }
         });
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 3);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        adapter.setData(getList());
-        recyclerView.setAdapter(adapter);
+
+
 
         return view;
     }
@@ -167,16 +173,7 @@ public class Home_Fragment extends Fragment {
         }
 
     }
-    private List<ReItems> getList() {
-        List<ReItems> list = new ArrayList<>();
-        list.add(new ReItems(R.drawable.timetablehust10, "Thời khóa biểu"));
-        list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp thời khóa biểu"));
-        list.add(new ReItems(R.drawable.checklisthust, "Chương trình đào tạo"));
-        list.add(new ReItems(R.drawable.targethust1, "Mục tiêu ra trường"));
-        list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ"));
-        list.add(new ReItems(R.drawable.rankshust, "Bảng xếp hạng"));
-        return list;
-    }
+
 
     private void initLayout() {
         if (getContext() != null) {

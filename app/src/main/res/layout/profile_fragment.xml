@@ -29,7 +29,20 @@
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/avt0" />
+            android:src="@drawable/defaultavt"
+            android:id="@+id/useravatar1"/>
+
+        <ImageButton
+            android:id="@+id/editprofile"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="48dp"
+            android:padding="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/changeavt"
+            android:background="@drawable/button_circle"/>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

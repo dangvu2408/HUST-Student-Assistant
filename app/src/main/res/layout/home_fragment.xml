@@ -9,7 +9,8 @@
     android:layout_gravity="start"
     android:paddingBottom="72dp"
     android:paddingTop="20dp"
-    android:nestedScrollingEnabled="true">
+    android:nestedScrollingEnabled="true"
+    android:scrollbars="none">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -47,7 +48,8 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/avt0" />
+                    android:src="@drawable/defaultavt"
+                    android:id="@+id/useravatar1" />
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -161,13 +163,15 @@
                 android:layout_marginLeft="15dp"/>
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <GridView
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:id="@+id/recycler"
+            android:layout_height="500dp"
+            android:id="@+id/gridview"
             android:paddingRight="20dp"
             android:paddingLeft="20dp"
-            android:gravity="center">
-        </androidx.recyclerview.widget.RecyclerView>
+            android:paddingTop="10dp"
+            android:gravity="center"
+            android:numColumns="2"
+            android:scrollbars="none"/>
     </LinearLayout>
 </ScrollView>

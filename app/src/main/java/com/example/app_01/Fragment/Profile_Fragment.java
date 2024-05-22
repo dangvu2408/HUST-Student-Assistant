@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -36,6 +37,17 @@ public class Profile_Fragment extends Fragment {
         Button btn_map = view.findViewById(R.id.hust_map);
         Button btn_class = view.findViewById(R.id.class_info);
         Button btn_signout = view.findViewById(R.id.signout);
+        ImageButton edtavt = view.findViewById(R.id.editprofile);
+
+        edtavt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction("android.intent.action.GET_CONTENT");
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+            }
+        });
 
         try {
             JSONObject jsonObject = new JSONObject(Utils.getInstance().getValueFromSharedPreferences(getContext(), "share_preferences_data", "key_share_preferences_data_thong_tin_sinh_vien"));
