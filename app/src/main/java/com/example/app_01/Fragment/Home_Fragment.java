@@ -24,7 +24,7 @@ import com.example.app_01.Adapter.ItemsAdapter;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
-import com.example.app_01.UtilsPack.ListViewHeightUtils;
+import com.example.app_01.UtilsPack.HeightUtils;
 import com.example.app_01.UtilsPack.Utils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -66,13 +66,12 @@ public class Home_Fragment extends Fragment {
         GridView gridView = view.findViewById(R.id.gridview);
         List<ReItems> list = new ArrayList<>();
         list.add(new ReItems(R.drawable.timetablehust10, "Thời khóa biểu", "Tra cứu thời khóa biểu, lịch thi"));
-        list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp thời khóa biểu", "Tra cứu thời khóa biểu, lịch thi"));
-        list.add(new ReItems(R.drawable.checklisthust, "Chương trình đào tạo", "Tra cứu thời khóa biểu, lịch thi"));
-        list.add(new ReItems(R.drawable.targethust1, "Mục tiêu ra trường", "Tra cứu thời khóa biểu, lịch thi"));
-        list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ", "Tra cứu thời khóa biểu, lịch thi"));
-        list.add(new ReItems(R.drawable.rankshust, "Bảng xếp hạng", "Tra cứu thời khóa biểu, lịch thi"));
+        list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp TKB", "Sắp xếp, chỉnh sửa thời khóa biểu"));
+        list.add(new ReItems(R.drawable.checklisthust, "Danh mục học phần", "Tra cứu học phần trong CTDT"));
+        list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ", "Tra cứu thông tin về học phí"));
         adapter = new ItemsAdapter(this.getContext(), list);
         gridView.setAdapter(adapter);
+        HeightUtils.setGridViewHeight(gridView, 2);
 
         noClassToday = view.findViewById(R.id.nolichhoc);
         TextView textView = view.findViewById(R.id.date_realtime);
@@ -107,7 +106,7 @@ public class Home_Fragment extends Fragment {
         } else {
             noClassToday.setVisibility(View.GONE);
         }
-        ListViewHeightUtils.setListViewHeight(listTimetable);
+        HeightUtils.setListViewHeight(listTimetable);
         listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -138,7 +137,7 @@ public class Home_Fragment extends Fragment {
                 } else {
                     noClassToday.setVisibility(View.GONE);
                 }
-                ListViewHeightUtils.setListViewHeight(listTimetable);
+                HeightUtils.setListViewHeight(listTimetable);
                 listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

@@ -9,7 +9,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingTop="75dp"
-    android:paddingBottom="72dp"
+    android:layout_marginBottom="75dp"
     android:scrollbars="none"
     android:id="@+id/profile_frag"
     tools:context=".Fragment.Profile_Fragment">
@@ -220,7 +220,7 @@
                 android:layout_height="45dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
-                android:text="Đồng bộ dữ liệu"
+                android:text="Cập nhật dữ liệu"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textAllCaps="true"

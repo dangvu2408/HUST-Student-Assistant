@@ -39,14 +39,13 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:paddingTop="5dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rounded"
-        app:backgroundTint="@color/colorPrimary"
         app:itemIconTint="@color/nav_color"
         app:itemTextColor="@color/nav_color"
         app:itemIconSize="25dp"
-        app:itemBackground="@color/colorPrimary"
+        app:itemBackground="@drawable/rounded"
         app:menu="@menu/menu" />
 </RelativeLayout>

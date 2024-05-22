@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +30,6 @@ public class Class_Info extends AppCompatActivity {
     private ListView listClassView;
     private CustomAdapter adapter;
     private ArrayList<SinhVien> arrayClass;
-    private ProgressBar progressBar;
     private String data;
     private Context context;
 
@@ -40,12 +39,9 @@ public class Class_Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.class_info_activity);
         context = this;
-        progressBar = findViewById(R.id.progress_bar);
         listClassView = findViewById(R.id.class_list);
         arrayClass = new ArrayList<>();
-        progressBar.setVisibility(View.VISIBLE);
         initLayout();
-        progressBar.setVisibility(View.GONE);
 
         adapter = new CustomAdapter(this, arrayClass);
         listClassView.setAdapter(adapter);
@@ -55,7 +51,7 @@ public class Class_Info extends AppCompatActivity {
                 showDialogClass(context, arrayClass.get(position));
             }
         });
-        Button btn_back = findViewById(R.id.gobackclass);
+        ImageButton btn_back = findViewById(R.id.gobackclass);
         btn_back.setOnClickListener(v -> finish());
     }
 

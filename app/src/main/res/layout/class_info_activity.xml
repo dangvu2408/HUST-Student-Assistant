@@ -12,31 +12,27 @@
 
     </ListView>
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/colorPrimary" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:paddingLeft="10dp">
-        <Button
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thông tin lớp sinh viên"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <ImageButton
             android:id="@+id/gobackclass"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="#ffffff"
-            android:text="Back"
-            android:textSize="18sp"
-            android:drawableLeft="@drawable/return_icon"
-            android:drawablePadding="10dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/return_icon"
+            android:padding="15dp"
             android:background="@color/colorPrimary"/>
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </RelativeLayout>

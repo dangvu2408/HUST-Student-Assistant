@@ -5,25 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AppCompat.Hust_Map">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorPrimary"
-        android:paddingLeft="10dp">
-        <Button
+        android:elevation="1dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bản đồ Bách Khoa"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <ImageButton
             android:id="@+id/return_map"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textColor="#ffffff"
-            android:text="Back"
-            android:textSize="18sp"
-            android:drawableLeft="@drawable/return_icon"
-            android:drawablePadding="10dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/return_icon"
+            android:padding="15dp"
             android:background="@color/colorPrimary"/>
-
-    </LinearLayout>
+    </RelativeLayout>
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
