@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
@@ -18,19 +19,29 @@ public class Notification_Fragment extends Fragment {
 
     private String link;
     private WebView webView;
-
+    private LinearLayout linear;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.notification_fragment, container, false);
         webView = view.findViewById(R.id.webView);
+        linear = view.findViewById(R.id.linear);
         this.link = "https://ctt.hust.edu.vn/DisplayWeb/DisplayListBaiViet?tag=%C4%90T%C4%90H";
         if (Utils.getInstance().isOnline()) {
             openWeb(this.link);
         }
-
+        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) linear.getLayoutParams();
+        params.topMargin = -235;
+        params.bottomMargin = -255;
+        linear.setLayoutParams(params);
         return view;
+    }
+
+    public void goBack() {
+        if (webView != null && webView.canGoBack()) {
+            webView.goBack();
+        }
     }
 
     private void openWeb(String str) {
@@ -58,4 +69,5 @@ public class Notification_Fragment extends Fragment {
             sslErrorHandler.cancel();
         }
     }
+
 }
