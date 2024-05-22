@@ -31,6 +31,7 @@ public class Notification_Fragment extends Fragment {
         if (Utils.getInstance().isOnline()) {
             openWeb(this.link);
         }
+
         ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) linear.getLayoutParams();
         params.topMargin = -235;
         params.bottomMargin = -255;
