@@ -1,7 +1,6 @@
 package com.example.app_01.Fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +21,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.app_01.Adapter.CustomAdapterTimetable;
 import com.example.app_01.Adapter.ItemsAdapter;
-import com.example.app_01.AppCompat.TKBActivity;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
@@ -52,7 +50,7 @@ public class Home_Fragment extends Fragment {
     private ListView listTimetable;
     private boolean isTrans = false;
     private CustomAdapterTimetable adapterTimetable;
-    private ArrayList<TimeTable> timeTables;
+    public static ArrayList<TimeTable> timeTables;
     private ArrayList<TimeTable> filteredTimes;
     private String data;
     @Override
@@ -72,28 +70,28 @@ public class Home_Fragment extends Fragment {
         ItemsAdapter adapter = new ItemsAdapter(this.getContext(), list);
         gridView.setAdapter(adapter);
         HeightUtils.setGridViewHeight(gridView, 2);
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (getActivity() != null) {
-                    switch (position) {
-                        case 0:
-                            startActivity(new Intent(getActivity(), TKBActivity.class));
-                            break;
-                        case 1:
-                            startActivity(new Intent(getActivity(), TKBActivity.class));
-                            break;
-                        case 2:
-                            startActivity(new Intent(getActivity(), TKBActivity.class));
-                            break;
-                        case 3:
-                            startActivity(new Intent(getActivity(), TKBActivity.class));
-                            break;
-                    }
-                }
-
-            }
-        });
+//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                if (getActivity() != null) {
+//                    switch (position) {
+//                        case 0:
+//                            startActivity(new Intent(getActivity(), TKBActivity.class));
+//                            break;
+//                        case 1:
+//                            startActivity(new Intent(getActivity(), TKBActivity.class));
+//                            break;
+//                        case 2:
+//                            startActivity(new Intent(getActivity(), TKBActivity.class));
+//                            break;
+//                        case 3:
+//                            startActivity(new Intent(getActivity(), TKBActivity.class));
+//                            break;
+//                    }
+//                }
+//
+//            }
+//        });
 
 
 

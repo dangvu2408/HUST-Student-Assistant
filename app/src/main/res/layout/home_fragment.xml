@@ -171,6 +171,7 @@
             android:paddingTop="10dp"
             android:gravity="center"
             android:numColumns="2"
-            android:scrollbars="none"/>
+            android:scrollbars="none"
+            android:focusable="false"/>
     </LinearLayout>
 </ScrollView>

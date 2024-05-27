@@ -1,6 +1,7 @@
 package com.example.app_01.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
+
+import com.example.app_01.AppCompat.TKBActivity;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.R;
 
@@ -35,7 +39,28 @@ public class ItemsAdapter extends ArrayAdapter<ReItems> {
         img.setImageResource(current.getResouceIcon());
         txt.setText(current.getReText());
         txtdes.setText(current.getTextdes());
-
+        CardView cardView = listItem.findViewById(R.id.cardviewClick);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (context != null) {
+                    switch (position) {
+                        case 0:
+                            context.startActivity(new Intent(context, TKBActivity.class));
+                            break;
+                        case 1:
+                            context.startActivity(new Intent(context, TKBActivity.class));
+                            break;
+                        case 2:
+                            context.startActivity(new Intent(context, TKBActivity.class));
+                            break;
+                        case 3:
+                            context.startActivity(new Intent(context, TKBActivity.class));
+                            break;
+                    }
+                }
+            }
+        });
         return listItem;
     }
 }

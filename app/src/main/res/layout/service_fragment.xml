@@ -56,17 +56,15 @@
             android:paddingTop="5dp"
             android:textColor="@color/black"
             android:paddingBottom="5dp"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ListView
-                android:layout_width="fill_parent"
-                android:layout_height="350dp"
-                android:id="@+id/courses"
-                android:divider="@android:color/transparent"
-                android:dividerHeight="5dp"
-                android:nestedScrollingEnabled="true"/>
-        </RelativeLayout>
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/courses"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
+            android:paddingBottom="10dp"/>
     </LinearLayout>
 
 </ScrollView>

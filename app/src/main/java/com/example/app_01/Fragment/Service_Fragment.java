@@ -20,6 +20,7 @@ import com.example.app_01.Adapter.CustomMarkerView;
 import com.example.app_01.Adapter.CustomMarkerView2;
 import com.example.app_01.Constructor.CourseScore;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.HeightUtils;
 import com.example.app_01.UtilsPack.Utils;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -52,6 +53,7 @@ public class Service_Fragment extends Fragment {
         initLayout();
         adapter = new CustomAdapterScore(getContext(), arrayScore);
         courseList.setAdapter(adapter);
+        HeightUtils.setListViewHeight(courseList);
         courseList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

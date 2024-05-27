@@ -3,32 +3,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="15dp">
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:scrollbars="none">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/calendarTKBFrg"
+                app:mcv_showOtherDates="all"
+                app:mcv_selectionColor="@color/colorPrimary"
+                app:mcv_firstDayOfWeek="monday"
+                app:mcv_headerTextAppearance="@style/NullStyle"
+                app:mcv_dateTextAppearance="@style/CustomDayAppearance"
+                app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/realtimeselect"
+                android:text="abc"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
 <!--        <TextView-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:layout_gravity="center"-->
 <!--            android:text="Thoikhoabieu"/>-->
-        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:paddingBottom="10dp"
+            android:background="#BFBFC2"/>
+        <TextView
+            android:id="@+id/khongHoc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/calendarTKBFrg"
-            app:mcv_showOtherDates="all"
-            app:mcv_selectionColor="@color/colorPrimary"
-            app:mcv_firstDayOfWeek="monday"
-            app:mcv_headerTextAppearance="@style/NullStyle"
-            app:mcv_dateTextAppearance="@style/CustomDayAppearance"
-            app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"/>
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="10dp"
+            android:text="Không có lớp học nào"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone"/>
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/thoiKhoaBieuCus"
             android:divider="@android:color/transparent"
             android:dividerHeight="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
             android:scrollbars="none"/>
     </LinearLayout>
 </ScrollView>
