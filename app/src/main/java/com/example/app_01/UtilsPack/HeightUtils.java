@@ -14,7 +14,8 @@ public class HeightUtils {
         }
 
         int total = listView.getPaddingTop() + listView.getPaddingBottom();
-        for (int i = 0; i < listAdapter.getCount(); i++) {
+        int count = listAdapter.getCount();
+        for (int i = 0; i < count; i++) {
             View listItem = listAdapter.getView(i, null, listView);
             listItem.measure(
                     View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED),

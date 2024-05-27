@@ -1,6 +1,7 @@
 package com.example.app_01.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.app_01.Adapter.CustomAdapterTimetable;
 import com.example.app_01.Adapter.ItemsAdapter;
+import com.example.app_01.AppCompat.TKBActivity;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
@@ -46,7 +48,6 @@ public class Home_Fragment extends Fragment {
     public TextView txt;
     private TextView noClassToday;
     public int dayOfWeek;
-    private ItemsAdapter adapter;
     private CardView cardView;
     private ListView listTimetable;
     private boolean isTrans = false;
@@ -62,16 +63,39 @@ public class Home_Fragment extends Fragment {
         initLayout();
         cardView = view.findViewById(R.id.cardview_trans);
         listTimetable = view.findViewById(R.id.thoikhoabieu);
-
         GridView gridView = view.findViewById(R.id.gridview);
         List<ReItems> list = new ArrayList<>();
         list.add(new ReItems(R.drawable.timetablehust10, "Thời khóa biểu", "Tra cứu thời khóa biểu, lịch thi"));
         list.add(new ReItems(R.drawable.customtimetable, "Sắp xếp TKB", "Sắp xếp, chỉnh sửa thời khóa biểu"));
         list.add(new ReItems(R.drawable.checklisthust, "Danh mục học phần", "Tra cứu học phần trong CTDT"));
         list.add(new ReItems(R.drawable.tuitionhust, "Học phí - Công nợ", "Tra cứu thông tin về học phí"));
-        adapter = new ItemsAdapter(this.getContext(), list);
+        ItemsAdapter adapter = new ItemsAdapter(this.getContext(), list);
         gridView.setAdapter(adapter);
         HeightUtils.setGridViewHeight(gridView, 2);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (getActivity() != null) {
+                    switch (position) {
+                        case 0:
+                            startActivity(new Intent(getActivity(), TKBActivity.class));
+                            break;
+                        case 1:
+                            startActivity(new Intent(getActivity(), TKBActivity.class));
+                            break;
+                        case 2:
+                            startActivity(new Intent(getActivity(), TKBActivity.class));
+                            break;
+                        case 3:
+                            startActivity(new Intent(getActivity(), TKBActivity.class));
+                            break;
+                    }
+                }
+
+            }
+        });
+
+
 
         noClassToday = view.findViewById(R.id.nolichhoc);
         TextView textView = view.findViewById(R.id.date_realtime);
@@ -146,10 +170,6 @@ public class Home_Fragment extends Fragment {
                 });
             }
         });
-
-
-
-
         return view;
     }
 
@@ -157,12 +177,11 @@ public class Home_Fragment extends Fragment {
 
     @Override
     public void onResume() {
-        super.onResume();
-
-        if (isTrans) {
+        if (!isTrans) {
             cardView.setTranslationY(-400);
             cardView.animate().translationY(0).setDuration(1800).setInterpolator(new AccelerateDecelerateInterpolator()).start();
         }
+        super.onResume();
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -170,7 +189,6 @@ public class Home_Fragment extends Fragment {
         if (savedInstanceState == null) {
             isTrans = true;
         }
-
     }
 
 

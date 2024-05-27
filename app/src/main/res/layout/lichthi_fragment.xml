@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp">
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="lichthi"-->
+<!--        android:layout_gravity="center"/>-->
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarLichThi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="@color/colorPrimary"
+        app:mcv_headerTextAppearance="@style/NullStyle"
+        app:mcv_dateTextAppearance="@style/CustomDayAppearance"
+        app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"
+        app:mcv_selectionMode="single"
+        app:mcv_firstDayOfWeek="monday"
+        app:mcv_calendarMode="week"/>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lichThilist"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="5dp"
+        android:scrollbars="none"/>
+</LinearLayout>

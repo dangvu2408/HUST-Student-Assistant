@@ -21,7 +21,7 @@ public class Utils {
 
     public boolean isOnline() {
         try {
-            if(Runtime.getRuntime().exec("/system/bin/ping -c 1 8.8.8.8").waitFor() == 0) {
+            if (Runtime.getRuntime().exec("/system/bin/ping -c 1 8.8.8.8").waitFor() == 0) {
                 return true;
             }
             return false;
@@ -43,13 +43,18 @@ public class Utils {
     }
 
     public String getWeek(Context context) {
-        int i;
+        int i, j;
+        j = Calendar.getInstance().get(3);
         try {
-            i = Integer.parseInt(getInstance().getValueFromSharedPreferences(context, "share_preferences_data", "key_share_preferenceds_data_tuan_hoc_hien_tai"))
-                    + (Calendar.getInstance().get(3) - Integer.parseInt(getInstance().getValueFromSharedPreferences(context, "share_preferences_data", "key_share_preferenceds_data_week_of_year")));
+            int m = Integer.parseInt(getInstance().getValueFromSharedPreferences(context, "share_preferences_data", "key_share_preferenceds_data_tuan_hoc_hien_tai"));
+            int n = Integer.parseInt(getInstance().getValueFromSharedPreferences(context, "share_preferences_data", "key_share_preferenceds_data_week_of_year"));
+            if (j >= n) {
+                i = (j - n) + m;
+            } else {
+                i = (52 - n) + m + j;
+            }
         } catch (Exception e) {
             i = 0;
-            e.printStackTrace();
         }
         return String.valueOf(i);
     }

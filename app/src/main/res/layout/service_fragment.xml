@@ -29,7 +29,8 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:paddingBottom="15dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:fontFamily="@font/linh_avantgarde_bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

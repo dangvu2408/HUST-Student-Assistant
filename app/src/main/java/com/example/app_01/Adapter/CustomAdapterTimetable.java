@@ -5,7 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
@@ -14,8 +17,8 @@ import com.example.app_01.UtilsPack.Utils;
 import java.util.ArrayList;
 
 public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
-     private Context context;
-     private ArrayList<TimeTable> itemList;
+     private final Context context;
+     private final ArrayList<TimeTable> itemList;
 
     public CustomAdapterTimetable(Context context, ArrayList<TimeTable> itemList) {
         super(context, 0, itemList);
@@ -23,13 +26,17 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
         this.itemList = itemList;
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         View listItem = convertView;
         if (listItem == null) {
             listItem = LayoutInflater.from(context).inflate(R.layout.timetable_listitem, parent, false);
         }
+
+
         TimeTable currentTKB = itemList.get(position);
+        ImageView imgDot = listItem.findViewById(R.id.dotRed);
         TextView startTime = listItem.findViewById(R.id.startTime);
         TextView endTime = listItem.findViewById(R.id.endTime);
         TextView classInfor  = listItem.findViewById(R.id.classinfo);
@@ -78,56 +85,89 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
             classAddress.setText(classaddress);
         }
 
-        if (itemList.get(position).getLoailop().equals("TN")) {
-            String weekNow = Utils.getInstance().getWeek(context);
-            String week = itemList.get(position).getTuanhoc();
-            ArrayList arrayList = new ArrayList();
-            StringBuilder stringBuilder = new StringBuilder();
-            boolean x = false;
-            String str = "";
-            for (int i = 0; i < week.length(); i++) {
-                if (String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".") && !x) {
-                    arrayList.add(String.valueOf(stringBuilder).trim());
-                    stringBuilder = new StringBuilder();
-                } else if (String.valueOf(week.charAt(i)).equals("-")) {
-                    str = stringBuilder.toString().trim();
-                    stringBuilder = new StringBuilder();
-                    x = true;
-                } else if (String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".") && x) {
-                    String trim = stringBuilder.toString().trim();
-                    for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim); j++) {
-                        arrayList.add(String.valueOf(j));
-                    }
-                    stringBuilder = new StringBuilder();
-                    x = false;
-                    str = "";
+
+        String weekNow = Utils.getInstance().getWeek(context);
+        String week = currentTKB.getTuanhoc();
+        ArrayList arrayList = new ArrayList();
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean x = false;
+        String str = null;
+        int i = 0, k = 1;
+        while (i < week.length()) {
+            if ((String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".")) && !x) {
+                arrayList.add(String.valueOf(stringBuilder).trim());
+                stringBuilder = new StringBuilder();
+            } else if (String.valueOf(week.charAt(i)).equals("-")) {
+                str = stringBuilder.toString().trim();
+                stringBuilder = new StringBuilder();
+                x = true;
+            } else if ((String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".")) && x) {
+                String trim = stringBuilder.toString().trim();
+                for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim); j++) {
+                    arrayList.add(String.valueOf(j));
+                }
+                stringBuilder = new StringBuilder();
+                x = false;
+                str = null;
+            } else if (i == week.length() - k) {
+                stringBuilder.append(week.charAt(i));
+                if (!x) {
+                    arrayList.add(String.valueOf(stringBuilder));
                 } else {
-                    if (i == week.length()) {
-                        stringBuilder.append(week.charAt(i));
-                        if (!x) {
-                            arrayList.add(String.valueOf(stringBuilder));
-                        } else {
-                            String trim0 = stringBuilder.toString().trim();
-                            for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim0); j++) {
-                                arrayList.add(String.valueOf(j));
-                            }
-                        }
-                    } else {
-                        stringBuilder.append(week.charAt(i));
+                    String trim1 = stringBuilder.toString().trim();
+                    for (int m = Integer.parseInt(str); m <= Integer.parseInt(trim1); m++) {
+                        arrayList.add(String.valueOf(m));
                     }
                 }
+            } else {
+                stringBuilder.append(week.charAt(i));
             }
-            if (arrayList.size() > 0) {
-                for (int i = 0; i < arrayList.size(); i++) {
-                    if (!weekNow.equals(arrayList.get(i))) {
+            i++;
+        }
+
+//        if (currentTKB.getLoailop().equals("TN")) {
+//            for (int i = 0; i < week.length(); i++) {
+//                if ((String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".")) && !x) {
+//                    arrayList.add(String.valueOf(stringBuilder).trim());
+//                    stringBuilder = new StringBuilder();
+//                } else if (String.valueOf(week.charAt(i)).equals("-")) {
+//                    str = stringBuilder.toString().trim();
+//                    stringBuilder = new StringBuilder();
+//                    x = true;
+//                } else if ((String.valueOf(week.charAt(i)).equals(",") || String.valueOf(week.charAt(i)).equals(".")) && x) {
+//                    String trim = stringBuilder.toString().trim();
+//                    for (int j = Integer.parseInt(str); j <= Integer.parseInt(trim); j++) {
+//                        arrayList.add(String.valueOf(j));
+//                    }
+//                    stringBuilder = new StringBuilder();
+//                    x = false;
+//                    str = null;
+//                } else {
+//                    if (i == week.length() - 1) {
+//                        stringBuilder.append(week.charAt(i));
+//                        if (!x) {
+//                            arrayList.add(String.valueOf(stringBuilder));
+//                        } else {
+//                            String trim0 = stringBuilder.toString().trim();
+//                            for (int k = Integer.parseInt(str); k <= Integer.parseInt(trim0); k++) {
+//                                arrayList.add(String.valueOf(k));
+//                            }
+//                        }
+//                    } else {
+//                        stringBuilder.append(week.charAt(i));
+//                    }
+//                }
+//            }
+
+        if (arrayList.size() > 0) {
+            for (int a = 0; a < arrayList.size(); a++) {
+                if (weekNow.equals(arrayList.get(a))) {
+                    if (currentTKB.getLoailop().equals("TN")) {
                         listItem.setBackgroundResource(R.drawable.item_tkb_tn);
                     }
                 }
             }
         }
-
         return listItem;
     }
-
-
 }

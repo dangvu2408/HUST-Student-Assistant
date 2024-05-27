@@ -1,14 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppCompat.MainActivity2">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nhận thông báo"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:textStyle="bold"/>
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/switchNoti"
+                android:layout_alignParentEnd="true"
+                android:checked="false"
+                app:track="@drawable/track_switch"
+                android:thumb="@drawable/thumb_switch"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="40dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông báo lịch học trước"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinneropt"
+                android:layout_alignParentEnd="true"
+                android:spinnerMode="dropdown"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="5dp"
+            android:text="Điều chỉnh tuần học"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BFBFC2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                app:np_orientation="horizontal"
+                app:np_max="52"
+                app:np_min="0"
+                app:np_textColor="@color/colorPrimary"
+                app:np_selectedTextColor="@color/colorPrimary"
+                app:np_selectedTextSize="24sp"
+                app:np_textSize="22sp"
+                app:np_dividerThickness="0dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#BFBFC2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/saveSet"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif"
+            android:text="Lưu cài đặt"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/log_out_button"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cài đặt"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <ImageButton
+            android:id="@+id/backtoMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/return_icon"
+            android:padding="15dp"
+            android:background="@color/colorPrimary"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -6,25 +6,39 @@
     android:background="#ffffff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AppCompat.MainActivity">
-
-
-    <TextView
-        android:id="@+id/mytextview"
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/shadow"
-        android:elevation="10dp"
-        android:fontFamily="@font/utm_nokia"
-        android:gravity="center|top"
-        android:padding="16dp"
-        android:text="HUST"
-        android:textSize="20sp"
-        android:textColor="#fff" />
+        android:elevation="1dp">
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:scaleType="fitCenter"
+            android:id="@+id/btnsetting"
+            android:elevation="1dp"
+            android:src="@drawable/settingicon"
+            android:background="@color/colorPrimary"
+            android:layout_margin="12dp"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:id="@+id/mytextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shadow"
+            android:fontFamily="@font/utm_nokia"
+            android:gravity="center|top"
+            android:padding="16dp"
+            android:text="HUST"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
 
     <ImageView
         android:id="@+id/myimage"
         android:src="@drawable/hust"
-        android:elevation="10dp"
+        android:elevation="1dp"
         android:layout_width="39dp"
         android:layout_height="57dp"
         android:layout_margin="20dp" />

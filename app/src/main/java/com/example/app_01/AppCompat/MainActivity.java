@@ -1,6 +1,8 @@
 package com.example.app_01.AppCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -18,14 +20,13 @@ import com.example.app_01.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-
+    ImageButton img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
+        img = findViewById(R.id.btnsetting);
 
 
 
@@ -44,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
             }
             return true;
         });
+
+        img.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            startActivity(intent);
+        });
     }
     private void repalceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -52,8 +58,5 @@ public class MainActivity extends AppCompatActivity {
         trans.commit();
     }
 
-    private void makeStatusBarTransparent() {
-
-    }
 
 }

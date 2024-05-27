@@ -25,12 +25,16 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".AppCompat.TKBActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".AppCompat.Hust_Map"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".AppCompat.Splash"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
