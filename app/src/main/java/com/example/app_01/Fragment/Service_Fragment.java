@@ -148,9 +148,6 @@ public class Service_Fragment extends Fragment {
                 e.printStackTrace();
             }
         }
-
-
-
         return view;
     }
 
