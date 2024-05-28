@@ -1,33 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:scrollbars="none">
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
 <!--        android:text="lichthi"-->
 <!--        android:layout_gravity="center"/>-->
-    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/calendarLichThi"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:mcv_showOtherDates="all"
-        app:mcv_selectionColor="@color/colorPrimary"
-        app:mcv_headerTextAppearance="@style/NullStyle"
-        app:mcv_dateTextAppearance="@style/CustomDayAppearance"
-        app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"
-        app:mcv_selectionMode="single"
-        app:mcv_firstDayOfWeek="monday"
-        app:mcv_calendarMode="week"/>
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lichThilist"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="5dp"
-        android:scrollbars="none"/>
-</LinearLayout>
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/calendarLichThi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mcv_showOtherDates="all"
+                app:mcv_selectionColor="@color/colorPrimary"
+                app:mcv_headerTextAppearance="@style/NullStyle"
+                app:mcv_dateTextAppearance="@style/CustomDayAppearance"
+                app:mcv_weekDayTextAppearance="@style/CustomTextAppearance"
+                app:mcv_selectionMode="single"
+                app:mcv_firstDayOfWeek="monday"
+                app:mcv_calendarMode="week"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/realtimeselect1"
+                android:text="abc"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:text="Danh sách lớp thi"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/khongThi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:paddingTop="10dp"
+            android:text="Ngày 28/05/2024 không có lớp thi"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lichThilist"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="15dp"
+            android:scrollbars="none"/>
+    </LinearLayout>
+</ScrollView>
