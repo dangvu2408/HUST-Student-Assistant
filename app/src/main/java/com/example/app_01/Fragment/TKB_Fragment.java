@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,10 +20,13 @@ import com.example.app_01.Adapter.CustomAdapterTimetable;
 import com.example.app_01.Constructor.TimeTable;
 import com.example.app_01.R;
 import com.example.app_01.UtilsPack.HeightUtils;
+import com.example.app_01.UtilsPack.Utils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.threeten.bp.DateTimeUtils;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.ZoneId;
@@ -37,6 +41,7 @@ public class TKB_Fragment extends Fragment {
     private CustomAdapterTimetable adapterTimetable;
     private ListView listTimetable;
     public int dayOfWeek;
+    private String data;
     public TKB_Fragment() {}
     @Nullable
     @Override
@@ -46,7 +51,7 @@ public class TKB_Fragment extends Fragment {
         MaterialCalendarView material = view.findViewById(R.id.calendarTKBFrg);
         listTimetable = view.findViewById(R.id.thoiKhoaBieuCus);
         noLichHoc = view.findViewById(R.id.khongHoc);
-        this.timeTables = Home_Fragment.timeTables;
+        initLayout();
         CalendarDay calendarDay = CalendarDay.today();
         material.setSelectedDate(calendarDay);
         Calendar date = Calendar.getInstance();
@@ -157,5 +162,40 @@ public class TKB_Fragment extends Fragment {
         txt09.setText(timeTable.getThoigian() + ", " + timeTable.getPhonghoc());
         txt10.setText("Tuần học: " + timeTable.getTuanhoc());
         dialog.show();
+    }
+    private void initLayout() {
+        if (getContext() != null) {
+            String value = Utils.getInstance().getValueFromSharedPreferences(getContext(),"share_preferences_data", "key_share_preferences_data_tkb");
+            this.data = value;
+            if (value == null || value.equals("") || this.data.equals("[]")) {
+                Toast.makeText(getContext(), "Không tìm thấy thông tin", Toast.LENGTH_SHORT).show();
+            } else {
+                showTimeTable();
+            }
+        }
+    }
+    private void showTimeTable() {
+        try {
+            JSONArray jsonArray = new JSONArray(this.data);
+            this.timeTables = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                this.timeTables.add(new TimeTable(jsonObject.getString("Thoi_gian"),
+                        jsonObject.getString("Tuan_hoc"),
+                        jsonObject.getString("Phong_hoc"),
+                        jsonObject.getString("Ma_lop"),
+                        jsonObject.getString("Loai_lop"),
+                        jsonObject.getString("Nhom"),
+                        jsonObject.getString("Ma_HP"),
+                        jsonObject.getString("Ten_lop"),
+                        jsonObject.getString("Ghi_chu"),
+                        jsonObject.getString("Hinh_thuc_day"),
+                        jsonObject.getString("Giang_vien"),
+                        jsonObject.getString("Link_online"),
+                        jsonObject.getString("Code_teams")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

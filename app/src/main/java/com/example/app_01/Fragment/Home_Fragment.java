@@ -50,7 +50,7 @@ public class Home_Fragment extends Fragment {
     private ListView listTimetable;
     private boolean isTrans = false;
     private CustomAdapterTimetable adapterTimetable;
-    public static ArrayList<TimeTable> timeTables;
+    public ArrayList<TimeTable> timeTables;
     private ArrayList<TimeTable> filteredTimes;
     private String data;
     @Override
@@ -205,7 +205,7 @@ public class Home_Fragment extends Fragment {
     private void showTimeTable() {
         try {
             JSONArray jsonArray = new JSONArray(this.data);
-            timeTables = new ArrayList<>();
+            this.timeTables = new ArrayList<>();
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 this.timeTables.add(new TimeTable(jsonObject.getString("Thoi_gian"),
