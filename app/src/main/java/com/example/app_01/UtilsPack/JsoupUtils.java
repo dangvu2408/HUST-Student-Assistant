@@ -64,6 +64,7 @@ public class JsoupUtils {
                 getTOEICScore();
                 getStudentScore();
                 getGPACPA();
+                getTuition();
                 return true;
             } catch (Exception e) {
 
@@ -112,6 +113,14 @@ public class JsoupUtils {
     public void getGPACPA() {
         try {
             JsonUtils.getInstance().parseGPACPA(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/StudentCourseMarks.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getTuition() {
+        try {
+            JsonUtils.getInstance().parseTuition(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/CheckTuition.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
         } catch (Exception e) {
             e.printStackTrace();
         }
