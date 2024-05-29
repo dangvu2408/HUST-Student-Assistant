@@ -16,6 +16,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.app_01.Adapter.ToeicAdapter;
 import com.example.app_01.Constructor.ToeicScore;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.HeightUtils;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -41,6 +42,7 @@ public class Toeic_Dialog extends DialogFragment {
         listView = view.findViewById(R.id.listTOEIC);
         ToeicAdapter adapter = new ToeicAdapter(getContext(), toeicScores);
         listView.setAdapter(adapter);
+        HeightUtils.setListViewHeight(listView);
         adapter.notifyDataSetChanged();
 
         Button cancel = view.findViewById(R.id.buttonCancel);
