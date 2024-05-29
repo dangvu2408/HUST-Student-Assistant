@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hint: Những môn có ô đã được tích là những môn đã học trong chương trình đào tạo"
+            android:text="Chú thích: Những môn có ô đã được tích là những môn đã qua trong chương trình đào tạo"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:paddingTop="5dp"
