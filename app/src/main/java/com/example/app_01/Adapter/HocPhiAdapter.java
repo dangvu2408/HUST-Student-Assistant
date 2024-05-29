@@ -51,7 +51,7 @@ public class HocPhiAdapter extends BaseAdapter {
         TextView trangthaiDK = listItem.findViewById(R.id.trangthaiDK);
         TextView ghichu = listItem.findViewById(R.id.ghichuHP);
         tenMaHp.setText(current.getMaHocPhan() + " - " + current.getTenHocphan());
-        tienTrenTC.setText("Số tiền / 1TC: " + current.getTienTrenMotTC());
+        tienTrenTC.setText("Số tiền/1TC: " + current.getTienTrenMotTC());
         tcHocPhi.setText("Số TC học phí: " + current.getTinChihp());
         tongHP.setText(current.getTongTienHP());
         hesoHP.setText("Hệ số học phí lớp: " + current.getHeSoHP());

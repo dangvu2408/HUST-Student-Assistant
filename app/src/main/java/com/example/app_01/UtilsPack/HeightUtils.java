@@ -45,7 +45,6 @@ public class HeightUtils {
         if (listAdapter == null) {
             return;
         }
-
         int total = gridView.getPaddingTop() + gridView.getPaddingBottom();
         int numRow = (int) Math.ceil(listAdapter.getCount() * 1.0 / numColumns);
         for (int i = 0; i < numRow; i++) {
@@ -56,9 +55,8 @@ public class HeightUtils {
             );
             total += listItem.getMeasuredHeight();
         }
-
         ViewGroup.LayoutParams params = gridView.getLayoutParams();
-        params.height = total + 60;
+        params.height = total + 70;
         gridView.setLayoutParams(params);
     }
 }

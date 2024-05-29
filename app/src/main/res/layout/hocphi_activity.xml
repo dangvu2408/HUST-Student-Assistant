@@ -18,9 +18,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="Tiền học phần của sinh viên"
+            android:text="Tổng tiền học phần của sinh viên"
             android:textStyle="bold"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
             android:padding="10dp"/>
         <LinearLayout
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:text="Tổng số tiền phải đóng:"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
@@ -54,7 +54,7 @@
                 android:layout_weight="1"
                 android:id="@+id/tienHocPhi"
                 android:text="000 đ"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 android:textColor="@color/colorPrimary"
                 android:fontFamily="@font/linh_avantgarde_bold"/>
         </LinearLayout>
