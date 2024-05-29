@@ -350,7 +350,6 @@ public class JsonUtils {
                 String str01 = next.select("td.dxgv").get(2).text();
                 String str02 = next.select("td.dxgv").get(3).text();
                 String str03 = next.select("td.dxgv").get(4).text();
-                String str04 = next.select("td.dxgv").get(5).text();
                 String str05 = next.select("td.dxgv").get(6).text();
                 String str06 = next.select("td.dxgv").get(8).text();
                 String str07 = next.select("td.dxgv").get(9).text();
@@ -361,7 +360,6 @@ public class JsonUtils {
                 jsonObject.put("maHPCTDT", str01);
                 jsonObject.put("tenHPCTDT", str02);
                 jsonObject.put("kyhocCTDT", str03);
-                jsonObject.put("batbuoc", str04);
                 jsonObject.put("tinchiDT", str05);
                 jsonObject.put("maHPhoc", str06);
                 jsonObject.put("ghichuHPH", str07);

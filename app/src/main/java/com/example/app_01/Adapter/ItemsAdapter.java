@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 
+import com.example.app_01.AppCompat.ChuongtrinhActivity;
 import com.example.app_01.AppCompat.HocPhiActivity;
 import com.example.app_01.AppCompat.TKBActivity;
 import com.example.app_01.Constructor.ReItems;
@@ -55,7 +56,7 @@ public class ItemsAdapter extends ArrayAdapter<ReItems> {
                             Toast.makeText(context, "Chức năng đang hoàn thiện, vui lòng quay lại sau!", Toast.LENGTH_SHORT).show();
                             break;
                         case 2:
-//                            context.startActivity(new Intent(context, TKBActivity.class));
+                            context.startActivity(new Intent(context, ChuongtrinhActivity.class));
                             Toast.makeText(context, "Chức năng đang hoàn thiện, vui lòng quay lại sau!", Toast.LENGTH_SHORT).show();
                             break;
                         case 3:
