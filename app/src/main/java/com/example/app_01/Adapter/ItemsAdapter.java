@@ -57,7 +57,6 @@ public class ItemsAdapter extends ArrayAdapter<ReItems> {
                             break;
                         case 2:
                             context.startActivity(new Intent(context, ChuongtrinhActivity.class));
-                            Toast.makeText(context, "Chức năng đang hoàn thiện, vui lòng quay lại sau!", Toast.LENGTH_SHORT).show();
                             break;
                         case 3:
                             context.startActivity(new Intent(context, HocPhiActivity.class));
