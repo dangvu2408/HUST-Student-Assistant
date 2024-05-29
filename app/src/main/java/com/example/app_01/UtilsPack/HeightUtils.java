@@ -13,21 +13,31 @@ public class HeightUtils {
             return;
         }
 
-        int total = listView.getPaddingTop() + listView.getPaddingBottom();
-        int count = listAdapter.getCount();
-        for (int i = 0; i < count; i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(
-                    View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED),
-                    View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-            );
-            total += listItem.getMeasuredHeight();
-        }
+        listView.post(new Runnable() {
+            @Override
+            public void run() {
+                int total = listView.getPaddingTop() + listView.getPaddingBottom();
+                int count = listAdapter.getCount();
+                for (int i = 0; i < count; i++) {
+                    View listItem = listAdapter.getView(i, null, listView);
 
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = total + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
+                    if (listItem instanceof ViewGroup) {
+                        listItem.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    }
+
+                    listItem.measure(
+                            View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED),
+                            View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+                    );
+                    total += listItem.getMeasuredHeight();
+                }
+
+                ViewGroup.LayoutParams params = listView.getLayoutParams();
+                params.height = total + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+                listView.setLayoutParams(params);
+                listView.requestLayout();
+            }
+        });
     }
 
     public static void setGridViewHeight(GridView gridView, int numColumns) {

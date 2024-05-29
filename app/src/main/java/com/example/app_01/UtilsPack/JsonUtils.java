@@ -284,11 +284,11 @@ public class JsonUtils {
         try {
             JSONObject jsonObject = new JSONObject();
             Element element1 = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_rpEditTables_ASPxCallbackPanel1_gvCourseRegister");
-            Element element2 = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_rpEditTables_ASPxCallbackPanel1_gvTuitionTerm");
+//            Element element2 = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_rpEditTables_ASPxCallbackPanel1_gvTuitionTerm");
             Element element3 = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_rpEditTables_ASPxCallbackPanel1_TuitionInfo");
             JSONArray jsonArray = new JSONArray();
             Iterator<Element> iterator1 = element1.getElementsByClass("dxgvDataRow_Mulberry").iterator();
-            Iterator<Element> iterator2 = element2.getElementsByClass("dxgvDataRow_Mulberry").iterator();
+//            Iterator<Element> iterator2 = element2.getElementsByClass("dxgvDataRow_Mulberry").iterator();
             while (iterator1.hasNext()) {
                 Element next = iterator1.next();
                 String str01 = next.select("td.dxgv").first().text();
@@ -313,25 +313,25 @@ public class JsonUtils {
                 jsonArray.put(jsonObject1);
             }
 
-            while (iterator2.hasNext()) {
-                Element next1 = iterator2.next();
-                String str11 = next1.select("td.dxgv").first().text();
-                String str12 = next1.select("td.dxgv").get(1).text();
-                String str13 = next1.select("td.dxgv").get(2).text();
-                String str14 = next1.select("td.dxgv").get(3).text();
-                String str15 = next1.select("td.dxgv").get(4).text();
-                String str16 = next1.select("td.dxgv").get(5).text();
-                JSONObject jsonObject2 = new JSONObject();
-                jsonObject2.put("loaiTienHP", str11);
-                jsonObject2.put("soTienHP", str12);
-                jsonObject2.put("heSodongHP", str13);
-                jsonObject2.put("thucDongHP", str14);
-                jsonObject2.put("ngayCapNhat", str15);
-                jsonObject2.put("ghiChuBangCN", str16);
-                jsonArray.put(jsonObject2);
-            }
+//            while (iterator2.hasNext()) {
+//                Element next1 = iterator2.next();
+//                String str11 = next1.select("td.dxgv").first().text();
+//                String str12 = next1.select("td.dxgv").get(1).text();
+//                String str13 = next1.select("td.dxgv").get(2).text();
+//                String str14 = next1.select("td.dxgv").get(3).text();
+//                String str15 = next1.select("td.dxgv").get(4).text();
+//                String str16 = next1.select("td.dxgv").get(5).text();
+//                JSONObject jsonObject2 = new JSONObject();
+//                jsonObject2.put("loaiTienHP", str11);
+//                jsonObject2.put("soTienHP", str12);
+//                jsonObject2.put("heSodongHP", str13);
+//                jsonObject2.put("thucDongHP", str14);
+//                jsonObject2.put("ngayCapNhat", str15);
+//                jsonObject2.put("ghiChuBangCN", str16);
+//                jsonArray.put(jsonObject2);
+//            }
             jsonObject.put("toanBoCongNoHP", jsonArray);
-            String replace = element3.select("li").first().select("span").text().substring(23).replace("đ.", "VND.");
+            String replace = element3.select("li").first().select("span").text().substring(23).replace("đ.", "");
             String replace2 = element3.select("li").select("span").get(1).text().replace("tại đây", "tại https://ctt.hust.edu.vn/DisplayWeb/DisplayBaiViet?baiviet=43430");
             jsonObject.put("soTienCanDongHP", replace);
             jsonObject.put("ghiChuSoTienHP", replace2);
@@ -339,5 +339,41 @@ public class JsonUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void parseProgram(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_ProgramCoursePanel_gvStudentProgram").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dxgv").get(2).text();
+                String str02 = next.select("td.dxgv").get(3).text();
+                String str03 = next.select("td.dxgv").get(4).text();
+                String str04 = next.select("td.dxgv").get(5).text();
+                String str05 = next.select("td.dxgv").get(6).text();
+                String str06 = next.select("td.dxgv").get(8).text();
+                String str07 = next.select("td.dxgv").get(9).text();
+                String str08 = next.select("td.dxgv").get(10).text();
+                String str09 = next.select("td.dxgv").get(11).text();
+                String str10 = next.select("td.dxgv").get(12).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("maHPCTDT", str01);
+                jsonObject.put("tenHPCTDT", str02);
+                jsonObject.put("kyhocCTDT", str03);
+                jsonObject.put("batbuoc", str04);
+                jsonObject.put("tinchiDT", str05);
+                jsonObject.put("maHPhoc", str06);
+                jsonObject.put("ghichuHPH", str07);
+                jsonObject.put("dienchuCTDT", str08);
+                jsonObject.put("diemsoCTDT", str09);
+                jsonObject.put("vienkhoaDT", str10);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_chuong_trinh_dao_tao_sv", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

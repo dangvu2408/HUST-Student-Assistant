@@ -65,6 +65,7 @@ public class JsoupUtils {
                 getStudentScore();
                 getGPACPA();
                 getTuition();
+                getProgram();
                 return true;
             } catch (Exception e) {
 
@@ -125,5 +126,11 @@ public class JsoupUtils {
             e.printStackTrace();
         }
     }
-
+        public void getProgram() {
+        try {
+            JsonUtils.getInstance().parseProgram(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/StudentProgram.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
 }

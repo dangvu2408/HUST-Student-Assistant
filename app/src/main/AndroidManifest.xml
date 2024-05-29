@@ -29,6 +29,10 @@
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".AppCompat.HocPhiActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".AppCompat.Hust_Map"
             android:exported="false"
             android:screenOrientation="portrait"/>
