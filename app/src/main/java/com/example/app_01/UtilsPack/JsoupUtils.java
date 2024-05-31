@@ -66,6 +66,7 @@ public class JsoupUtils {
                 getGPACPA();
                 getTuition();
                 getProgram();
+                getCoursesRegister();
                 return true;
             } catch (Exception e) {
 
@@ -126,11 +127,19 @@ public class JsoupUtils {
             e.printStackTrace();
         }
     }
-        public void getProgram() {
+    public void getProgram() {
         try {
             JsonUtils.getInstance().parseProgram(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/StudentProgram.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void getCoursesRegister() {
+        try {
+            JsonUtils.getInstance().parseCoursesRegister(this.context, Jsoup.connect("https://ctt-sis.hust.edu.vn/Students/CoursesRegister.aspx").cookies(this.cookies).method(Connection.Method.GET).userAgent(ConstValue.USER_AGENT).execute().parse());
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
 }

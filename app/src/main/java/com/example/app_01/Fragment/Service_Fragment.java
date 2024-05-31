@@ -103,7 +103,7 @@ public class Service_Fragment extends Fragment {
                     chartGpa.getXAxis().setAxisMinimum(-0.3f);
                     chartGpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartGpa.getXAxis().setGranularity(1f);
-                    chartGpa.animateY(500, Easing.EaseInOutSine);
+                    chartGpa.animateY(1000, Easing.EaseInOutCubic);
                     chartGpa.getXAxis().enableGridDashedLine(8f, 8f, 0f);
                     chartGpa.getAxisLeft().enableGridDashedLine(8f, 8f, 0f);
                     Description description = chartGpa.getDescription();
@@ -135,7 +135,7 @@ public class Service_Fragment extends Fragment {
                     chartCpa.getXAxis().setAxisMinimum(-0.3f);
                     chartCpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartCpa.getXAxis().setGranularity(1f);
-                    chartCpa.animateY(500, Easing.EaseInOutSine);
+                    chartCpa.animateY(1000, Easing.EaseInOutCubic);
                     chartCpa.getXAxis().enableGridDashedLine(8f, 8f, 0f);
                     chartCpa.getAxisLeft().enableGridDashedLine(8f, 8f, 0f);
                     Description description1 = chartCpa.getDescription();

@@ -372,6 +372,39 @@ public class JsonUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    public void parseCoursesRegister(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            JSONObject all = new JSONObject();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvRegisteredList").getElementsByClass("dxgvDataRow_Mulberry").iterator();
+            Element semester = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvRegisteredList_DXTitle");
+            String hk = semester.select("td.dxgvTitlePanel_Mulberry").first().text().substring(25, 30);
+            Element sumTC = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_gvRegisteredList_DXFooterRow");
+            String str00 = sumTC.select("td.dxgv").get(4).text().substring(19);
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dxgv").first().text();
+                String str02 = next.select("td.dxgv").get(1).text();
+                String str03 = next.select("td.dxgv").get(2).text();
+                String str04 = next.select("td.dxgv").get(3).text();
+                String str05 = next.select("td.dxgv").get(4).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("maHPDK", str01);
+                jsonObject.put("tenHPDK", str02);
+                jsonObject.put("ngayDK", str03);
+                jsonObject.put("TTDK", str04);
+                jsonObject.put("soTCDK", str05);
+                jsonArray.put(jsonObject);
+            }
+
+            all.put("thongtinDK", jsonArray);
+            all.put("thongtinHK", hk);
+            all.put("tongtinchi", str00);
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_dang_ky_hoc_phan", all.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

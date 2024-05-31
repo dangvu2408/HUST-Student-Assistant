@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 
 import com.example.app_01.AppCompat.ChuongtrinhActivity;
 import com.example.app_01.AppCompat.HocPhiActivity;
+import com.example.app_01.AppCompat.SapXepTKBHome;
 import com.example.app_01.AppCompat.TKBActivity;
 import com.example.app_01.Constructor.ReItems;
 import com.example.app_01.R;
@@ -52,7 +53,7 @@ public class ItemsAdapter extends ArrayAdapter<ReItems> {
                             context.startActivity(new Intent(context, TKBActivity.class));
                             break;
                         case 1:
-//                            context.startActivity(new Intent(context, TKBActivity.class));
+                            context.startActivity(new Intent(context, SapXepTKBHome.class));
                             Toast.makeText(context, "Chức năng đang hoàn thiện, vui lòng quay lại sau!", Toast.LENGTH_SHORT).show();
                             break;
                         case 2:
