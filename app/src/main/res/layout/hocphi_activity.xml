@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="Tổng tiền học phần của sinh viên"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:fontFamily="@font/sfpro_semibold"
+            android:textSize="18sp"
             android:textColor="@color/black"
             android:padding="10dp"/>
         <LinearLayout
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                 android:textSize="18sp"
                 android:text="Tổng số tiền phải đóng:"
                 android:textColor="@color/black"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/sfpro_semibold"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,8 @@
             android:text="Ghi chú: hguiéhiuhseiuhgsiuehgúhẻgh"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:id="@+id/ghichutongtienHP"/>
+            android:id="@+id/ghichutongtienHP"
+            android:fontFamily="@font/sfpro_regular"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -76,8 +77,8 @@
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:fontFamily="@font/sfpro_bold"
+            android:textSize="20sp"/>
         <ImageButton
             android:id="@+id/backtoMain"
             android:layout_width="wrap_content"

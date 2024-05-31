@@ -17,7 +17,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="21sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/sfpro_bold" />
 
     <ListView
         android:id="@+id/listTOEIC"
@@ -41,8 +41,8 @@
             android:foreground="?attr/selectableItemBackground"
             android:text="Thoát"
             android:textColor="@color/white"
-            android:textSize="15dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="@font/sfpro_bold"
             android:textAllCaps="false"/>
     </LinearLayout>
 </LinearLayout>

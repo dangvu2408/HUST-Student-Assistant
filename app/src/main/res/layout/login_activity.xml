@@ -51,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:fontFamily="@font/sfpro_regular"
                 android:hint="Mã số sinh viên"
                 android:id="@+id/userName"
                 android:background="@drawable/input_field"/>
@@ -68,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Mật khẩu"
+                android:fontFamily="@font/sfpro_regular"
                 android:id="@+id/pass"
                 android:background="@drawable/input_field"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -82,7 +84,8 @@
             android:clickable="true"
             android:onClick="onClick"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp"/>
+            android:paddingBottom="5dp"
+            android:fontFamily="@font/sfpro_regular"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,7 +102,8 @@
                 android:inputType="number"
                 android:layout_weight="1"
                 android:layout_marginRight="5dp"
-                android:id="@+id/inputCaptcha"/>
+                android:id="@+id/inputCaptcha"
+                android:fontFamily="@font/sfpro_regular"/>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -130,7 +134,7 @@
             android:layout_height="wrap_content"
             android:text="ĐĂNG NHẬP"
             android:textSize="16sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_bold"
             android:background="@drawable/button_login"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"

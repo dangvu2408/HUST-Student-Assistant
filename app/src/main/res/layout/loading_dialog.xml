@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vui lòng đợi trong giây lát..."
+        android:fontFamily="@font/sfpro_regular"
         android:textColor="@color/white"
         android:textSize="16sp"/>
 </LinearLayout>

@@ -21,8 +21,8 @@
             android:id="@+id/titleHKDK"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_semibold" />
         <ListView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -45,7 +45,7 @@
                 android:text="Tổng số TC đăng kí: 21"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/sfpro_semibold"
                 android:id="@+id/tongsotcdk"
                 android:layout_gravity="center_vertical"/>
             <LinearLayout
@@ -62,7 +62,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:paddingRight="10dp"
-                    android:textStyle="bold"/>
+                    android:fontFamily="@font/sfpro_semibold"/>
                 <CheckBox
                     android:id="@+id/check_all"
                     android:layout_width="wrap_content"
@@ -84,16 +84,17 @@
                 android:textSize="16sp"
                 android:paddingTop="5dp"
                 android:id="@+id/hint"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word"
+                android:fontFamily="@font/sfpro_regular"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chọn chương trình đào tạo"
                 android:textColor="@color/black"
-                android:textSize="20sp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/sfpro_semibold"
                 android:textAlignment="center"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -112,6 +113,7 @@
                         android:text="CT chuẩn"
                         android:textSize="16sp"
                         android:id="@+id/ctchuan"
+                        android:fontFamily="@font/sfpro_regular"
                         android:buttonTint="@color/colorPrimary"/>
                     <RadioButton
                         android:layout_width="0dp"
@@ -120,6 +122,7 @@
                         android:text="Elitech"
                         android:textSize="16sp"
                         android:id="@+id/ctelitech"
+                        android:fontFamily="@font/sfpro_regular"
                         android:buttonTint="@color/colorPrimary"/>
                     <RadioButton
                         android:layout_width="0dp"
@@ -128,6 +131,7 @@
                         android:text="SIE"
                         android:textSize="16sp"
                         android:id="@+id/ctsie"
+                        android:fontFamily="@font/sfpro_regular"
                         android:buttonTint="@color/colorPrimary"/>
                 </RadioGroup>
             </LinearLayout>
@@ -138,9 +142,9 @@
                 android:background="@drawable/log_out_button"
                 android:layout_gravity="center_horizontal"
                 android:text="Tìm lớp"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textColor="@color/white"
-                android:textStyle="bold"
+                android:fontFamily="@font/sfpro_bold"
                 android:paddingLeft="25dp"
                 android:paddingRight="25dp"
                 android:drawableEnd="@drawable/icon_scale"
@@ -159,8 +163,8 @@
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:fontFamily="@font/sfpro_bold"
+            android:textSize="20sp"/>
         <ImageButton
             android:id="@+id/backtoMain"
             android:layout_width="wrap_content"

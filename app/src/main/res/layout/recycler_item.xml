@@ -33,7 +33,7 @@
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/sfpro_semibold"
         android:paddingTop="10dp"
         android:clickable="false"/>
     <TextView
@@ -44,5 +44,6 @@
         android:textColor="@color/black"
         android:gravity="center"
         android:textSize="16sp"
-        android:clickable="false"/>
+        android:clickable="false"
+        android:fontFamily="@font/sfpro_regular"/>
 </LinearLayout>

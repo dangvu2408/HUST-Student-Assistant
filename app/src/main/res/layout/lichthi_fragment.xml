@@ -43,7 +43,8 @@
                 android:layout_alignParentRight="true"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/sfpro_regular"/>
         </RelativeLayout>
         <TextView
             android:layout_width="match_parent"
@@ -51,19 +52,19 @@
             android:paddingTop="10dp"
             android:text="Danh sách lớp thi"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:fontFamily="@font/sfpro_semibold"
+            android:textSize="18sp"/>
         <TextView
             android:id="@+id/khongThi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
-            android:paddingTop="10dp"
             android:text="Ngày 28/05/2024 không có lớp thi"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

@@ -34,7 +34,8 @@
                 android:layout_alignParentRight="true"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:fontFamily="@font/sfpro_regular"/>
         </RelativeLayout>
 <!--        <TextView-->
 <!--            android:layout_width="wrap_content"-->

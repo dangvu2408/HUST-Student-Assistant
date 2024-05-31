@@ -15,8 +15,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp">
+            android:paddingTop="5dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -25,7 +24,7 @@
                 android:textSize="17sp"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/sfpro_semibold"/>
             <androidx.appcompat.widget.SwitchCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -39,9 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="40dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingEnd="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,33 +46,32 @@
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/sfpro_regular"/>
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/spinneropt"
                 android:layout_alignParentEnd="true"
                 android:spinnerMode="dropdown"
-                android:layout_centerVertical="true"/>
+                android:layout_centerVertical="true" />
         </RelativeLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:paddingTop="5dp"
             android:text="Điều chỉnh tuần học"
+            android:fontFamily="@font/sfpro_semibold"
             android:textColor="@color/black"
             android:textSize="17sp"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:textStyle="bold"/>
+            android:layout_centerVertical="true" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center_horizontal"
-            android:padding="10dp">
+            android:layout_gravity="center_horizontal">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -107,11 +103,11 @@
             android:focusable="true"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:paddingRight="20dp"
-            android:paddingLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/sfpro_bold"
             android:text="Lưu cài đặt"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -131,8 +127,8 @@
             android:textColor="@color/white"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="20sp"
+            android:fontFamily="@font/sfpro_bold"/>
         <ImageButton
             android:id="@+id/backtoMain"
             android:layout_width="wrap_content"

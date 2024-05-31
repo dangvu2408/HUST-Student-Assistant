@@ -1,6 +1,5 @@
 package com.example.app_01.AppCompat;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.example.app_01.R;
 import com.example.app_01.UtilsPack.Utils;
@@ -28,8 +28,8 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         numberPicker = findViewById(R.id.number_picker);
-        numberPicker.setTypeface(Typeface.DEFAULT_BOLD);
-        numberPicker.setSelectedTypeface(Typeface.DEFAULT_BOLD);
+        numberPicker.setTypeface(ResourcesCompat.getFont(this, R.font.sfpro_bold));
+        numberPicker.setSelectedTypeface(ResourcesCompat.getFont(this, R.font.sfpro_bold));
         numberPicker.setValue(Integer.parseInt(Utils.getInstance().getWeek(this)));
         list = new ArrayList<>();
         list.add("15 phút");
@@ -37,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         list.add("45 phút");
         list.add("60 phút");
         spinner = findViewById(R.id.spinneropt);
-        ArrayAdapter adapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list);
+        ArrayAdapter adapter = new ArrayAdapter<>(this, R.layout.spinner_item, list);
         spinner.setAdapter(adapter);
         Button button = findViewById(R.id.saveSet);
         button.setOnClickListener(new View.OnClickListener() {

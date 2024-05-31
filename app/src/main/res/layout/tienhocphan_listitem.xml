@@ -19,13 +19,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="5dp"
-                android:paddingBottom="5dp">
+                android:paddingLeft="5dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tenvaMaHP"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_semibold"
                     android:text="ET2100 - Cấu trúc dữ liệu và giải thuật"
                     android:textSize="16sp"
                     android:textColor="@color/black"/>
@@ -35,7 +34,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -48,14 +46,14 @@
                     android:id="@+id/hocphitrentinchi"
                     android:text="Số tiền / 1TC: 500,000đ"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -68,14 +66,14 @@
                     android:id="@+id/tinchihocphi"
                     android:text="Số TC học phí: 4.5"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -88,14 +86,14 @@
                     android:id="@+id/hesoHP"
                     android:text="Hệ số học phí: 1"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -108,14 +106,14 @@
                     android:id="@+id/trangthaiDK"
                     android:text="Trạng thái đăng kí: Đăng ký bình thường - Lần 1"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -128,7 +126,8 @@
                     android:id="@+id/ghichuHP"
                     android:text="Ghi chú: Định mức học lần 1 trong chương trình"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
@@ -143,7 +142,7 @@
             android:text="2,250,000đ"
             android:id="@+id/tongTienHP"
             android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_bold"
             android:textSize="18sp"
             android:paddingLeft="15dp"/>
     </LinearLayout>

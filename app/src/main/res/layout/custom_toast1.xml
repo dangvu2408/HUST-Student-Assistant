@@ -28,7 +28,7 @@
             android:text="Đăng nhập thành công!"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_semibold"
             android:layout_marginLeft="15dp"
 
             />

@@ -27,16 +27,15 @@
             android:text="BẢNG ĐIỂM CÁ NHÂN"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="15dp"
+            android:paddingBottom="10dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/linh_avantgarde_bold"/>
+            android:fontFamily="@font/sfpro_bold"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="1. Kết quả học tập sinh viên"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_semibold"
             android:paddingTop="5dp"
             android:textColor="@color/black"/>
         <com.github.mikephil.charting.charts.LineChart
@@ -52,7 +51,7 @@
             android:layout_height="match_parent"
             android:text="2. Bảng điểm sinh viên"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_semibold"
             android:paddingTop="5dp"
             android:textColor="@color/black"
             android:paddingBottom="5dp"/>

@@ -25,7 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/tenvaMaHP"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_semibold"
                     android:text="ET4900 - Đồ án tốt nghiệp cử nhân"
                     android:textSize="16sp"
                     android:textColor="@color/black"/>
@@ -35,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -48,14 +47,14 @@
                     android:id="@+id/kihocDT"
                     android:text="Kì học: 8"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -68,14 +67,14 @@
                     android:id="@+id/tinchidt"
                     android:text="Số TC đào tạo: 6"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -88,14 +87,14 @@
                     android:id="@+id/vienkhoa"
                     android:text="Viện/Khoa: TDDT"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -108,14 +107,14 @@
                     android:id="@+id/ghichuloaiHP"
                     android:text="Ghi chú: Đồ án tốt nghiệp cử nhân"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="10dp"
-                android:paddingTop="5dp"
                 android:gravity="center_vertical">
                 <ImageView
                     android:layout_width="17dp"
@@ -128,7 +127,8 @@
                     android:id="@+id/diemchudiemso"
                     android:text="Điểm chữ: N/A - Điểm số: N/A"
                     android:textSize="15sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

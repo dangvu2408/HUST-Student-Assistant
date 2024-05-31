@@ -28,7 +28,7 @@
             android:text="Trang CTT-SIS đang cập nhật, \nhiện tại app chưa đăng nhập được. \nVui lòng thử lại sau..."
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/sfpro_semibold"
             android:layout_marginLeft="15dp"
 
             />

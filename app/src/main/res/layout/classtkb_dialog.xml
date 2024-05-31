@@ -18,7 +18,7 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="21sp"
-        android:textStyle="bold" />
+        android:fontFamily="@font/sfpro_bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,90 +29,82 @@
             android:id="@+id/malop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="150091"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/loaihinh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="LT+BT"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/giangvien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Phạm Doãn Tĩnh"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/nhom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Nhóm 2"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/ghichu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Điện tử-K67S"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/hinhthuc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Offline"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/codeteams"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:id="@+id/link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -121,25 +113,22 @@
             android:id="@+id/thoigiandiadiem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Thứ 4,6h45 - 9h10, D8-107"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/sfpro_semibold" />
         <TextView
             android:id="@+id/tuanhoc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:paddingRight="5dp"
             android:paddingLeft="0dp"
             android:text="Tuần học: 25-32,34-42"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:fontFamily="@font/sfpro_regular"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -156,8 +145,8 @@
             android:foreground="?attr/selectableItemBackground"
             android:text="Thoát"
             android:textColor="@color/white"
-            android:textSize="16dp"
-            android:textStyle="bold"
+            android:textSize="18dp"
+            android:fontFamily="@font/sfpro_bold"
             android:textAllCaps="false"/>
     </LinearLayout>
 </LinearLayout>

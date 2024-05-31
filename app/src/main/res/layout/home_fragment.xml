@@ -63,14 +63,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Xin chào, "
-                            android:textStyle="bold"
+                            android:fontFamily="@font/sfpro_semibold"
                             android:textSize="15sp"
                             android:textColor="@color/black"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Đặng Quang Vũ"
-                            android:textStyle="bold"
+                            android:fontFamily="@font/sfpro_semibold"
                             android:id="@+id/namestudent"
                             android:textSize="15sp"
                             android:textColor="@color/black"/>
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chúc bạn một ngày mới tốt lành!"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/sfpro_semibold"
                         android:textSize="14sp"
                         android:textColor="@color/black"/>
                 </LinearLayout>
@@ -123,7 +123,8 @@
                     android:layout_alignParentRight="true"
                     android:gravity="center"
                     android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/sfpro_regular"/>
             </RelativeLayout>
             <TextView
                 android:layout_width="match_parent"

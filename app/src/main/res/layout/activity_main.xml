@@ -57,9 +57,11 @@
         android:paddingBottom="10dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rounded"
+        app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
+        app:itemTextAppearanceInactive="@style/Widget.BottomNavigationView"
         app:itemIconTint="@color/nav_color"
         app:itemTextColor="@color/nav_color"
-        app:itemIconSize="25dp"
+        app:itemIconSize="23dp"
         app:itemBackground="@drawable/rounded"
         app:menu="@menu/menu" />
 </RelativeLayout>

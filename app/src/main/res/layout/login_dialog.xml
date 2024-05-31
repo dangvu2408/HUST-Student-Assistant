@@ -29,7 +29,8 @@
         android:lineSpacingMultiplier="1.2"
         android:lineSpacingExtra="3dp"
         android:textSize="18sp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:fontFamily="@font/sfpro_regular"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,8 +46,8 @@
             android:focusable="true"
             android:text="Thoát"
             android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="@font/sfpro_bold"
             android:layout_margin="10dp"
             style="?android:attr/buttonBarButtonStyle" />
         <Button
@@ -59,8 +60,8 @@
             android:focusable="true"
             android:text="Tiếp tục"
             android:textColor="@color/white"
-            android:textSize="14dp"
-            android:textStyle="bold"
+            android:textSize="16dp"
+            android:fontFamily="@font/sfpro_bold"
             android:layout_margin="10dp"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
