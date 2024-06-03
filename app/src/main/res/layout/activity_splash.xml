@@ -10,11 +10,8 @@
         android:layout_height="match_parent"
         android:src="@drawable/splash_img"
         android:scaleType="centerCrop"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="200dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -22,8 +19,24 @@
         android:layout_marginBottom="100dp"
         android:layout_marginRight="100dp"
         android:layout_marginLeft="100dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/white"/>
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Bản Beta"
+            android:textColor="@color/white"
+            android:fontFamily="@font/sfpro_bold"
+            android:textSize="20sp"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"/>
+    </LinearLayout>
+
 
 
 </RelativeLayout>

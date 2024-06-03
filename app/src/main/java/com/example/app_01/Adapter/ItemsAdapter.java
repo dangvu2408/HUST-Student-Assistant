@@ -53,8 +53,13 @@ public class ItemsAdapter extends ArrayAdapter<ReItems> {
                             context.startActivity(new Intent(context, TKBActivity.class));
                             break;
                         case 1:
+                            LayoutInflater inflater = LayoutInflater.from(context);
+                            View layout = inflater.inflate(R.layout.custom_toast7, null);
+                            Toast toast0 = new Toast(context);
+                            toast0.setDuration(Toast.LENGTH_LONG);
+                            toast0.setView(layout);
+                            toast0.show();
                             context.startActivity(new Intent(context, SapXepTKBHome.class));
-                            Toast.makeText(context, "Chức năng đang hoàn thiện, vui lòng quay lại sau!", Toast.LENGTH_SHORT).show();
                             break;
                         case 2:
                             context.startActivity(new Intent(context, ChuongtrinhActivity.class));

@@ -36,31 +36,33 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/linearlayout_background">
+
         <Button
             android:id="@+id/buttonCancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/log_out_button"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/sfpro_bold"
             android:text="Thoát"
             android:textColor="@color/white"
-            android:textSize="16dp"
-            android:fontFamily="@font/sfpro_bold"
-            android:layout_margin="10dp"
-            style="?android:attr/buttonBarButtonStyle" />
+            android:textSize="14sp" />
+
         <Button
             android:id="@+id/buttonNext"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:background="@drawable/log_out_button"
             android:clickable="true"
             android:focusable="true"
             android:text="Tiếp tục"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="14sp"
             android:fontFamily="@font/sfpro_bold"
             android:layout_margin="10dp"
             style="?android:attr/buttonBarButtonStyle" />

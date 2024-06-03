@@ -1,7 +1,9 @@
 package com.example.app_01.AppCompat;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
@@ -55,6 +57,19 @@ public class SapXepTKBHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        Button findClass = findViewById(R.id.findClass);
+        findClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast7, null);
+                Toast toast0 = new Toast(SapXepTKBHome.this);
+                toast0.setDuration(Toast.LENGTH_LONG);
+                toast0.setView(layout);
+                toast0.show();
             }
         });
     }

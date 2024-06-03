@@ -98,6 +98,92 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/student_info"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:text="Thông tin sinh viên"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/sfpro_regular"
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/class_info"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:text="Lớp sinh viên"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/sfpro_regular"
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/toeic"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:fontFamily="@font/sfpro_regular"
+        android:text="Điểm TOEIC"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/newest_score"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:fontFamily="@font/sfpro_regular"
+        android:text="Tra cứu nhập điểm kì mới nhất"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:background="@drawable/button"/>
+    <Button
+        android:id="@+id/hust_map"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:fontFamily="@font/sfpro_regular"
+        android:text="Bản đồ Bách Khoa Hà Nội"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:background="@drawable/button"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -105,89 +191,6 @@
         android:orientation="vertical"
         android:paddingLeft="18dp"
         android:paddingRight="18dp">
-
-
-        <Button
-            android:id="@+id/student_info"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Thông tin sinh viên"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:fontFamily="@font/sfpro_regular"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/class_info"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Lớp sinh viên"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:fontFamily="@font/sfpro_regular"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/toeic"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/sfpro_regular"
-            android:text="Điểm TOEIC"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/newest_score"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/sfpro_regular"
-            android:text="Tra cứu nhập điểm kì mới nhất"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:background="@drawable/button"/>
-        <Button
-            android:id="@+id/hust_map"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/sfpro_regular"
-            android:text="Bản đồ Bách Khoa Hà Nội"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:background="@drawable/button"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -203,8 +206,7 @@
                 android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="45dp"
-                android:layout_marginTop="15dp"
+                android:layout_height="40dp"
                 android:fontFamily="@font/sfpro_bold"
                 android:text="Đăng xuất"
                 android:textAlignment="center"
@@ -213,6 +215,8 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:background="@drawable/log_out_button"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp" />
             <Button
                 android:id="@+id/syncdata"
@@ -220,8 +224,10 @@
                 android:focusable="true"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
                 android:fontFamily="@font/sfpro_bold"
                 android:text="Cập nhật dữ liệu"
                 android:textAlignment="center"
@@ -229,8 +235,7 @@
                 android:textAllCaps="true"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                android:background="@drawable/log_out_button"
-                android:layout_marginLeft="10dp"/>
+                android:background="@drawable/log_out_button" />
         </LinearLayout>
 
 
@@ -239,9 +244,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/sfpro_regular"
             android:paddingBottom="15dp"
-            android:text="HUST Student Assistant - Phiên bản 1.0.0"
+            android:text="HUST Student Assistant - Bản Beta"
             android:textColor="#414040"
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textAlignment="center"/>
     </LinearLayout>
 

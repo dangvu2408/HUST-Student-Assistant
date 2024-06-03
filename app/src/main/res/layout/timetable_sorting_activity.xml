@@ -137,12 +137,12 @@
             </LinearLayout>
             <Button
                 android:layout_width="wrap_content"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:id="@+id/findClass"
                 android:background="@drawable/log_out_button"
                 android:layout_gravity="center_horizontal"
                 android:text="Tìm lớp"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/sfpro_bold"
                 android:paddingLeft="25dp"

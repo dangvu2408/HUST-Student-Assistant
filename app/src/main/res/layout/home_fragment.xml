@@ -158,6 +158,16 @@
                 android:nestedScrollingEnabled="true"/>
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="@font/sfpro_regular_italic"
+                android:text="Lưu ý: Vào những tuần môn nào có thí nghiệm, bảng màu lớp thí nghiệm của môn đó trên thời khóa biểu sẽ chuyển sang màu xanh lá. Sinh viên chú ý giờ của lớp thí nghiệm!"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:paddingTop="5dp"
+                android:justificationMode="inter_word"/>
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"/>

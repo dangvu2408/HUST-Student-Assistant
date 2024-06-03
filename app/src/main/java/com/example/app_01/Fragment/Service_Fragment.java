@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.app_01.Adapter.CustomAdapterScore;
@@ -61,6 +62,8 @@ public class Service_Fragment extends Fragment {
             }
         });
 
+//        Typeface typeface = Typeface.createFromAsset(getContext().getAssets(), "font/sfpro_regular.otf");
+
         chartGpa = view.findViewById(R.id.line_chart_gpa);
         chartCpa = view.findViewById(R.id.line_chart_cpa);
         String str = this.data0;
@@ -82,6 +85,7 @@ public class Service_Fragment extends Fragment {
                         arrayListTCTL.add(jsonObject.getString("tinchitichluy"));
                     }
                     LineDataSet lineDataSetGPA = new LineDataSet(arrayListGPA, "");
+                    lineDataSetGPA.setValueTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     LineData lineDataGPA = new LineData(lineDataSetGPA);
                     lineDataSetGPA.setValueTextSize(12f);
                     lineDataSetGPA.setLineWidth(2f);
@@ -97,7 +101,9 @@ public class Service_Fragment extends Fragment {
                     chartGpa.getXAxis().setAxisMaximum((float)(arrayListHK.size() - 0.7));
                     chartGpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartGpa.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    chartGpa.getXAxis().setTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     chartGpa.getAxisRight().setEnabled(false);
+                    chartGpa.getAxisLeft().setTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     chartGpa.getAxisLeft().setAxisMinimum(0f);
                     chartGpa.getAxisLeft().setAxisMaximum(4.2f);
                     chartGpa.getXAxis().setAxisMinimum(-0.3f);
@@ -114,6 +120,7 @@ public class Service_Fragment extends Fragment {
 
 
                     LineDataSet lineDataSetCPA = new LineDataSet(arrayListCPA, "");
+                    lineDataSetCPA.setValueTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     LineData lineDataCPA = new LineData(lineDataSetCPA);
                     lineDataSetCPA.setValueTextSize(12f);
                     lineDataSetCPA.setLineWidth(2f);
@@ -129,7 +136,9 @@ public class Service_Fragment extends Fragment {
                     chartCpa.getXAxis().setAxisMaximum((float)(arrayListHK.size() - 0.7));
                     chartCpa.getXAxis().setLabelCount(arrayListHK.size());
                     chartCpa.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+                    chartCpa.getXAxis().setTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     chartCpa.getAxisRight().setEnabled(false);
+                    chartCpa.getAxisLeft().setTypeface(ResourcesCompat.getFont(getContext(), R.font.sfpro_regular));
                     chartCpa.getAxisLeft().setAxisMinimum(0f);
                     chartCpa.getAxisLeft().setAxisMaximum(4.2f);
                     chartCpa.getXAxis().setAxisMinimum(-0.3f);

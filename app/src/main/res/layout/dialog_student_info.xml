@@ -226,11 +226,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/linearlayout_background">
+        android:background="@drawable/linearlayout_background"
+        android:gravity="center_horizontal">
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
             android:layout_margin="10dp"
             android:background="@drawable/log_out_button"
             android:clickable="true"
@@ -238,7 +241,7 @@
             android:foreground="?attr/selectableItemBackground"
             android:text="Thoát"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:fontFamily="@font/sfpro_bold"
             android:textAllCaps="false"/>
     </LinearLayout>

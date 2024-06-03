@@ -70,9 +70,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         int idLayout = view.getId();
         if (idLayout == R.id.loginBtn) {
             if (editTextUsername.getText().toString().equals("") || editTextPassword.getText().toString().equals("") || editTextCaptcha.getText().toString().equals("")) {
-                Toast.makeText(LoginActivity.this, "Vui lòng điền vào trường còn thiếu!", Toast.LENGTH_SHORT).show();
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast6, null);
+                Toast toast0 = new Toast(LoginActivity.this);
+                toast0.setDuration(Toast.LENGTH_LONG);
+                toast0.setView(layout);
+                toast0.show();
             } else if (!Utils.getInstance().isOnline()) {
-                Toast.makeText(LoginActivity.this, "Không có kết nối mạng, vui lòng kết nối và thử lại!", Toast.LENGTH_SHORT).show();
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast5, null);
+                Toast toast0 = new Toast(LoginActivity.this);
+                toast0.setDuration(Toast.LENGTH_LONG);
+                toast0.setView(layout);
+                toast0.show();
             } else {
                 showDialogLogin(this);
             }
@@ -143,7 +153,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (Utils.getInstance().isOnline()) {
             new ParseURL().execute(new Void[0]);
         } else {
-        Toast.makeText(LoginActivity.this, "Không có kết nối mạng, vui lòng kết nối và thử lại!", Toast.LENGTH_SHORT).show();
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast5, null);
+            Toast toast0 = new Toast(LoginActivity.this);
+            toast0.setDuration(Toast.LENGTH_LONG);
+            toast0.setView(layout);
+            toast0.show();
         }
         Utils.getInstance().hideLoadingDialog(this);
     }
@@ -221,12 +236,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 ImageView captchaImageView = findViewById(R.id.captchaImg);
                 captchaImageView.setImageBitmap(LoginActivity.this.bitmap);
             } else {
-                Toast.makeText(LoginActivity.this, "Đang kết nối lại mạng và thử lại...", Toast.LENGTH_SHORT).show();
+                LayoutInflater inflater = getLayoutInflater();
+                View layout = inflater.inflate(R.layout.custom_toast4, null);
+                Toast toast0 = new Toast(LoginActivity.this);
+                toast0.setDuration(Toast.LENGTH_LONG);
+                toast0.setView(layout);
+                toast0.show();
             }
             if (LoginActivity.this.bitmap == null) {
                 LayoutInflater inflater = getLayoutInflater();
                 View layout = inflater.inflate(R.layout.custom_toast3, null);
-
                 Toast toast = new Toast(LoginActivity.this);
                 toast.setDuration(Toast.LENGTH_LONG);
                 toast.setView(layout);
@@ -309,4 +328,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 }
 
-// cre source code: Le Xuan Nhat - HUST Student v.20200929
+// tham khao code tu Le Xuan Nhat - HUST Student v.20200929
