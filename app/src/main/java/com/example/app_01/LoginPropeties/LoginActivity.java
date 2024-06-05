@@ -290,6 +290,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     if(!x) {
                         String unused2 = LoginActivity.this.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|33|1" + elementId.text() + "#&quot;}";
                         x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 2);
+                        if(!x) {
+                            String unused3 = LoginActivity.this.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|57|1" + elementId.text() + "#&quot;}";
+                            x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 3);
+                            if(!x) {
+                                String unused4 = LoginActivity.this.loginCode = "{&quot;data&quot;:&quot;12|#|user|4|9|1" + str00 + "pass|4|25|1" + elementId.text() + "#&quot;}";
+                                x = JsoupUtils.getInstance().login(LoginActivity.this.getApplicationContext(), str00, str01, str02, LoginActivity.this.loginCode, LoginActivity.this.cookiesLogin, 4);
+                            }
+                        }
                     }
                 }
             } catch (Exception e) {

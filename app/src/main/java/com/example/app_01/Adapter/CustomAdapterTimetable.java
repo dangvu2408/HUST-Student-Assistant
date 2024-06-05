@@ -45,7 +45,7 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
         String classinformation = currentTKB.getMahocphan() + " - " + currentTKB.getTenlop() + " - " + currentTKB.getMalop();
         classInfor.setText(classinformation);
         String time = currentTKB.getThoigian();
-        String thu = time.substring(4, 5);
+
 
 
         if (time.equals("") || time.length() == 1 || !time.contains(",") || !time.contains("-")) {
@@ -54,6 +54,7 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
         } else {
             int i = time.indexOf(",");
             int j = time.indexOf("-");
+            String thu = time.substring(4, 5);
             startTime.setText(time.substring(i + 1, j - 1));
             endTime.setText(time.substring(j + 2));
             if (time.substring(i + 1, j - 1).equals("6h45") ||
@@ -67,14 +68,17 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
                     time.substring(i + 1, j - 1).equals("11h0")) {
                 classaddress = "Sáng thứ " + thu + ", " + currentTKB.getGhichu() + ", " + currentTKB.getPhonghoc();
             } else if (time.substring(i + 1, j - 1).equals("12h30") ||
+                    (time.substring(i + 1, j - 1).equals("12h45") ||
                     time.substring(i + 1, j - 1).equals("13h0") ||
                     time.substring(i + 1, j - 1).equals("13h15") ||
                     time.substring(i + 1, j - 1).equals("14h0") ||
                     time.substring(i + 1, j - 1).equals("14h10") ||
                     time.substring(i + 1, j - 1).equals("15h5") ||
+                    time.substring(i + 1, j - 1).equals("15h10") ||
+                    time.substring(i + 1, j - 1).equals("15h15") ||
                     time.substring(i + 1, j - 1).equals("15h30") ||
                     time.substring(i + 1, j - 1).equals("16h0") ||
-                    time.substring(i + 1, j - 1).equals("16h45")) {
+                    time.substring(i + 1, j - 1).equals("16h45"))) {
                 classaddress = "Chiều thứ " + thu + ", " + currentTKB.getGhichu() + ", " + currentTKB.getPhonghoc();
             }
             else if (time.substring(i + 1, j - 1).equals("17h45") ||

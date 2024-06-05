@@ -230,8 +230,12 @@ public class Home_Fragment extends Fragment {
     private ArrayList<TimeTable> filtered(String select) {
         ArrayList<TimeTable> stack = new ArrayList<>();
         for (TimeTable item : timeTables) {
-            if (item.getThoigian().substring(4, 5).equals(select)) {
+            if (item.getThoigian().equals(" ") && item.getLoailop().equals("ĐA") || item.getThoigian().length() == 1) {
                 stack.add(item);
+            } else if (!item.getThoigian().equals(" ")) {
+                if (item.getThoigian().substring(4, 5).equals(select)) {
+                    stack.add(item);
+                }
             }
         }
         return stack;
