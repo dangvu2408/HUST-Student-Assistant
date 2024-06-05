@@ -42,7 +42,7 @@ android {
 
 
 dependencies {
-    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-database")
     //implementation ("com.androidx.support:design:28.0.0")
     //noinspection GradleCompatible
