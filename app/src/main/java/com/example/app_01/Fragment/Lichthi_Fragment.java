@@ -98,13 +98,12 @@ public class Lichthi_Fragment extends Fragment {
                     String kipThi = dataSnapshot.child("Kíp thi").getValue(String.class);
                     LichThi lichThi = new LichThi(maHP, tenHP, maLop, phongThi, ngayThi, kipThi);
                     arrayLichThi.add(lichThi);
-
-                    filteredList = filtered();
-                    LichThiAdapter adapter = new LichThiAdapter(getContext(), filteredList);
-                    listViewLichthi.setAdapter(adapter);
-                    progressBar.setVisibility(View.GONE);
-                    loadingTitle.setVisibility(View.GONE);
                 }
+                filteredList = filtered();
+                LichThiAdapter adapter = new LichThiAdapter(getContext(), filteredList);
+                listViewLichthi.setAdapter(adapter);
+                progressBar.setVisibility(View.GONE);
+                loadingTitle.setVisibility(View.GONE);
             }
 
             @Override
