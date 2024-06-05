@@ -41,7 +41,7 @@ public class Lichthi_Fragment extends Fragment {
     private ListView listViewLichthi;
     private ArrayList<LichThi> arrayLichThi, filteredList;
     private ArrayList<String> maLopHoc;
-    private String data;
+    private String data, thang, ngay;
     public Lichthi_Fragment() {}
     @Nullable
     @Override
@@ -55,36 +55,6 @@ public class Lichthi_Fragment extends Fragment {
         initLayout();
         arrayLichThi = new ArrayList<>();
         filteredList = new ArrayList<>();
-        MaterialCalendarView materialCalendar = view.findViewById(R.id.calendarLichThi);
-        CalendarDay calendarDay = CalendarDay.today();
-        materialCalendar.setSelectedDate(calendarDay);
-        Calendar date = Calendar.getInstance();
-        int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
-        int month = date.get(Calendar.MONTH) + 1; // Tháng bắt đầu từ 0, nên cần cộng thêm 1
-        int year = date.get(Calendar.YEAR);
-        int thu = date.get(Calendar.DAY_OF_WEEK);
-        String dateString = dayOfMonth + " Tháng " + month + ", " + year;
-        String dateThi = "Ngày " + dayOfMonth + "/" + month + "/" + year + " không có lớp thi";
-        dayDisplay.setText(dateString);
-        khongthi.setText(dateThi);
-
-        materialCalendar.setOnDateChangedListener(new OnDateSelectedListener() {
-            @Override
-            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                int dayOfMonth = date.getDay();
-                int month = date.getMonth();
-                int year = date.getYear();
-                String datestring = dayOfMonth + " Tháng " + month + ", " + year;
-                String datethi = "Ngày " + dayOfMonth + "/" + month + "/" + year + " không có lớp thi";
-                dayDisplay.setText(datestring);
-                khongthi.setText(datethi);
-                LocalDate select = date.getDate();
-                Date convert = DateTimeUtils.toDate(select.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-                Calendar cal = Calendar.getInstance();
-                cal.setTime(convert);
-            }
-        });
-
         DatabaseReference mData = FirebaseDatabase.getInstance().getReference().child("lichCK");
         mData.addChildEventListener(new ChildEventListener() {
             @Override
@@ -124,6 +94,70 @@ public class Lichthi_Fragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+
+        MaterialCalendarView materialCalendar = view.findViewById(R.id.calendarLichThi);
+        CalendarDay calendarDay = CalendarDay.today();
+        materialCalendar.setSelectedDate(calendarDay);
+        Calendar date = Calendar.getInstance();
+        int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
+        int month = date.get(Calendar.MONTH) + 1; // Tháng bắt đầu từ 0, nên cần cộng thêm 1
+        if (dayOfMonth < 10) {
+            ngay = "0" + dayOfMonth;
+        } else {
+            ngay = String.valueOf(dayOfMonth);
+        }
+        if (month < 10) {
+            thang = "0" + month;
+        } else {
+            thang = String.valueOf(month);
+        }
+        int year = date.get(Calendar.YEAR);
+        int thu = date.get(Calendar.DAY_OF_WEEK);
+        String dateString = ngay + " Tháng " + thang + ", " + year;
+        String dateThi = "Ngày " + ngay + "/" + thang + "/" + year + " không có lớp thi";
+        String testDate = ngay + "/" + month + "/" + year;
+        for (LichThi item : filteredList) {
+            if(item.getNgayThi().equals(testDate)) {
+                dateThi = "Ngày " + ngay + "/" + thang + "/" + year + " có lớp thi";
+            }
+        }
+        dayDisplay.setText(dateString);
+        khongthi.setText(dateThi);
+
+        materialCalendar.setOnDateChangedListener(new OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+                int dayOfMonth = date.getDay();
+                int month = date.getMonth();
+                int year = date.getYear();
+                String thang0 = "", ngay0 = "";
+                if (month < 10) {
+                    thang0 = "0" + month;
+                } else {
+                    thang0 = String.valueOf(month);
+                }
+                if (dayOfMonth < 10) {
+                    ngay0 = "0" + dayOfMonth;
+                } else {
+                    ngay0 = String.valueOf(dayOfMonth);
+                }
+                String datestring = ngay0 + " Tháng " + thang0 + ", " + year;
+                String datethi = "Ngày " + ngay0 + "/" + thang0 + "/" + year + " không có lớp thi";
+                String testDate = ngay0 + "/" + thang0 + "/" + year;
+                for (LichThi item : filteredList) {
+                    if(item.getNgayThi().equals(testDate)) {
+                        datethi = "Ngày " + ngay0 + "/" + thang0 + "/" + year + " có lớp thi";
+                    }
+                }
+                dayDisplay.setText(datestring);
+                khongthi.setText(datethi);
+                LocalDate select = date.getDate();
+                Date convert = DateTimeUtils.toDate(select.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(convert);
             }
         });
 

@@ -85,7 +85,7 @@
                 android:paddingTop="5dp"
                 android:id="@+id/hint"
                 android:justificationMode="inter_word"
-                android:fontFamily="@font/sfpro_regular"/>
+                android:fontFamily="@font/sfpro_regular_italic"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

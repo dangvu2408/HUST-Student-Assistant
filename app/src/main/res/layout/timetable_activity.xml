@@ -18,7 +18,7 @@
             app:tabIndicatorColor="@color/white"
             app:tabIndicator="@drawable/indicatorbar"
             app:tabIndicatorFullWidth="false"
-            app:tabTextColor="#BDBDBD"
+            app:tabTextColor="#DAD8D8"
             app:tabSelectedTextColor="@color/white"
             app:tabTextAppearance="@style/tabLayoutText"
             app:tabSelectedTextAppearance="@style/tabLayoutText"/>
