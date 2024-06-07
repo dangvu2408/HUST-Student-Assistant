@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="Giải tích I - MI1111"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="17sp"
                 android:fontFamily="@font/sfpro_semibold" />
 
         </GridLayout>
@@ -46,7 +46,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Số TC: 4 - Điểm QT: 9.0 - Điểm CK: 9.0"
-                    android:fontFamily="@font/sfpro_regular"/>
+                    android:fontFamily="@font/sfpro_regular"
+                    android:textSize="15sp"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

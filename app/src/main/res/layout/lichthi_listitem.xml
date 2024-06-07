@@ -41,7 +41,7 @@
                     android:id="@+id/tenvaMaHP"
                     android:fontFamily="@font/sfpro_semibold"
                     android:text="ET2100 - Cấu trúc dữ liệu và giải thuật"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/maLopHoc"
                     android:text="Mã lớp: 111111"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/diaDiemThi"
                     android:text="Địa điểm: TC-412"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/ngayThi"
                     android:text="Ngày thi: 26/06/2024"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>

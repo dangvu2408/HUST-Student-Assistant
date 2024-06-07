@@ -27,7 +27,7 @@
                     android:id="@+id/tenvaMaHP"
                     android:fontFamily="@font/sfpro_semibold"
                     android:text="ET4900 - Đồ án tốt nghiệp cử nhân"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/kihocDT"
                     android:text="Kì học: 8"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/tinchidt"
                     android:text="Số TC đào tạo: 6"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -86,7 +86,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/vienkhoa"
                     android:text="Viện/Khoa: TDDT"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/ghichuloaiHP"
                     android:text="Ghi chú: Đồ án tốt nghiệp cử nhân"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/diemchudiemso"
                     android:text="Điểm chữ: N/A - Điểm số: N/A"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -139,14 +139,14 @@
         android:orientation="vertical"
         android:padding="5dp">
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/checkedbox"
             android:id="@+id/checkboxImg"
             android:visibility="invisible"/>
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/uncheckedbox"
             android:id="@+id/uncheckboxImg"
             android:visibility="visible"/>

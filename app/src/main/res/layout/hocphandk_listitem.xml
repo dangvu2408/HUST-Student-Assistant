@@ -26,7 +26,7 @@
                     android:id="@+id/tenvaMaHP"
                     android:fontFamily="@font/sfpro_semibold"
                     android:text="ET4900 - Đồ án tốt nghiệp cử nhân"
-                    android:textSize="16sp"
+                    android:textSize="17sp"
                     android:textColor="@color/black"/>
             </LinearLayout>
             <LinearLayout
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/ngaydangki"
                     android:text="Ngày đăng kí: 3/11/2024"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/trangthaidk"
                     android:text="TT đăng kí: Thành công"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/soTC"
                     android:text="Số tín chỉ: 2"
-                    android:textSize="15sp"
+                    android:textSize="16sp"
                     android:textColor="@color/black"
                     android:fontFamily="@font/sfpro_regular"/>
             </LinearLayout>
