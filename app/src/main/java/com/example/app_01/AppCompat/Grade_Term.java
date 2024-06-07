@@ -23,6 +23,7 @@ import java.util.ArrayList;
 
 public class Grade_Term extends AppCompatActivity {
     private ListView listInputGrade;
+
     private DiemKiMoiAdapter adapter;
     private ArrayList<InputGrade> arrayGrade;
     private String data;
