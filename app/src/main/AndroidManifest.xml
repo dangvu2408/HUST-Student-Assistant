@@ -25,6 +25,10 @@
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".AppCompat.Grade_Term"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".AppCompat.SapXepTKBHome"
             android:exported="true"
             android:screenOrientation="portrait"/>

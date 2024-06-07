@@ -407,4 +407,36 @@ public class JsonUtils {
             e.printStackTrace();
         }
     }
+
+    public void parseInputGradeTerm(Context context, Document document) {
+        try {
+            JSONArray jsonArray = new JSONArray();
+            Iterator<Element> element = document.getElementById("ctl00_ctl00_contentPane_MainPanel_MainContent_panelGradeTable_gvClassGrade_DXMainTable").getElementsByClass("dxgvDataRow").iterator();
+            while (element.hasNext()) {
+                Element next = element.next();
+                String str01 = next.select("td.dxgv").first().text();
+                String str02 = next.select("td.dxgv").get(1).text();
+                String str03 = next.select("td.dxgv").get(2).text();
+                String str04 = next.select("td.dxgv").get(3).text();
+                String str05 = next.select("td.dxgv").get(4).text();
+                String str06 = next.select("td.dxgv").get(5).text();
+                String str07 = next.select("td.dxgv").get(6).text();
+                String str08 = next.select("td.dxgv").get(7).text();
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("masinhvien", str01);
+                jsonObject.put("malop", str02);
+                jsonObject.put("tenlop", str03);
+                jsonObject.put("trongsoqt", str04);
+                jsonObject.put("diemqt", str05);
+                jsonObject.put("ttdiemqt", str06);
+                jsonObject.put("diemthi", str07);
+                jsonObject.put("ttdiemthi", str08);
+                jsonArray.put(jsonObject);
+            }
+            Utils.getInstance().saveToSharedPreferences(context, "share_preferences_data", "key_share_preferences_data_thong_tin_nhap_diem_ki_moi", jsonArray.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+// warning: data from ctt-sis.hust.edu.vn, DO NOT use this data for the illegal

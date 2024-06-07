@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.app_01.AppCompat.Class_Info;
+import com.example.app_01.AppCompat.Grade_Term;
 import com.example.app_01.AppCompat.Hust_Map;
 import com.example.app_01.Dialog.Student_Info_Dialog;
 import com.example.app_01.Dialog.Toeic_Dialog;
@@ -36,6 +37,7 @@ public class Profile_Fragment extends Fragment {
         Button btn_toeic = view.findViewById(R.id.toeic);
         Button btn_map = view.findViewById(R.id.hust_map);
         Button btn_class = view.findViewById(R.id.class_info);
+        Button btn_input_term = view.findViewById(R.id.newest_score);
         Button btn_signout = view.findViewById(R.id.signout);
         ImageButton edtavt = view.findViewById(R.id.editprofile);
 
@@ -80,6 +82,14 @@ public class Profile_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Hust_Map.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_input_term.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), Grade_Term.class);
                 startActivity(intent);
             }
         });
