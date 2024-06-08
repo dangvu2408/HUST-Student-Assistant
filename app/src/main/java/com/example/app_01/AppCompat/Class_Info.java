@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_01.Adapter.CustomAdapter;
 import com.example.app_01.Constructor.SinhVien;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.OnSwipeTouchListener;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -32,7 +34,7 @@ public class Class_Info extends AppCompatActivity {
     private ArrayList<SinhVien> arrayClass;
     private String data;
     private Context context;
-
+    private RelativeLayout main_layout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +55,13 @@ public class Class_Info extends AppCompatActivity {
         });
         ImageButton btn_back = findViewById(R.id.gobackclass);
         btn_back.setOnClickListener(v -> finish());
+        main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                finish();
+            }
+        });
     }
 
     private void initLayout() {

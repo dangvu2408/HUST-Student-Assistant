@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_01.Adapter.DKHocPhanAdapter;
 import com.example.app_01.Constructor.HocPhanDK;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.OnSwipeTouchListener;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -29,6 +31,7 @@ public class SapXepTKBHome extends AppCompatActivity {
     private DKHocPhanAdapter adapter;
     private ArrayList<HocPhanDK> dkhocphan;
     private String data, hockidki, tongtc;
+    private RelativeLayout main_layout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,14 @@ public class SapXepTKBHome extends AppCompatActivity {
                 toast0.setDuration(Toast.LENGTH_LONG);
                 toast0.setView(layout);
                 toast0.show();
+            }
+        });
+
+        main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                finish();
             }
         });
     }

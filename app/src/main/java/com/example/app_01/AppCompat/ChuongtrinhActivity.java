@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_01.Adapter.CTDTAdapter;
 import com.example.app_01.Constructor.CTDT;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.OnSwipeTouchListener;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -24,6 +26,7 @@ public class ChuongtrinhActivity extends AppCompatActivity {
     private CTDTAdapter adapter;
     private ArrayList<CTDT> chuongtrinh;
     private String data;
+    private RelativeLayout main_layout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,14 @@ public class ChuongtrinhActivity extends AppCompatActivity {
                 finish();
             }
         });
+        main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                finish();
+            }
+        });
+
     }
 
     private void initLayout() {

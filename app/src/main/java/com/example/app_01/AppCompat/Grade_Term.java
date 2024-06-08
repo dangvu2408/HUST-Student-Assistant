@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_01.Adapter.DiemKiMoiAdapter;
 import com.example.app_01.Constructor.InputGrade;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.OnSwipeTouchListener;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -29,6 +31,7 @@ public class Grade_Term extends AppCompatActivity {
     private String data;
     private Context context;
     private TextView no_info;
+    private RelativeLayout main_layout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +46,14 @@ public class Grade_Term extends AppCompatActivity {
         listInputGrade.setAdapter(adapter);
         ImageButton btn_back = findViewById(R.id.gobackclass);
         btn_back.setOnClickListener(v -> finish());
+
+        main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
+                finish();
+            }
+        });
     }
 
     private void initLayout() {

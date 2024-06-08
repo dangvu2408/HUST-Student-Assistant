@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.app_01.Adapter.HocPhiAdapter;
 import com.example.app_01.Constructor.HocPhi;
 import com.example.app_01.R;
+import com.example.app_01.UtilsPack.OnSwipeTouchListener;
 import com.example.app_01.UtilsPack.Utils;
 
 import org.json.JSONArray;
@@ -27,6 +29,7 @@ public class HocPhiActivity extends AppCompatActivity {
     private ArrayList<HocPhi> hocphiList;
     private String data, string01, string02;
     TextView txt01, txt02;
+    private RelativeLayout main_layout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +47,14 @@ public class HocPhiActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+            }
+        });
+
+        main_layout = findViewById(R.id.main_layout);
+        main_layout.setOnTouchListener(new OnSwipeTouchListener(this) {
+            @Override
+            public void onSwipeRight() {
                 finish();
             }
         });
