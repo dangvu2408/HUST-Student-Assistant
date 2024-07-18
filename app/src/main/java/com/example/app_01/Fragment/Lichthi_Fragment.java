@@ -70,8 +70,13 @@ public class Lichthi_Fragment extends Fragment {
                     arrayLichThi.add(lichThi);
                 }
                 filteredList = filtered();
-                LichThiAdapter adapter = new LichThiAdapter(getContext(), filteredList);
-                listViewLichthi.setAdapter(adapter);
+                if (filteredList == null) {
+                    khongthi.setText("Không có lớp thi trong học kì này");
+                }
+                else {
+                    LichThiAdapter adapter = new LichThiAdapter(getContext(), filteredList);
+                    listViewLichthi.setAdapter(adapter);
+                }
                 progressBar.setVisibility(View.GONE);
                 loadingTitle.setVisibility(View.GONE);
             }
@@ -191,7 +196,13 @@ public class Lichthi_Fragment extends Fragment {
 
     private ArrayList<LichThi> filtered() {
         ArrayList<LichThi> stack = new ArrayList<>();
+        if (arrayLichThi == null) {
+            return null;
+        }
         for (LichThi item : arrayLichThi) {
+            if (maLopHoc == null) {
+                return null;
+            }
             for (int i = 0; i < this.maLopHoc.size(); i++) {
                 if (item.getMaLop().equals(maLopHoc.get(i))) {
                     stack.add(item);

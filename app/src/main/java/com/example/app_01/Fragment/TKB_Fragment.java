@@ -63,15 +63,21 @@ public class TKB_Fragment extends Fragment {
         String dateString = dayOfMonth + " Tháng " + month + ", " + year;
         textView.setText(dateString);
         filteredDay = filtered(str);
-        adapterTimetable = new CustomAdapterTimetable(getContext(), filteredDay);
-        listTimetable.setAdapter(adapterTimetable);
-        if (adapterTimetable.getCount() == 0) {
+        if (filteredDay == null) {
             noLichHoc.setVisibility(View.VISIBLE);
-            noLichHoc.setText("Không có lớp học nào");
+            noLichHoc.setText("Không có lớp học nào trong học kì này");
         } else {
             noLichHoc.setVisibility(View.GONE);
+            adapterTimetable = new CustomAdapterTimetable(getContext(), filteredDay);
+            listTimetable.setAdapter(adapterTimetable);
+            if (adapterTimetable.getCount() == 0) {
+                noLichHoc.setVisibility(View.VISIBLE);
+                noLichHoc.setText("Không có lớp học nào");
+            } else {
+                noLichHoc.setVisibility(View.GONE);
+            }
+            HeightUtils.setListViewHeight(listTimetable);
         }
-        HeightUtils.setListViewHeight(listTimetable);
         listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -94,15 +100,21 @@ public class TKB_Fragment extends Fragment {
                 dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
                 String str = String.valueOf(dayOfWeek);
                 filteredDay = filtered(str);
-                adapterTimetable = new CustomAdapterTimetable(getContext(), filteredDay);
-                listTimetable.setAdapter(adapterTimetable);
-                if (adapterTimetable.getCount() == 0) {
+                if (filteredDay == null) {
                     noLichHoc.setVisibility(View.VISIBLE);
-                    noLichHoc.setText("Không có lớp học nào");
+                    noLichHoc.setText("Không có lớp học nào trong học kì này");
                 } else {
                     noLichHoc.setVisibility(View.GONE);
+                    adapterTimetable = new CustomAdapterTimetable(getContext(), filteredDay);
+                    listTimetable.setAdapter(adapterTimetable);
+                    if (adapterTimetable.getCount() == 0) {
+                        noLichHoc.setVisibility(View.VISIBLE);
+                        noLichHoc.setText("Không có lớp học nào");
+                    } else {
+                        noLichHoc.setVisibility(View.GONE);
+                    }
+                    HeightUtils.setListViewHeight(listTimetable);
                 }
-                HeightUtils.setListViewHeight(listTimetable);
                 listTimetable.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -116,6 +128,9 @@ public class TKB_Fragment extends Fragment {
 
     private ArrayList<TimeTable> filtered(String select) {
         ArrayList<TimeTable> stack = new ArrayList<>();
+        if (timeTables == null) {
+            return null;
+        }
         for (TimeTable item : timeTables) {
             if (item.getThoigian().equals(" ") && item.getLoailop().equals("ĐA") || item.getThoigian().length() == 1) {
                 stack.add(item);

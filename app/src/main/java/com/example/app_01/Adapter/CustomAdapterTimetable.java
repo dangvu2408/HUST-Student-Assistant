@@ -47,7 +47,6 @@ public class CustomAdapterTimetable extends ArrayAdapter<TimeTable> {
         String time = currentTKB.getThoigian();
 
 
-
         if (time.equals("") || time.length() == 1 || !time.contains(",") || !time.contains("-")) {
             startTime.setText("");
             endTime.setText("");
