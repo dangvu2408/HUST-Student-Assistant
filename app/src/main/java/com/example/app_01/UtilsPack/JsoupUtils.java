@@ -33,27 +33,29 @@ public class JsoupUtils {
         } else if (i == 1) {
             string02 = "ctl00$ctl00$TopMenuPane$ctl09$menuTop";
         }
+
         try {
             Connection data00 = Jsoup.connect(ConstValue.BASE_URL).cookies(hashMap)
                     .data("__EVENTTARGET", "")
                     .data("__EVENTARGUMENT", "")
-                    .data("__VIEWSTATE", Utils.getInstance().getValueFromSharedPreferences(context, "share_preferences_form_data_login", "share_preferences_form_data_login_3"))
+                    .data("__VIEWSTATE", Utils.getInstance().getValueFromSharedPreferences(context, "share_preferences_form_data_login", "share_preferences_form_data_login_00"))
                     .data("__VIEWSTATEGENERATOR", "CD85D8D2")
-                    .data("__EVENTVALIDATION", Utils.getInstance().getValueFromSharedPreferences(context, "share_preferences_form_data_login", "share_preferences_form_data_login_5"))
+                    .data("__EVENTVALIDATION", Utils.getInstance().getValueFromSharedPreferences(context, "share_preferences_form_data_login", "share_preferences_form_data_login_01"))
                     .data("ctl00$ctl00$TopMenuPane$menuTop", "{&quot;selectedItemIndexPath&quot;:&quot;&quot;,&quot;checkedState&quot;:&quot;&quot;}")
                     .data(string02, "{&quot;selectedItemIndexPath&quot;:&quot;&quot;,&quot;checkedState&quot;:&quot;&quot;}")
                     .data("ctl00$ctl00$contentPane$MainPanel$MainContent$chbParents", "I");
             Connection data01 = data00.data("ctl00$ctl00$contentPane$MainPanel$MainContent$tbUserName$State", "{&quot;rawValue&quot;:&quot;" + str00 + "&quot;,&quot;validationState&quot;:&quot;&quot;}")
-                    .data(ConstValue.USERNAME_INPUT_VALUE, str00);
+                    .data("ctl00$ctl00$contentPane$MainPanel$MainContent$tbUserName", str00);
             Connection.Response execute = data01.data("ctl00$ctl00$contentPane$MainPanel$MainContent$tbPassword$State", "{&quot;rawValue&quot;:&quot;" + str01 + "&quot;,&quot;validationState&quot;:&quot;&quot;}")
-                    .data(ConstValue.PASSWORD_INPUT_VALUE, str01)
+                    .data("ctl00$ctl00$contentPane$MainPanel$MainContent$tbPassword", str01)
                     .data("ctl00$ctl00$contentPane$MainPanel$MainContent$ASPxCaptcha1$TB$State", "{&quot;validationState&quot;:&quot;&quot;}")
-                    .data(ConstValue.CAPTCHA_INPUT_VALUE, str02)
+                    .data("ctl00$ctl00$contentPane$MainPanel$MainContent$ASPxCaptcha1$TB", str02)
                     .data("ctl00$ctl00$contentPane$MainPanel$MainContent$btLogin", "[\"0\":\"Đăng+nhập\",\"1\":\"\"]")
                     .data("ctl00$ctl00$contentPane$MainPanel$MainContent$hfInput", str03)
                     .data("DXScript", string01)
                     .data("DXCss", string00)
                     .followRedirects(x).method(Connection.Method.POST).userAgent(ConstValue.USER_AGENT).execute();
+            System.out.println(execute.url().toString());
             if (execute == null || execute.statusCode() != 200 || !execute.url().toString().equals("https://ctt-sis.hust.edu.vn/")) {
                 return false;
             }

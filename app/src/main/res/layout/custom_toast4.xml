@@ -30,7 +30,6 @@
             android:textSize="15sp"
             android:fontFamily="@font/sfpro_semibold"
             android:layout_marginLeft="15dp"
-
             />
     </LinearLayout>
 </RelativeLayout>

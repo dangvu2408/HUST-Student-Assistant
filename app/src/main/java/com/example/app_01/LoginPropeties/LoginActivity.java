@@ -300,6 +300,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 }
+                System.out.println("Cookies: " + cookiesLogin);
+                System.out.println("Cookies: " + loginCode);
             } catch (Exception e) {
                 e.printStackTrace();
             }
